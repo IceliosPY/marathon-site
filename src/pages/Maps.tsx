@@ -243,24 +243,34 @@ export default function Maps() {
   ) => {
     const viewport = viewportRef.current;
     const image = imageRef.current;
-
+  
     if (!viewport || !image) {
       setTransform(0, 0, initialMapScale, 0);
       setZoomScale(initialMapScale);
       return;
     }
-
+  
     const viewportWidth = viewport.clientWidth;
     const viewportHeight = viewport.clientHeight;
-    const imageWidth = image.clientWidth * initialMapScale;
-    const imageHeight = image.clientHeight * initialMapScale;
-
+  
+    const imageWidth = image.naturalWidth || image.clientWidth;
+    const imageHeight = image.naturalHeight || image.clientHeight;
+  
+    if (!viewportWidth || !viewportHeight || !imageWidth || !imageHeight) {
+      window.setTimeout(() => centerMap(setTransform), 80);
+      return;
+    }
+  
+    const scaledWidth = image.clientWidth * initialMapScale;
+    const scaledHeight = image.clientHeight * initialMapScale;
+  
     setTransform(
-      (viewportWidth - imageWidth) / 2,
-      (viewportHeight - imageHeight) / 2,
+      (viewportWidth - scaledWidth) / 2,
+      (viewportHeight - scaledHeight) / 2,
       initialMapScale,
       0
     );
+  
     setZoomScale(initialMapScale);
   };
 
@@ -709,14 +719,21 @@ export default function Maps() {
                             contentClass="mapsDetailMapStage__content"
                           >
                             <div className="mapsDetailMapStage__inner">
-                              <img
+                            <img
                                 ref={imageRef}
                                 src={activeMap.mapImage}
                                 alt={`Carte de ${activeMap.name}`}
                                 className="mapsDetailMapStage__image"
                                 draggable={false}
+                                onLoad={() => {
+                                  requestAnimationFrame(() => {
+                                    requestAnimationFrame(() => {
+                                      centerMap(setTransform);
+                                    });
+                                  });
+                                }}
                                 onError={() => setMapBroken(true)}
-                              />
+                                />
 
                               {visiblePoints.map((point) => {
                                 const isActive = activePoint?.id === point.id;
