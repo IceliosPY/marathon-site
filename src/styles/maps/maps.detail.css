@@ -625,3 +625,46 @@ body.maps-modal-open .navStatus::after{
   opacity: 0 !important;
   pointer-events: none !important;
 }
+
+/* =========================
+   FINAL PATCH - MAP ONLY
+   garde la page intacte, corrige seulement la carte
+========================= */
+
+.mapsPage--split .mapsDetailMapStage{
+  min-height:0 !important;
+  height:100% !important;
+  display:grid !important;
+  grid-template-rows:auto minmax(0, 1fr) !important;
+}
+
+.mapsPage--split .mapsDetailMapStage__viewport{
+  width:100% !important;
+  height:100% !important;
+  min-height:0 !important;
+  overflow:hidden !important;
+}
+
+.mapsPage--split .mapsDetailMapStage__wrapper{
+  width:100% !important;
+  height:100% !important;
+  min-height:0 !important;
+  overflow:hidden !important;
+}
+
+.mapsPage--split .mapsDetailMapStage__content{
+  width:max-content !important;
+  height:max-content !important;
+}
+
+.mapsPage--split .mapsDetailMapStage__inner{
+  position:relative !important;
+  display:inline-block !important;
+}
+
+.mapsPage--split .mapsDetailMapStage__image{
+  display:block !important;
+  width:1180px !important;
+  max-width:none !important;
+  height:auto !important;
+}
