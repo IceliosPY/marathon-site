@@ -1,0 +1,184 @@
+:root{
+  --color-marathon:#c2fe0c;
+  --color-zinc-950:#09090b;
+}
+
+/* =========================
+   CUSTOM CURSORS
+========================= */
+
+html,
+body,
+body *{
+  cursor:url("../../public/ressources/cursors/normal.png") 2 2, auto !important;
+}
+
+/* clickable */
+a,
+button,
+select,
+summary,
+label,
+[role="button"],
+.cursor-pointer,
+[data-cursor="pointer"],
+a *,
+button *,
+select *,
+summary *,
+label *,
+[role="button"] *,
+.cursor-pointer *,
+[data-cursor="pointer"] *{
+  cursor:url("../../public/ressources/cursors/pointer.png") 6 2, pointer !important;
+}
+
+/* champs texte / édition */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="url"],
+input[type="tel"],
+textarea,
+[contenteditable="true"],
+.text-cursor,
+[data-cursor="text"]{
+  cursor:url("../../public/ressources/cursors/other.png") 2 2, text !important;
+}
+
+/* sélection active de texte sur la page */
+body.is-text-selecting,
+body.is-text-selecting *{
+  cursor:url("../../public/ressources/cursors/other.png") 2 2, text !important;
+}
+
+/* grab */
+.grab,
+.cursor-grab,
+[data-cursor="grab"],
+.grab *,
+.cursor-grab *,
+[data-cursor="grab"] *{
+  cursor:url("../../public/ressources/cursors/normal.png") 2 2, grab !important;
+}
+
+/* grabbing */
+.grabbing,
+.cursor-grabbing,
+[data-cursor="grabbing"],
+.grabbing *,
+.cursor-grabbing *,
+[data-cursor="grabbing"] *{
+  cursor:url("../../public/ressources/cursors/normal.png") 2 2, grabbing !important;
+}
+
+/* disabled */
+[disabled],
+.not-allowed,
+[aria-disabled="true"],
+[data-cursor="not-allowed"],
+[disabled] *,
+.not-allowed *,
+[aria-disabled="true"] *,
+[data-cursor="not-allowed"] *{
+  cursor:not-allowed !important;
+}
+
+/* =========================
+   CURSOR LABEL
+========================= */
+
+#cursorLabel{
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:98;
+  pointer-events:none;
+  box-sizing:border-box;
+
+  padding:4px 6px;
+
+  color:var(--color-marathon);
+  background:rgba(194,254,12,.10);
+
+  transform:scale(.6);
+  transform-origin:top left;
+
+  transition:
+    background .25s ease-out,
+    color .25s ease-out,
+    transform .25s ease-out,
+    opacity .15s ease-out;
+
+  font-family:"UESC", monospace;
+  font-size:12px;
+  font-weight:400;
+  line-height:1;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+
+#cursorLabel.is-target{
+  background:var(--color-marathon);
+  color:var(--color-zinc-950);
+  transform:scale(1.2);
+}
+
+#cursorLabel .cursorLabel__text{
+  display:block;
+  font:inherit;
+  color:inherit;
+}
+
+/* =========================
+   CORNERS
+========================= */
+
+#cursorLabel::before,
+#cursorLabel::after,
+#cursorLabel .cursorLabel__bottomLeft,
+#cursorLabel .cursorLabel__bottomRight{
+  content:"";
+  position:absolute;
+  width:10px;
+  height:10px;
+  pointer-events:none;
+}
+
+#cursorLabel::before{
+  top:-2px;
+  left:-2px;
+  border-top:2px solid var(--color-marathon);
+  border-left:2px solid var(--color-marathon);
+}
+
+#cursorLabel::after{
+  top:-2px;
+  right:-2px;
+  border-top:2px solid var(--color-marathon);
+  border-right:2px solid var(--color-marathon);
+}
+
+#cursorLabel .cursorLabel__bottomLeft{
+  left:-2px;
+  bottom:-2px;
+  border-left:2px solid var(--color-marathon);
+  border-bottom:2px solid var(--color-marathon);
+}
+
+#cursorLabel .cursorLabel__bottomRight{
+  right:-2px;
+  bottom:-2px;
+  border-right:2px solid var(--color-marathon);
+  border-bottom:2px solid var(--color-marathon);
+}
+
+/* =========================
+   MAP MODAL
+========================= */
+
+body.maps-modal-open #cursorLabel{
+  display:none !important;
+}

@@ -1,0 +1,37 @@
+.container.itemsPage--split{
+    width:100%;
+    max-width:none;
+    margin:0 auto;
+    padding-left:18px;
+    padding-right:18px;
+    box-sizing:border-box;
+  }
+  
+  .itemsPage--split{
+    --lime:#c2fe0c;
+    --lime-soft:#8cb408;
+    --bg:#020304;
+    --panel:#06070a;
+    --line:rgba(191,255,0,.22);
+  
+    display:grid;
+    gap:24px;
+    position:relative;
+    z-index:1;
+    color:var(--lime);
+  }
+  
+  .itemsPage--split *{
+    box-sizing:border-box;
+  }
+  
+  .itemsPage--split::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+      radial-gradient(circle at top, rgba(19,33,18,.16), transparent 44%),
+      #050507;
+    z-index:-1;
+    pointer-events:none;
+  }

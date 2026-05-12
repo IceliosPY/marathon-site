@@ -1,0 +1,12 @@
+{
+    "characters": [
+      {
+        "id": "rook",
+        "name": "ROOK",
+        "role": "Runner",
+        "faction": "MIDA",
+        "summary": "Profil court, à compléter.",
+        "stats": { "mobility": 7, "armor": 5, "tech": 8 }
+      }
+    ]
+  }

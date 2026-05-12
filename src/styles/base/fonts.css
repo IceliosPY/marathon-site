@@ -1,0 +1,62 @@
+@font-face{
+    font-family:"UESC";
+    src:url("../../public/ressources/font/UESC.woff2") format("woff2");
+    font-weight:400;
+    font-style:normal;
+    font-display:swap;
+  }
+  
+  @font-face{
+    font-family:"Maratype";
+    src:url("../../public/ressources/font/Maratype.woff2") format("woff2");
+    font-weight:400;
+    font-style:normal;
+    font-display:swap;
+  }
+  
+  @font-face{
+    font-family:"Glyphs";
+    src:url("../../public/ressources/font/glyphs.woff2") format("woff2");
+    font-weight:400;
+    font-style:normal;
+    font-display:swap;
+  }
+  
+  @font-face{
+    font-family:"NuCore";
+    src:url("../../public/ressources/font/NuCore.woff2") format("woff2");
+    font-weight:400;
+    font-style:normal;
+    font-display:swap;
+  }
+  
+  @font-face{
+    font-family:"NuCore Condensed";
+    src:url("../../public/ressources/font/NuCore Condensed.woff2") format("woff2");
+    font-weight:400;
+    font-style:normal;
+    font-display:swap;
+  }
+  
+  @font-face{
+    font-family:"Fraktion";
+    src:url("../../public/ressources/font/PPFraktionMono-Regular.woff2") format("woff2");
+    font-weight:400;
+    font-style:normal;
+    font-display:swap;
+  }
+  
+  @font-face{
+    font-family:"Fraktion";
+    src:url("../../public/ressources/font/PPFraktionMono-Bold.woff2") format("woff2");
+    font-weight:700;
+    font-style:normal;
+    font-display:swap;
+  }
+  
+  .font-uesc{ font-family:"UESC", monospace; }
+  .font-maratype{ font-family:"Maratype", monospace; }
+  .font-glyphs{ font-family:"Glyphs", monospace; }
+  .font-nucore{ font-family:"NuCore", monospace; }
+  .font-nucore-thin{ font-family:"NuCore Condensed", monospace; }
+  .font-fraktion{ font-family:"Fraktion", monospace; }

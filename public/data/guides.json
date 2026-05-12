@@ -1,0 +1,15 @@
+{
+    "guides": [
+      {
+        "slug": "debuter",
+        "title": "Débuter",
+        "tag": "BASE",
+        "updatedAt": "2026-03-05",
+        "summary": "Les bases : objectif, loop, survie, extraction.",
+        "blocks": [
+          { "type": "p", "text": "Ici tu écriras le contenu du guide." },
+          { "type": "list", "items": ["Prépare ton loadout", "Observe la zone", "Planifie la sortie"] }
+        ]
+      }
+    ]
+  }

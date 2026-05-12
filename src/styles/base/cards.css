@@ -1,0 +1,141 @@
+.kicker{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    align-items:center;
+    color:var(--muted);
+    font-family:var(--font-ui);
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-size:12px;
+  }
+  
+  .pill{
+    border:1px solid rgba(255,255,255,.16);
+    background:rgba(0,0,0,.28);
+    padding:6px 10px;
+    border-radius:999px;
+  }
+  
+  .pill--acid{
+    border-color:rgba(38,255,0,.46);
+    background:rgba(38,255,0,.10);
+    color:#f4fff4;
+  }
+  
+  .homeCards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+    gap:14px;
+    margin-top:12px;
+  }
+  
+  .cardTerminal{
+    position:relative;
+    overflow:hidden;
+    border:1px solid rgba(38,255,0,.14);
+    border-radius:8px;
+    padding:16px;
+    background:linear-gradient(180deg, #080a10, #050706);
+  }
+  
+  .cardTerminal::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(to right, rgba(38,255,0,.04), transparent 30%, transparent 70%, rgba(38,255,0,.025)),
+      repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,.010) 0 1px,
+        transparent 1px 6px
+      );
+    opacity:.45;
+    pointer-events:none;
+  }
+  
+  .cardTerminal::after{
+    content:"";
+    position:absolute;
+    right:0;
+    top:18px;
+    width:14px;
+    height:28px;
+    border-left:1px solid rgba(38,255,0,.10);
+    border-top:1px solid rgba(38,255,0,.10);
+    border-bottom:1px solid rgba(38,255,0,.10);
+    border-radius:8px 0 0 8px;
+    background:#050706;
+  }
+  
+  .cardLink{
+    cursor:pointer;
+    transition:transform .14s ease, border-color .14s ease, background .14s ease;
+  }
+  
+  .cardLink:hover{
+    transform:translateY(-2px);
+    border-color:rgba(38,255,0,.24);
+    background:linear-gradient(180deg, #0a0c12, #070908);
+  }
+  
+  .cardTitle{
+    margin:10px 0 8px;
+    font-family:var(--font-display);
+    font-size:18px;
+    line-height:1.25;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:#f4fff4;
+  }
+  
+  .cardText{
+    margin:0;
+    font-family:var(--font-ui);
+    font-size:12px;
+    line-height:1.7;
+    letter-spacing:.04em;
+    color:rgba(245,247,250,.84);
+  }
+  
+  .cardHint{
+    display:inline-flex;
+    margin-top:12px;
+    font-family:var(--font-ui);
+    font-size:12px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:rgba(38,255,0,.9);
+  }
+  
+  .statusGrid{
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap:12px;
+  }
+  
+  .statusCard{
+    display:grid;
+    gap:8px;
+    padding:12px;
+    border:1px solid rgba(38,255,0,.12);
+    border-radius:8px;
+    background:linear-gradient(180deg, #080a10, #050706);
+  }
+  
+  .statusCard__label{
+    font-family:var(--font-ui);
+    font-size:10px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:rgba(38,255,0,.82);
+  }
+  
+  .statusCard__value{
+    font-family:var(--font-display);
+    font-size:14px;
+    line-height:1.45;
+    letter-spacing:.10em;
+    text-transform:uppercase;
+    color:#f4fff4;
+  }

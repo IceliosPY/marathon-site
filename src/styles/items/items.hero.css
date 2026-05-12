@@ -1,0 +1,86 @@
+.itemsLandingHero{
+    display:grid;
+    grid-template-columns:360px minmax(0, 1fr);
+    gap:18px;
+    align-items:stretch;
+    border:1px solid rgba(191,255,0,.22);
+    background:#050507;
+    padding:18px;
+    position:relative;
+    overflow:hidden;
+  }
+  
+  .itemsLandingHero__visual{
+    min-height:220px;
+    border:1px solid rgba(191,255,0,.28);
+    background:
+      radial-gradient(circle at center, rgba(191,255,0,.22) 0 8%, transparent 9%),
+      repeating-radial-gradient(
+        circle at center,
+        rgba(191,255,0,.55) 0 2px,
+        transparent 2px 18px
+      ),
+      linear-gradient(180deg, rgba(14,18,12,.96), rgba(5,7,5,.98));
+    position:relative;
+    overflow:hidden;
+  }
+  
+  .itemsLandingHero__visual::before{
+    content:"";
+    position:absolute;
+    inset:-30% -10%;
+    background:
+      linear-gradient(90deg, transparent 48%, rgba(191,255,0,.16) 49%, rgba(191,255,0,.16) 51%, transparent 52%),
+      linear-gradient(0deg, transparent 48%, rgba(191,255,0,.16) 49%, rgba(191,255,0,.16) 51%, transparent 52%);
+    transform:perspective(600px) rotateX(70deg) scale(1.4);
+    transform-origin:center;
+    opacity:.6;
+  }
+  
+  .itemsLandingHero__content{
+    min-width:0;
+    display:grid;
+    align-content:start;
+    gap:12px;
+    padding:12px 14px;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(23,211,170,.9),
+        rgba(33,93,166,.78) 48%,
+        rgba(43,22,110,.72) 76%,
+        rgba(6,7,12,.92) 100%
+      );
+    border:1px solid rgba(255,255,255,.04);
+  }
+  
+  .itemsLandingHero__kicker{
+    margin:0;
+    font-family:var(--font-ui);
+    font-size:11px;
+    line-height:1.4;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,.8);
+  }
+  
+  .itemsLandingHero__title{
+    margin:0;
+    font-family:var(--font-display);
+    font-size:clamp(54px, 6vw, 88px);
+    line-height:.84;
+    letter-spacing:.02em;
+    text-transform:uppercase;
+    color:#f3fff8;
+  }
+  
+  .itemsLandingHero__text{
+    margin:0;
+    max-width:980px;
+    font-family:var(--font-ui);
+    font-size:12px;
+    line-height:1.7;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:#f5f7fb;
+  }

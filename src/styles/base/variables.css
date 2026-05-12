@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+
+:root{
+  --bg0:#020304;
+  --bg1:#070909;
+  --bg2:#0b0f0c;
+
+  --text:#d9ffd9;
+  --muted:rgba(38,255,0,.72);
+  --muted-soft:rgba(38,255,0,.44);
+  --white-soft:rgba(245,247,250,.74);
+
+  --acid:#26ff00;
+  --acid-soft:rgba(38,255,0,.12);
+  --acid-line:rgba(38,255,0,.18);
+
+  --red:#67100c;
+  --red-soft:rgba(255,80,50,.82);
+
+  --stroke:rgba(38,255,0,.18);
+  --stroke-soft:rgba(38,255,0,.08);
+  --panel:rgba(5,8,7,1);
+  --panel-2:rgba(7,10,9,1);
+  --panel-3:rgba(4,6,5,1);
+
+  --radius:10px;
+  --shadow:0 22px 60px rgba(0,0,0,.44);
+
+  --font-display:"fraktion","Fraktion Fallback","Space Mono",monospace;
+  --font-ui:"Space Mono","IBM Plex Mono","JetBrains Mono",monospace;
+  --font-body:"Space Mono","IBM Plex Mono","JetBrains Mono",monospace;
+}

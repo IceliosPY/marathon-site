@@ -1,0 +1,53 @@
+.rail{
+    position:sticky;
+    top:0;
+    height:100vh;
+    background:#c7ff2e;
+    color:#000;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:12px;
+    padding:10px 0;
+    box-shadow:0 0 0 1px rgba(0,0,0,.24) inset;
+    z-index:20;
+  }
+  
+  .rail__logo{
+    width:22px;
+    height:22px;
+    background-image:url("/img/logo.png");
+    background-size:contain;
+    background-position:center;
+    background-repeat:no-repeat;
+    filter:
+      brightness(1.1)
+      contrast(1.2)
+      drop-shadow(0 0 4px rgba(38,255,0,.35));
+    border-radius:4px;
+  }
+  
+  .rail__text{
+    margin-top:8px;
+    font-family:var(--font-ui);
+    font-weight:700;
+    letter-spacing:.22em;
+    font-size:11px;
+    writing-mode:vertical-rl;
+    transform:rotate(180deg);
+    opacity:.95;
+  }
+  
+  .rail__ticks{
+    margin-top:auto;
+    width:16px;
+    height:120px;
+    background:
+      repeating-linear-gradient(
+        to bottom,
+        rgba(0,0,0,.78) 0 6px,
+        rgba(0,0,0,0) 6px 12px
+      );
+    border-radius:999px;
+    opacity:.78;
+  }

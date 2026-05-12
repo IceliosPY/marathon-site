@@ -1,0 +1,109 @@
+.itemsDatabase{
+  border:1px solid rgba(191,255,0,.22);
+  background:#050507;
+  padding:26px;
+  min-height:520px;
+}
+
+.itemsDatabase__head{
+  display:grid;
+  grid-template-columns:1.4fr .8fr .7fr .6fr 2fr;
+  gap:18px;
+  min-height:46px;
+  align-items:center;
+  padding:0 18px;
+  border:1px solid rgba(191,255,0,.18);
+  background:#030405;
+  color:rgba(194,254,12,.78);
+  font-family:var(--font-ui);
+  font-size:11px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+.itemsDatabase__body{
+  display:grid;
+  gap:8px;
+  margin-top:16px;
+}
+
+.itemsDatabase__row{
+  width:100%;
+  display:grid;
+  grid-template-columns:1.4fr .8fr .7fr .6fr 2fr;
+  gap:18px;
+  align-items:center;
+  min-height:72px;
+  padding:10px 18px;
+  border:1px solid rgba(191,255,0,.10);
+  background:
+    linear-gradient(90deg, rgba(194,254,12,.035), transparent 42%),
+    #040506;
+  color:rgba(245,247,251,.78);
+  font-family:var(--font-ui);
+  font-size:12px;
+  letter-spacing:.05em;
+  text-align:left;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:border-color .14s ease, background .14s ease, transform .14s ease;
+}
+
+.itemsDatabase__row:hover{
+  transform:translateY(-1px);
+  border-color:rgba(194,254,12,.38);
+  background:
+    linear-gradient(90deg, rgba(194,254,12,.08), transparent 48%),
+    #070907;
+}
+
+.itemsDatabase__name{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  min-width:0;
+}
+
+.itemsDatabase__name strong{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  color:#f4fff7;
+  font-size:13px;
+  letter-spacing:.08em;
+}
+
+.itemsDatabase__icon{
+  width:46px;
+  height:46px;
+  object-fit:contain;
+  flex:0 0 auto;
+  filter:drop-shadow(0 0 12px rgba(194,254,12,.16));
+}
+
+/* rarity text */
+.itemsDatabase__row.rarity-standard .itemsDatabase__rarity{ color:#f2f5f7; }
+.itemsDatabase__row.rarity-enhanced .itemsDatabase__rarity{ color:#57ff8f; }
+.itemsDatabase__row.rarity-deluxe .itemsDatabase__rarity{ color:#419EEA; }
+.itemsDatabase__row.rarity-superior .itemsDatabase__rarity{ color:#b56cff; }
+.itemsDatabase__row.rarity-prestige .itemsDatabase__rarity{ color:#ffd84d; }
+.itemsDatabase__row.rarity-contraband .itemsDatabase__rarity{ color:#ff3b3b; }
+
+/* rarity left bar */
+.itemsDatabase__row.rarity-standard{ border-left:4px solid #f2f5f7; }
+.itemsDatabase__row.rarity-enhanced{ border-left:4px solid #57ff8f; }
+.itemsDatabase__row.rarity-deluxe{ border-left:4px solid #419EEA; }
+.itemsDatabase__row.rarity-superior{ border-left:4px solid #b56cff; }
+.itemsDatabase__row.rarity-prestige{ border-left:4px solid #ffd84d; }
+.itemsDatabase__row.rarity-contraband{ border-left:4px solid #ff3b3b; }
+
+@media (max-width:900px){
+  .itemsDatabase__head{
+    display:none;
+  }
+
+  .itemsDatabase__row{
+    grid-template-columns:1fr;
+    gap:8px;
+  }
+}

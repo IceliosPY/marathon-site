@@ -1,0 +1,169 @@
+/* =========================
+   CARD VIEW
+========================= */
+
+.itemsCardGrid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
+    gap:22px;
+  
+    padding:28px;
+    border:1px solid var(--line);
+    background:#030405;
+  }
+  
+  /* CARD */
+  
+  .itemsGridCard{
+    position:relative;
+    aspect-ratio:1 / 1;
+  
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  
+    border:1px solid rgba(194,254,12,.16);
+    background:
+      radial-gradient(circle at center, rgba(194,254,12,.08), transparent 55%),
+      linear-gradient(180deg, rgba(255,255,255,.025), rgba(0,0,0,.18)),
+      #050607;
+  
+    overflow:hidden;
+    cursor:pointer;
+  
+    transition:
+      transform .18s ease,
+      border-color .18s ease,
+      box-shadow .18s ease,
+      background .18s ease;
+  }
+  
+  .itemsGridCard:hover{
+    transform:translateY(-4px);
+    border-color:rgba(194,254,12,.55);
+    box-shadow:
+      0 0 30px rgba(194,254,12,.14),
+      inset 0 0 30px rgba(194,254,12,.05);
+  }
+  
+  /* rarity left bar */
+  
+  .itemsGridCard::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    bottom:0;
+    width:4px;
+  }
+  
+  .itemsGridCard.rarity-standard::before{ background:#ffffff; }
+  .itemsGridCard.rarity-enhanced::before{ background:#4caf50; }
+  .itemsGridCard.rarity-deluxe::before{ background:#419EEA; }
+  .itemsGridCard.rarity-superior::before{ background:#9c27b0; }
+  .itemsGridCard.rarity-prestige::before{ background:#ffd700; }
+  .itemsGridCard.rarity-contraband::before{ background:#ff3b3b; }
+  
+  /* image */
+  
+  .itemsGridCard__image{
+    width:110px;
+    height:110px;
+    object-fit:contain;
+    z-index:1;
+  
+    filter:
+      drop-shadow(0 0 14px rgba(194,254,12,.18));
+  
+    transition:
+      transform .22s ease,
+      opacity .22s ease,
+      filter .22s ease;
+  }
+  
+  .itemsGridCard:hover .itemsGridCard__image{
+    transform:scale(.82) translateY(-48px);
+    opacity:.16;
+    filter:blur(1px);
+  }
+  
+  /* overlay hidden */
+  
+  .itemsGridCard__overlay{
+    position:absolute;
+    inset:0;
+  
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    gap:10px;
+  
+    padding:20px;
+  
+    opacity:0;
+    transform:translateY(18px);
+  
+    transition:
+      opacity .22s ease,
+      transform .22s ease;
+  }
+  
+  .itemsGridCard:hover .itemsGridCard__overlay{
+    opacity:1;
+    transform:translateY(0);
+  }
+  
+  /* text */
+  
+  .itemsGridCard__type{
+    color:rgba(194,254,12,.72);
+    font-family:var(--font-ui);
+    font-size:10px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+  }
+  
+  .itemsGridCard__name{
+    color:#f5fff7;
+    font-family:var(--font-display);
+    font-size:34px;
+    line-height:.9;
+    text-transform:uppercase;
+  }
+  
+  .itemsGridCard__rarity{
+    color:#7ed7ff;
+    font-family:var(--font-ui);
+    font-size:11px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+  }
+  
+  .itemsGridCard__description{
+    margin:0;
+    color:rgba(255,255,255,.76);
+  
+    font-family:var(--font-ui);
+    font-size:11px;
+    line-height:1.7;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+  }
+  
+  /* responsive */
+  
+  @media (max-width:900px){
+    .itemsCardGrid{
+      grid-template-columns:repeat(auto-fill, minmax(180px, 1fr));
+      padding:18px;
+    }
+  
+    .itemsGridCard__name{
+      font-size:24px;
+    }
+  
+    .itemsGridCard__image{
+      width:84px;
+      height:84px;
+    }
+  }

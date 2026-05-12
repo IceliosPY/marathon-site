@@ -1,0 +1,166 @@
+/* =========================
+   POINTS / BASE
+========================= */
+
+.mapsPoint{
+  position:absolute;
+  transform:translate(-50%, -50%);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  border:none;
+  background:transparent;
+  padding:0;
+  cursor:pointer;
+  z-index:2;
+}
+
+.mapsPoint__dot{
+  width:14px;
+  height:14px;
+  border-radius:999px;
+  border:2px solid rgba(255,255,255,.85);
+  background:rgba(8,14,8,.85);
+  box-shadow:
+    0 0 0 3px rgba(191,255,0,.06),
+    0 0 10px rgba(191,255,0,.18);
+  transition:all .14s ease;
+}
+
+.mapsPoint:hover .mapsPoint__dot{
+  transform:scale(1.08);
+  border-color:#d0ff00;
+}
+
+.mapsPoint.is-active .mapsPoint__dot{
+  border-color:#ffffff;
+  background:rgba(191,255,0,.18);
+  box-shadow:
+    0 0 0 4px rgba(191,255,0,.14),
+    0 0 16px rgba(191,255,0,.28);
+}
+
+.mapsPoint__label{
+  padding:3px 6px;
+  background:rgba(0,0,0,.78);
+  border:1px solid rgba(191,255,0,.12);
+  color:#f4fff4;
+  font-family:var(--font-ui);
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+
+/* AREA */
+
+.mapsPoint--area{
+  gap:0;
+  z-index:3;
+}
+
+.mapsPoint--area .mapsPoint__dot{
+  display:none;
+}
+
+.mapsPoint__label--area{
+  background:rgba(0,0,0,.56);
+  border:none;
+  color:#ffffff;
+  font-size:10px;
+  letter-spacing:.04em;
+  text-shadow:0 1px 2px rgba(0,0,0,.95);
+  will-change:transform;
+}
+
+.mapsPoint--area.is-active .mapsPoint__label--area{
+  background:rgba(0,0,0,.72);
+}
+
+/* EXFIL */
+
+.mapsPoint--exfil,
+.mapsPoint--guarded-exfil{
+  z-index:4;
+  gap:4px;
+}
+
+.mapsPoint__exfilIcon{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:20px;
+  height:20px;
+  pointer-events:none;
+}
+
+.mapsPoint__exfilImg{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  opacity:.95;
+}
+
+.mapsPoint--exfil:hover .mapsPoint__exfilImg,
+.mapsPoint--guarded-exfil:hover .mapsPoint__exfilImg{
+  transform:scale(1.08);
+  opacity:1;
+}
+
+.mapsPoint--exfil.is-active .mapsPoint__exfilImg{
+  transform:scale(1.14);
+  filter:
+    drop-shadow(0 8px 14px rgba(0,0,0,.5))
+    drop-shadow(0 0 10px rgba(191,255,0,.25));
+}
+
+.mapsPoint--guarded-exfil .mapsPoint__exfilImg{
+  filter:
+    drop-shadow(0 4px 8px rgba(0,0,0,.4))
+    drop-shadow(0 0 6px rgba(255,179,71,.2));
+}
+
+.mapsPoint--guarded-exfil.is-active .mapsPoint__exfilImg{
+  filter:
+    drop-shadow(0 8px 14px rgba(0,0,0,.5))
+    drop-shadow(0 0 10px rgba(255,179,71,.3));
+}
+
+/* KIND COLORS */
+
+.mapsPoint--dcon .mapsPoint__dot{ border-color:#66ccff; }
+.mapsPoint--spawn .mapsPoint__dot{ border-color:#61b5ff; }
+.mapsPoint--locked-room .mapsPoint__dot{ border-color:#ffcc66; }
+.mapsPoint--contract .mapsPoint__dot{ border-color:#ff9cf0; }
+.mapsPoint--activity .mapsPoint__dot{ border-color:#ffd447; }
+.mapsPoint--supply .mapsPoint__dot{ border-color:#00ffd0; }
+.mapsPoint--container .mapsPoint__dot{ border-color:#59d7ff; }
+.mapsPoint--loose-loot .mapsPoint__dot{ border-color:#d8d8d8; }
+.mapsPoint--health .mapsPoint__dot{ border-color:#6dff9a; }
+.mapsPoint--key .mapsPoint__dot{ border-color:#ffe066; }
+.mapsPoint--treasure .mapsPoint__dot{ border-color:#ffd447; }
+.mapsPoint--lockbox .mapsPoint__dot{ border-color:#f2b84b; }
+.mapsPoint--vault .mapsPoint__dot{ border-color:#b98cff; }
+.mapsPoint--priority .mapsPoint__dot{ border-color:#ff5a5a; }
+.mapsPoint--objective .mapsPoint__dot{ border-color:#ffffff; }
+.mapsPoint--nice-spot .mapsPoint__dot{ border-color:#7df9ff; }
+
+@media (max-width:720px){
+  .mapsPoint__exfilIcon{
+    width:22px;
+    height:22px;
+  }
+
+  .mapsPoint__label--area{
+    font-size:9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .mapsPoint__dot,
+  .mapsPoint__exfilImg{
+    transition:none !important;
+  }
+}
