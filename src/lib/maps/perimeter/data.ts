@@ -1,4 +1,5 @@
 import type { MapEntry } from "../types";
+import { asset } from "../../assets";
 import { perimeterPoints } from "./points";
 
 export const perimeterMap: MapEntry = {
@@ -9,8 +10,8 @@ export const perimeterMap: MapEntry = {
   location: "New Cascadia Colony Research Expansion",
   description:
     "Originally part of colony expansion efforts, site shows signs of developmental redirection toward radiological and geological surveillance.",
-  previewImage: "/maps/perimeter/card.png",
-  video: "/maps/perimeter/preview.mp4",
-  mapImage: "/maps/perimeter/map.png",
+  previewImage: asset("maps/perimeter/card.png"),
+  video: asset("maps/perimeter/preview.mp4"),
+  mapImage: asset("maps/perimeter/map.png"),
   points: perimeterPoints,
 };

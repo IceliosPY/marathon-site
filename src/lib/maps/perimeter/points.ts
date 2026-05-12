@@ -1,4 +1,6 @@
 import type { MapPoint } from "../types";
+import type { MapPoint } from "../types";
+import { asset } from "../../assets";
 
 export const perimeterPoints: MapPoint[] = [
   {
