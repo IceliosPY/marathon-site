@@ -1,4 +1,5 @@
 import type { ItemEntry } from "../types";
+import { asset } from "../../assets";
 
 export const stackOverflow: ItemEntry = {
   id: "stack-overflow",
@@ -6,10 +7,10 @@ export const stackOverflow: ItemEntry = {
   category: "chip",
   rarity: "superior",
 
-  icon: "/items/icons/stack-overflow.png",
-  image: "/items/icons/stack-overflow.png",
-  render: "/items/icons/stack-overflow.png",
-  video: "/items/videos/stack-overflow.mp4",
+  icon: asset("items/icons/stack-overflow.png"),
+  image: asset("items/icons/stack-overflow.png"),
+  render: asset("items/icons/stack-overflow.png"),
+  video: asset("items/videos/stack-overflow.mp4"),
 
   sellPrice: 621,
 
@@ -17,7 +18,6 @@ export const stackOverflow: ItemEntry = {
 
   description:
     "Reloading this weapon when the magazine is empty overflows the magazine by a massive amount.",
-
 
   highlightTerms: ["overflows the magazine"],
 

@@ -1,4 +1,5 @@
 import type { ItemEntry } from "../types";
+import { asset } from "../../assets";
 
 export const hyphaticGel: ItemEntry = {
   id: "hyphatic-gel",
@@ -6,10 +7,10 @@ export const hyphaticGel: ItemEntry = {
   category: "ammo",
   rarity: "prestige",
 
-  icon: "/items/icons/hyphatic-gel.png",
-  image: "/items/icons/hyphatic-gel.png",
-  render: "/items/icons/hyphatic-gel.png",
-  video: "/items/videos/hyphatic-gel.mp4",
+  icon: asset("items/icons/hyphatic-gel.png"),
+  image: asset("items/icons/hyphatic-gel.png"),
+  render: asset("items/icons/hyphatic-gel.png"),
+  video: asset("items/videos/hyphatic-gel.mp4"),
 
   sellPrice: 1,
 

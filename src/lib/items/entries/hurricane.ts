@@ -1,4 +1,5 @@
 import type { ItemEntry } from "../types";
+import { asset } from "../../assets";
 
 export const hurricane: ItemEntry = {
   id: "hurricane",
@@ -7,10 +8,10 @@ export const hurricane: ItemEntry = {
   category: "mod",
   rarity: "superior",
 
-  icon: "/items/icons/hurricane.png",
-  image: "/items/icons/hurricane.png",
-  render: "/items/icons/hurricane.png",
-  video: "/items/videos/hurricane.mp4",
+  icon: asset("items/icons/hurricane.png"),
+  image: asset("items/icons/hurricane.png"),
+  render: asset("items/icons/hurricane.png"),
+  video: asset("items/videos/hurricane.mp4"),
 
   sellPrice: 621,
 

@@ -1,4 +1,5 @@
 import type { ItemEntry } from "../types";
+import { asset } from "../../assets";
 
 export const rocketStart: ItemEntry = {
   id: "rocket-start",
@@ -6,10 +7,10 @@ export const rocketStart: ItemEntry = {
   category: "chip",
   rarity: "superior",
 
-  icon: "/items/icons/stack-overflow.png",
-  image: "/items/icons/stack-overflow.png",
-  render: "/items/icons/stack-overflow.png",
-  video: "/items/videos/rocket-start.mp4",
+  icon: asset("items/icons/stack-overflow.png"),
+  image: asset("items/icons/stack-overflow.png"),
+  render: asset("items/icons/stack-overflow.png"),
+  video: asset("items/videos/rocket-start.mp4"),
 
   sellPrice: 621,
 

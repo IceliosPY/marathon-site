@@ -1,4 +1,5 @@
 import type { ItemEntry } from "../types";
+import { asset } from "../../assets";
 
 export const compilerTrace: ItemEntry = {
   id: "compiler-trace",
@@ -6,13 +7,12 @@ export const compilerTrace: ItemEntry = {
   category: "valuable",
   rarity: "contraband",
 
-  icon: "/items/icons/compiler-trace.png",
-  image: "/items/icons/compiler-trace.png",
-  render: "/items/icons/compiler-trace.png",
-  video: "/items/videos/compiler-trace.mp4",
+  icon: asset("items/icons/compiler-trace.png"),
+  image: asset("items/icons/compiler-trace.png"),
+  render: asset("items/icons/compiler-trace.png"),
+  video: asset("items/videos/compiler-trace.mp4"),
 
   sellPrice: 40000,
-
 
   description:
     "Alien fabric worth a great deal to interested buyers.",
@@ -29,6 +29,7 @@ export const compilerTrace: ItemEntry = {
       kind: "world-loot",
     },
   ],
+
   tags: [
     "valuable",
     "contraband",

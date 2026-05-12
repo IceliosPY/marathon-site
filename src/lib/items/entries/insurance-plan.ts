@@ -1,4 +1,5 @@
 import type { ItemEntry } from "../types";
+import { asset } from "../../assets";
 
 export const insurancePlan: ItemEntry = {
   id: "insurance-plan",
@@ -6,10 +7,10 @@ export const insurancePlan: ItemEntry = {
   category: "chip",
   rarity: "superior",
 
-  icon: "/items/icons/insurance-plan.png",
-  image: "/items/icons/insurance-plan.png",
-  render: "/items/icons/insurance-plan.png",
-  video: "/items/videos/insurance-plan.mp4",
+  icon: asset("items/icons/insurance-plan.png"),
+  image: asset("items/icons/insurance-plan.png"),
+  render: asset("items/icons/insurance-plan.png"),
+  video: asset("items/videos/insurance-plan.mp4"),
 
   sellPrice: 621,
 

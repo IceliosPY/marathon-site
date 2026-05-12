@@ -1,4 +1,5 @@
 import type { ItemEntry } from "../types";
+import { asset } from "../../assets";
 
 export const swarmDirective: ItemEntry = {
   id: "swarm-directive",
@@ -6,10 +7,10 @@ export const swarmDirective: ItemEntry = {
   category: "chip",
   rarity: "superior",
 
-  icon: "/items/icons/testament.png",
-  image: "/items/icons/testament.png",
-  render: "/items/icons/testament.png",
-  video: "/items/videos/swarm-directive.mp4",
+  icon: asset("items/icons/testament.png"),
+  image: asset("items/icons/testament.png"),
+  render: asset("items/icons/testament.png"),
+  video: asset("items/videos/swarm-directive.mp4"),
 
   sellPrice: 621,
 

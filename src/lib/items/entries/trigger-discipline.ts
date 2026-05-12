@@ -1,4 +1,5 @@
 import type { ItemEntry } from "../types";
+import { asset } from "../../assets";
 
 export const triggerDiscipline: ItemEntry = {
   id: "trigger-discipline",
@@ -6,10 +7,10 @@ export const triggerDiscipline: ItemEntry = {
   category: "chip",
   rarity: "superior",
 
-  icon: "/items/icons/trigger-discipline.png",
-  image: "/items/icons/trigger-discipline.png",
-  render: "/items/icons/trigger-discipline.png",
-  video: "/items/videos/trigger-discipline.mp4",
+  icon: asset("items/icons/trigger-discipline.png"),
+  image: asset("items/icons/trigger-discipline.png"),
+  render: asset("items/icons/trigger-discipline.png"),
+  video: asset("items/videos/trigger-discipline.mp4"),
 
   sellPrice: 621,
 

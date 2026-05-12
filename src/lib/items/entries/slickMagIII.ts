@@ -1,4 +1,5 @@
 import type { ItemEntry } from "../types";
+import { asset } from "../../assets";
 
 export const slickMagIII: ItemEntry = {
   id: "slick-mag-iii",
@@ -6,10 +7,10 @@ export const slickMagIII: ItemEntry = {
   category: "mod",
   rarity: "superior",
 
-  icon: "/items/icons/SlickMagIII.png",
-  image: "/items/icons/SlickMagIII.png",
-  render: "/items/icons/SlickMagIII.png",
-  video: "/items/videos/SlickMagIII.mp4",
+  icon: asset("items/icons/SlickMagIII.png"),
+  image: asset("items/icons/SlickMagIII.png"),
+  render: asset("items/icons/SlickMagIII.png"),
+  video: asset("items/videos/SlickMagIII.mp4"),
 
   sellPrice: 540,
 

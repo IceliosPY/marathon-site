@@ -1,4 +1,5 @@
 import type { ItemEntry } from "../types";
+import { asset } from "../../assets";
 
 export const lightRounds: ItemEntry = {
   id: "light-rounds",
@@ -6,10 +7,10 @@ export const lightRounds: ItemEntry = {
   category: "ammo",
   rarity: "standard",
 
-  icon: "/items/icons/light-rounds.png",
-  image: "/items/icons/light-rounds.png",
-  render: "/items/icons/light-rounds.png",
-  video: "/items/videos/light-rounds.mp4",
+  icon: asset("items/icons/light-rounds.png"),
+  image: asset("items/icons/light-rounds.png"),
+  render: asset("items/icons/light-rounds.png"),
+  video: asset("items/videos/light-rounds.mp4"),
 
   buyPrice: 200,
   sellPrice: 6,

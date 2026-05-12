@@ -1,4 +1,5 @@
 import type { ItemEntry } from "../types";
+import { asset } from "../../assets";
 
 export const reinforcedShieldsV1: ItemEntry = {
   id: "reinforced-shields-v1",
@@ -6,17 +7,17 @@ export const reinforcedShieldsV1: ItemEntry = {
   category: "implant",
   rarity: "enhanced",
 
-  icon: "/items/icons/protector.png",
-  image: "/items/icons/protector.png",
-  render: "/items/icons/protector.png",
-  video: "/items/videos/reinforced-shields-v1.mp4",
+  icon: asset("items/icons/protector.png"),
+  image: asset("items/icons/protector.png"),
+  render: asset("items/icons/protector.png"),
+  video: asset("items/videos/reinforced-shields-v1.mp4"),
 
   buyPrice: 900,
   sellPrice: 180,
 
   description: "Reinforced shields take half damage.",
-  effect: "Reinforces your base shields.",
 
+  effect: "Reinforces your base shields.",
 
   sources: [
     {
@@ -40,6 +41,7 @@ export const reinforcedShieldsV1: ItemEntry = {
       },
     },
   ],
+
   possibleEffects: [
     {
       id: "enduring",

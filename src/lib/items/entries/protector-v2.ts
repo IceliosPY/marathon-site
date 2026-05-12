@@ -1,4 +1,5 @@
 import type { ItemEntry } from "../types";
+import { asset } from "../../assets";
 
 export const protectorV2: ItemEntry = {
   id: "protector-v2",
@@ -6,17 +7,19 @@ export const protectorV2: ItemEntry = {
   category: "implant",
   rarity: "deluxe",
 
-  icon: "/items/icons/protector.png",
-  image: "/items/icons/protector.png",
-  render: "/items/icons/protector.png",
-  video: "/items/videos/protector.mp4",
+  icon: asset("items/icons/protector.png"),
+  image: asset("items/icons/protector.png"),
+  render: asset("items/icons/protector.png"),
+  video: asset("items/videos/protector.mp4"),
 
   buyPrice: 2000,
   sellPrice: 600,
 
   description:
     "Deluxe shield implant engineered for frontline survivability.",
-    effect: "+2 Shield Slots.",
+
+  effect: "+2 Shield Slots.",
+
   sources: [
     {
       label: "Nucaloric Armory",

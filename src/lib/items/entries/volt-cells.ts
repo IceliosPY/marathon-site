@@ -1,4 +1,5 @@
 import type { ItemEntry } from "../types";
+import { asset } from "../../assets";
 
 export const voltCell: ItemEntry = {
   id: "volt-cell",
@@ -6,10 +7,10 @@ export const voltCell: ItemEntry = {
   category: "ammo",
   rarity: "standard",
 
-  icon: "/items/icons/volt-cell.png",
-  image: "/items/icons/volt-cell.png",
-  render: "/items/icons/volt-cell.png",
-  video: "/items/videos/volt-cell.mp4",
+  icon: asset("items/icons/volt-cell.png"),
+  image: asset("items/icons/volt-cell.png"),
+  render: asset("items/icons/volt-cell.png"),
+  video: asset("items/videos/volt-cell.mp4"),
 
   sellPrice: 27,
   buyPrice: 600,

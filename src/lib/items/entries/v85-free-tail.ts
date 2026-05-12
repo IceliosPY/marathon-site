@@ -1,4 +1,5 @@
 import type { ItemEntry } from "../types";
+import { asset } from "../../assets";
 
 export const v85FreeTail: ItemEntry = {
   id: "v85-free-tail",
@@ -6,10 +7,10 @@ export const v85FreeTail: ItemEntry = {
   category: "weapon",
   rarity: "prestige",
 
-  icon: "/items/icons/v85-free-tail.png",
-  image: "/items/icons/v85-free-tail.png",
-  render: "/items/icons/v85-free-tail.png",
-  video: "/items/videos/v85-free-tail.mp4",
+  icon: asset("items/icons/v85-free-tail.png"),
+  image: asset("items/icons/v85-free-tail.png"),
+  render: asset("items/icons/v85-free-tail.png"),
+  video: asset("items/videos/v85-free-tail.mp4"),
 
   sellPrice: 10401,
 
@@ -26,7 +27,7 @@ export const v85FreeTail: ItemEntry = {
   ammo: {
     itemId: "volt-cell",
     label: "Volt Cell",
-    icon: "/items/icons/volt-cell.png",
+    icon: asset("items/icons/volt-cell.png"),
   },
 
   possibleEffects: [

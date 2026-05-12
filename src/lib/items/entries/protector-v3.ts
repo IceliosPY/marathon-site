@@ -1,4 +1,5 @@
 import type { ItemEntry } from "../types";
+import { asset } from "../../assets";
 
 export const protectorV3: ItemEntry = {
   id: "protector-v3",
@@ -6,17 +7,21 @@ export const protectorV3: ItemEntry = {
   category: "implant",
   rarity: "superior",
 
-  icon: "/items/icons/protector.png",
-  image: "/items/icons/protector.png",
-  render: "/items/icons/protector.png",
-  video: "/items/videos/protector.mp4",
+  icon: asset("items/icons/protector.png"),
+  image: asset("items/icons/protector.png"),
+  render: asset("items/icons/protector.png"),
+  video: asset("items/videos/protector.mp4"),
 
   buyPrice: -1,
   sellPrice: 900,
 
   description:
     "Superior shield implant engineered for advanced frontline survivability.",
+
   effect: "+3 Shield Slots.",
+
+  lore:
+    "UESC defensive implant package tuned for elite assault teams operating in sustained high-risk combat zones.",
 
   sources: [
     {
@@ -40,6 +45,7 @@ export const protectorV3: ItemEntry = {
       kind: "world-loot",
     },
   ],
+
   possibleEffects: [
     {
       id: "enduring",
@@ -56,7 +62,7 @@ export const protectorV3: ItemEntry = {
       },
     },
   ],
-  
+
   stats: [
     { label: "Heat Capacity", value: 0, modifier: -15 },
     { label: "Agility", value: 0, modifier: -15 },

@@ -1,4 +1,5 @@
 import type { ItemEntry } from "../types";
+import { asset } from "../../assets";
 
 export const heavyRounds: ItemEntry = {
   id: "heavy-rounds",
@@ -6,10 +7,10 @@ export const heavyRounds: ItemEntry = {
   category: "ammo",
   rarity: "standard",
 
-  icon: "/items/icons/heavy-rounds.png",
-  image: "/items/icons/heavy-rounds.png",
-  render: "/items/icons/heavy-rounds.png",
-  video: "/items/videos/heavy-rounds.mp4",
+  icon: asset("items/icons/heavy-rounds.png"),
+  image: asset("items/icons/heavy-rounds.png"),
+  render: asset("items/icons/heavy-rounds.png"),
+  video: asset("items/videos/heavy-rounds.mp4"),
 
   buyPrice: 300,
   sellPrice: 6,
