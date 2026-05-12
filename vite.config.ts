@@ -3,5 +3,5 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "./", // nickel pour GH Pages
+  base: "/marathon-site/",
 });
