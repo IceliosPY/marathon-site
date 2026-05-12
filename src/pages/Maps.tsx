@@ -2,6 +2,7 @@ import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import { mapsData } from "../lib/maps";
 import { itemsData } from "../lib/items";
+import { asset } from "../lib/assets";
 import type { MapEntry, MapPointKind } from "../lib/maps/types";
 
 type ViewMode = "index" | "detail";
@@ -102,7 +103,7 @@ function getAreaLabelStyle(scale: number) {
 
 export default function Maps() {
   const initialMapScale = 0.72;
-  const exfilIconSrc = "/maps/icons/crew-exfil.png";
+  const exfilIconSrc = asset("maps/icons/crew-exfil.png");
 
   const [viewMode, setViewMode] = useState<ViewMode>("index");
   const [selectedMapId, setSelectedMapId] = useState(mapsData[0]?.id ?? "");
