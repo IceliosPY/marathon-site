@@ -1,4 +1,5 @@
 import type { ItemEntry } from "../types";
+import { asset } from "../../assets";
 
 export const backgroundProcess: ItemEntry = {
   id: "background-process",
@@ -6,10 +7,10 @@ export const backgroundProcess: ItemEntry = {
   category: "chip",
   rarity: "deluxe",
 
-  icon: "/items/icons/background-process.png",
-  image: "/items/icons/background-process.png",
-  render: "/items/icons/background-process.png",
-  video: "/items/videos/background-process.mp4",
+  icon: asset("items/icons/background-process.png"),
+  image: asset("items/icons/background-process.png"),
+  render: asset("items/icons/background-process.png"),
+  video: asset("items/videos/background-process.mp4"),
 
   sellPrice: 207,
 

@@ -1,4 +1,5 @@
 import type { ItemEntry } from "../types";
+import { asset } from "../../assets";
 
 export const biotoxicDisinsector: ItemEntry = {
   id: "biotoxic-disinjector",
@@ -6,10 +7,10 @@ export const biotoxicDisinsector: ItemEntry = {
   category: "weapon",
   rarity: "contraband",
 
-  icon: "/items/icons/biotoxic.png",
-  image: "/items/icons/biotoxic.png",
-  render: "/items/icons/biotoxic.png",
-  video: "/items/videos/biotoxic-disinsector.mp4",
+  icon: asset("items/icons/biotoxic.png"),
+  image: asset("items/icons/biotoxic.png"),
+  render: asset("items/icons/biotoxic.png"),
+  video: asset("items/videos/biotoxic-disinsector.mp4"),
 
   buyPrice: undefined,
   sellPrice: 7777,
@@ -24,11 +25,11 @@ export const biotoxicDisinsector: ItemEntry = {
       kind: "world-loot",
     },
   ],
-  
+
   ammo: {
     itemId: "hyphatic-gel",
     label: "Hyphatic Gel",
-    icon: "/items/icons/hyphatic-gel.png",
+    icon: asset("items/icons/hyphatic-gel.png"),
   },
 
   stats: [
@@ -71,7 +72,6 @@ export const biotoxicDisinsector: ItemEntry = {
       unit: "M",
     },
   ],
-
 
   tags: [
     "hybrid",

@@ -1,4 +1,5 @@
 import type { ItemEntry } from "../types";
+import { asset } from "../../assets";
 
 export const colonistDnaVial: ItemEntry = {
   id: "colonist-dna-vial",
@@ -6,10 +7,10 @@ export const colonistDnaVial: ItemEntry = {
   category: "priority",
   rarity: "priority",
 
-  icon: "/items/icons/colonistDnaVial.png",
-  image: "/items/icons/colonistDnaVial.png",
-  render: "/items/icons/colonistDnaVial.png",
-  video: "/items/videos/colonist-dna-vial.mp4",
+  icon: asset("items/icons/colonistDnaVial.png"),
+  image: asset("items/icons/colonistDnaVial.png"),
+  render: asset("items/icons/colonistDnaVial.png"),
+  video: asset("items/videos/colonist-dna-vial.mp4"),
 
   sellPrice: 0,
 
