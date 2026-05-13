@@ -10,7 +10,7 @@ export const destroyer: Shell = {
   summary: "Heavy assault shell designed for breach, suppression and frontal engagements.",
 
   portrait: asset("shells/destroyer/portrait.png"),
-  background: asset("shells/destroyer/background.jpg"),
+  background: asset("shells/destroyer/background.png"),
 
   abilities: [
     {

@@ -13,10 +13,9 @@ export const assassin: Shell = {
   summary:
     "Advanced infiltration shell specialized in stealth elimination and covert operations.",
 
-  quote: "[breath] At last.",
 
   portrait: asset("shells/assassin/portrait.png"),
-  background: asset("shells/assassin/background.jpg"),
+  background: asset("shells/assassin/background.png"),
 
   abilities: [
     {

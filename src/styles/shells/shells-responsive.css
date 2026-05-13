@@ -1,0 +1,44 @@
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1200px){
+
+    .shellsAbilities{
+      right:24px;
+      width:390px;
+    }
+  
+    .shellsAbilities__title{
+      font-size:54px;
+    }
+  }
+  
+  @media (max-width: 900px){
+  
+    .shellsAbilities{
+      position:absolute;
+      left:24px;
+      right:24px;
+      top:auto;
+      bottom:180px;
+  
+      width:auto;
+  
+      transform:none;
+    }
+  
+    .shellsSelector{
+      left:24px;
+      bottom:24px;
+    }
+  
+    .shellsSelector__item{
+      width:58px;
+      height:96px;
+    }
+  
+    .shellsHero__quote{
+      display:none;
+    }
+  }

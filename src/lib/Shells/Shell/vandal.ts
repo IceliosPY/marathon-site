@@ -10,7 +10,7 @@ export const vandal: Shell = {
   summary: "I can outrun anything.",
 
   portrait: asset("shells/vandal/portrait.png"),
-  background: asset("shells/vandal/background.jpg"),
+  background: asset("shells/vandal/background.png"),
 
   abilities: [
     {

@@ -13,10 +13,9 @@ export const recon: Shell = {
   summary:
     "Long-range reconnaissance shell focused on tracking, detection and battlefield intelligence.",
 
-  quote: "Find the pattern in the chaos.",
 
   portrait: asset("shells/recon/portrait.png"),
-  background: asset("shells/recon/background.jpg"),
+  background: asset("shells/recon/background.png"),
 
   abilities: [
     {

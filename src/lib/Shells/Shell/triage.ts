@@ -15,7 +15,7 @@ export const triage: Shell = {
 
 
   portrait: asset("shells/triage/portrait.png"),
-  background: asset("shells/triage/background.jpg"),
+  background: asset("shells/triage/background.png"),
 
   abilities: [
     {

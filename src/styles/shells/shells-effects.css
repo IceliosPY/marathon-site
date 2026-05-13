@@ -1,0 +1,26 @@
+/* =========================
+   EFFECTS
+========================= */
+
+.shellsHero::after{
+    content:"";
+  
+    position:absolute;
+    inset:0;
+    z-index:15;
+  
+    pointer-events:none;
+  
+    background:
+      repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,.04) 0px,
+        rgba(255,255,255,.04) 1px,
+        transparent 1px,
+        transparent 3px
+      );
+  
+    opacity:.12;
+  
+    mix-blend-mode:soft-light;
+  }
