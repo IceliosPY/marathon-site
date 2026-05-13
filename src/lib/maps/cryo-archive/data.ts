@@ -12,7 +12,7 @@ export const cryoArchiveMap: MapEntry = {
   description:
     "Cryogenic preservation sectors deep inside the Marathon vessel.",
 
-  previewImage: asset("maps/cryo-archive/card.png"),
+  previewImage: asset("maps/cryo-archive/card.jpg"),
   video: asset("maps/cryo-archive/preview.mp4"),
   mapImage: asset("maps/cryo-archive/map.jpg"),
 
