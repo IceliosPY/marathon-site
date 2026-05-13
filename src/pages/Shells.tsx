@@ -6,7 +6,8 @@ export default function Shells() {
   const [activeShellId, setActiveShellId] = useState(shellsData[0]?.id ?? "");
 
   const activeShell = useMemo(
-    () => shellsData.find((shell) => shell.id === activeShellId) ?? shellsData[0],
+    () =>
+      shellsData.find((shell) => shell.id === activeShellId) ?? shellsData[0],
     [activeShellId]
   );
 
@@ -35,10 +36,18 @@ export default function Shells() {
             {activeShell.abilities.map((ability) => (
               <article key={ability.id} className="shellsAbility">
                 <div className="shellsAbility__icon">
-                  {ability.name.slice(0, 2)}
+                  {ability.icon ? (
+                    <img
+                      src={ability.icon}
+                      alt=""
+                      className="shellsAbility__iconImg"
+                    />
+                  ) : (
+                    <span>{ability.name.slice(0, 2)}</span>
+                  )}
                 </div>
 
-                <div>
+                <div className="shellsAbility__content">
                   <h2>{ability.name}</h2>
                   <p>{ability.description}</p>
                 </div>
