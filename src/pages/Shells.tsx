@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { shellsData } from "../lib/Shells/api";
-import "../styles/index.css";
+import "../styles/shells/shells.css";
 
 export default function Shells() {
   const [activeShellId, setActiveShellId] = useState(shellsData[0]?.id ?? "");
