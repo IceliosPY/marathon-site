@@ -3,7 +3,7 @@ import type { MapEntry } from "./types";
 import { perimeterMap } from "./perimeter/data";
 import { direMarshMap } from "./dire-marsh/data";
 import { outpostMap } from "./outpost/data";
-import { cryoArchiveMap } from "./cryo-archive/Data";
+import { cryoArchiveMap } from "./cryo-archive/data";
 
 export type {
   MapPoint,
