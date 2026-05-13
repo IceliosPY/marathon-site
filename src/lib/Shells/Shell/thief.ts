@@ -13,10 +13,9 @@ export const thief: Shell = {
   summary:
     "Highly mobile infiltration shell optimized for theft, extraction and opportunistic combat.",
 
-  quote: "Possession is the only law.",
 
   portrait: asset("shells/thief/portrait.png"),
-  background: asset("shells/thief/background.jpg"),
+  background: asset("shells/thief/background.png"),
 
   abilities: [
     {
