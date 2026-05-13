@@ -1,16 +1,9 @@
-/* =========================
-   EFFECTS
-========================= */
-
 .shellsHero::after{
     content:"";
-  
     position:absolute;
     inset:0;
     z-index:15;
-  
     pointer-events:none;
-  
     background:
       repeating-linear-gradient(
         to bottom,
@@ -19,8 +12,15 @@
         transparent 1px,
         transparent 3px
       );
-  
     opacity:.12;
-  
     mix-blend-mode:soft-light;
+  }
+  
+  .shellsHero__background,
+  .shellsAbilities,
+  .shellsSelector__item{
+    transition:
+      opacity .22s ease,
+      transform .22s ease,
+      filter .22s ease;
   }

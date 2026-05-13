@@ -1,21 +1,13 @@
-/* =========================
-   ABILITIES PANEL
-========================= */
-
 .shellsAbilities{
     position:absolute;
     right:56px;
     top:50%;
     z-index:10;
-  
     width:455px;
     padding:28px 28px 36px;
-  
     transform:translateY(-50%);
-  
     background:rgba(10,10,12,.96);
     border-radius:8px;
-  
     box-shadow:
       0 26px 70px rgba(0,0,0,.58),
       inset 0 0 0 1px rgba(255,255,255,.035);
@@ -23,26 +15,22 @@
   
   .shellsAbilities__title{
     margin:0 0 34px;
-  
     color:#f4f1ea;
-  
-    font-family:Georgia, serif;
+    font-family:Georgia, "Times New Roman", serif;
     font-size:64px;
     line-height:.9;
     font-weight:400;
-  
     text-transform:uppercase;
     letter-spacing:-.055em;
   }
   
   .shellsAbilities__label{
     margin:0 0 14px;
-  
     color:#f4f4f4;
-  
+    font-family:var(--font-ui);
     font-size:15px;
     font-weight:900;
-  
+    line-height:1;
     letter-spacing:.045em;
     text-transform:uppercase;
   }
@@ -54,47 +42,68 @@
   
   .shellsAbility{
     display:grid;
-    grid-template-columns:64px 1fr;
+    grid-template-columns:64px minmax(0, 1fr);
     align-items:center;
     gap:16px;
+    min-height:64px;
   }
   
   .shellsAbility__icon{
+    position:relative;
     width:64px;
     height:64px;
-  
     display:flex;
     align-items:center;
     justify-content:center;
-  
     border-radius:5px;
-  
     background:linear-gradient(180deg, #5e626d, #444852);
+    box-shadow:
+      inset 0 0 0 1px rgba(255,255,255,.045),
+      0 8px 18px rgba(0,0,0,.24);
+  }
   
-    color:#f5f5f5;
+  .shellsAbility__icon::before{
+    content:"";
+    width:36px;
+    height:36px;
+    display:block;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:contain;
+  }
   
-    font-family:"PP Fraktion Mono Local", monospace;
-    font-size:19px;
-    font-weight:800;
+  .shellsAbility:nth-child(1) .shellsAbility__icon::before{
+    background-image:url("/shells/icons/prime.png");
+  }
+  
+  .shellsAbility:nth-child(2) .shellsAbility__icon::before{
+    background-image:url("/shells/icons/tactical.png");
+  }
+  
+  .shellsAbility:nth-child(3) .shellsAbility__icon::before{
+    background-image:url("/shells/icons/trait1.png");
+  }
+  
+  .shellsAbility:nth-child(4) .shellsAbility__icon::before{
+    background-image:url("/shells/icons/trait2.png");
   }
   
   .shellsAbility h2{
-    margin:0 0 4px;
-  
-    color:#fff;
-  
+    margin:0 0 5px;
+    color:#f5f5f5;
     font-family:"PP Fraktion Mono Local", monospace;
     font-size:17px;
-  
+    line-height:1;
+    font-weight:800;
+    letter-spacing:.075em;
     text-transform:uppercase;
-    letter-spacing:.07em;
   }
   
   .shellsAbility p{
     margin:0;
-  
-    color:#eaeaea;
-  
+    color:#f1f1f1;
     font-family:"PP Fraktion Mono Local", monospace;
-    font-size:15px;
+    font-size:16px;
+    line-height:1.2;
+    letter-spacing:.04em;
   }
