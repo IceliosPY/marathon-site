@@ -13,7 +13,6 @@ export const assassin: Shell = {
   summary:
     "Advanced infiltration shell specialized in stealth elimination and covert operations.",
 
-
   portrait: asset("shells/assassin/portrait.png"),
   background: asset("shells/assassin/background.png"),
 
@@ -23,24 +22,28 @@ export const assassin: Shell = {
       name: "Smoke Screen",
       type: "prime",
       description: "Prime Ability",
+      icon: asset("shells/icons/assassin-prime.png"),
     },
     {
       id: "active-camo",
       name: "Active Camo",
       type: "tactical",
       description: "Tactical Ability",
+      icon: asset("shells/icons/assassin-tactical.png"),
     },
     {
       id: "shadow-dive",
       name: "Shadow Dive",
       type: "trait",
       description: "Trait 1",
+      icon: asset("shells/icons/assassin-trait1.png"),
     },
     {
       id: "shroud",
       name: "Shroud",
       type: "trait",
       description: "Trait 2",
+      icon: asset("shells/icons/assassin-trait2.png"),
     },
   ],
 };

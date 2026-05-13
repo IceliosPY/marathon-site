@@ -13,7 +13,6 @@ export const triage: Shell = {
   summary:
     "Combat medical shell designed for recovery, sustain and emergency battlefield intervention.",
 
-
   portrait: asset("shells/triage/portrait.png"),
   background: asset("shells/triage/background.png"),
 
@@ -23,24 +22,28 @@ export const triage: Shell = {
       name: "Reboot+",
       type: "prime",
       description: "Prime Ability",
+      icon: asset("shells/icons/triage-prime.png"),
     },
     {
       id: "med-drone",
       name: "Med-Drone",
       type: "tactical",
       description: "Tactical Ability",
+      icon: asset("shells/icons/triage-tactical.png"),
     },
     {
       id: "shareware-exe",
       name: "Shareware.exe",
       type: "trait",
       description: "Trait 1",
+      icon: asset("shells/icons/triage-trait1.png"),
     },
     {
       id: "battery-overcharge",
       name: "Battery Overcharge",
       type: "trait",
       description: "Trait 2",
+      icon: asset("shells/icons/triage-trait2.png"),
     },
   ],
 };

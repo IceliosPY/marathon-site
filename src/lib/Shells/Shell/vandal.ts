@@ -7,6 +7,7 @@ export const vandal: Shell = {
   class: "Disruption",
   manufacturer: "Unknown",
   status: "Active",
+
   summary: "I can outrun anything.",
 
   portrait: asset("shells/vandal/portrait.png"),
@@ -18,24 +19,28 @@ export const vandal: Shell = {
       name: "Amplify",
       type: "prime",
       description: "Prime Ability",
+      icon: asset("shells/icons/vandal-prime.png"),
     },
     {
       id: "disrupt-cannon",
       name: "Disrupt Cannon",
       type: "tactical",
       description: "Tactical Ability",
+      icon: asset("shells/icons/vandal-tactical.png"),
     },
     {
       id: "microjets",
       name: "Microjets",
       type: "trait",
       description: "Trait 1",
+      icon: asset("shells/icons/vandal-trait1.png"),
     },
     {
       id: "power-slide",
       name: "Power Slide",
       type: "trait",
       description: "Trait 2",
+      icon: asset("shells/icons/vandal-trait2.png"),
     },
   ],
 };
