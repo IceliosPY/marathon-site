@@ -5,16 +5,37 @@ import { asset } from "../../assets";
 
 export const thief: Shell = {
   id: "thief",
+
   name: "Thief",
+
   class: "Extraction",
+
   manufacturer: "Black Market Variant",
+
   status: "Active",
 
   summary:
     "Highly mobile infiltration shell optimized for theft, extraction and opportunistic combat.",
 
   portrait: asset("shells/thief/portrait.png"),
+
   background: asset("shells/thief/background.png"),
+
+  quote: "A Thief always keeps their eyes on the prize.",
+
+  preview: {
+    role: "Covert acquisitions",
+
+    tech: "Advanced heist mechanics",
+
+    intro: "A Thief always keeps their eyes on the prize.",
+
+    body:
+      "Use enhanced visors and piloted drones to remotely locate and acquire valuable loot. Steal from a zone or rival Runners. Then make an escape or push the advantage with the Thief's deployable grapple device.",
+
+    code:
+      "[excerpt, UESC threat eval: rnnr.thf.fileID70064c_p223]",
+  },
 
   abilities: [
     {

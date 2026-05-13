@@ -5,16 +5,37 @@ import { asset } from "../../assets";
 
 export const triage: Shell = {
   id: "triage",
+
   name: "Triage",
+
   class: "Support",
+
   manufacturer: "UESC Medical Engineering",
+
   status: "Active",
 
   summary:
     "Combat medical shell designed for recovery, sustain and emergency battlefield intervention.",
 
   portrait: asset("shells/triage/portrait.png"),
+
   background: asset("shells/triage/background.png"),
+
+  quote: "Triage saves lives.",
+
+  preview: {
+    role: "Field medic",
+
+    tech: "Damage mitigation",
+
+    intro: "Triage saves lives.",
+
+    body:
+      "Deployable healing drones and onboard reboot abilities allow Triage Runners and their crews to keep running after taking damage. Mend health and shields and even reboot crewmates at a distance to survive and fight again and again.",
+
+    code:
+      "[excerpt, UESC threat eval: rnnr.trge.fileID70064c_p392]",
+  },
 
   abilities: [
     {
