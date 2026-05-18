@@ -110,6 +110,75 @@ function renderHighlightedText(text: string, terms?: string[]) {
   });
 }
 
+function ItemStatsBlock({
+  stats,
+}: {
+  stats: NonNullable<ItemEntry["stats"]>;
+}) {
+  return (
+    <div className="itemInspect__stats">
+      {stats.map((stat) => {
+        const hasModifier =
+          typeof stat.modifier === "number" && stat.modifier !== 0;
+
+        const max = stat.max ?? 100;
+        const visibleValue = hasModifier ? Math.abs(stat.modifier ?? 0) : stat.value;
+
+        const percent = Math.min(100, (visibleValue / max) * 100);
+        const isNegative = hasModifier && (stat.modifier ?? 0) < 0;
+        const isPositive = hasModifier && (stat.modifier ?? 0) > 0;
+
+        return (
+          <div
+            key={stat.label}
+            className={`itemInspect__stat ${
+              isNegative
+                ? "is-negative"
+                : isPositive
+                  ? "is-positive"
+                  : "is-neutral"
+            }`}
+            style={
+              {
+                "--stat-modifier": `${percent}%`,
+              } as CSSProperties
+            }
+          >
+            <div className="itemInspect__statTop">
+              <span className="itemInspect__statName">{stat.label}</span>
+
+              <strong className="itemInspect__statValue">
+                <em>
+                  {hasModifier
+                    ? (stat.modifier ?? 0) > 0
+                      ? `+${stat.modifier}${stat.unit ?? ""}`
+                      : `${stat.modifier}${stat.unit ?? ""}`
+                    : formatStatValue(stat.value, stat.unit)}
+                </em>
+              </strong>
+            </div>
+
+            <div className="itemInspect__statBar">
+              <span className="itemInspect__statBonus" />
+            </div>
+
+            {stat.details?.length ? (
+              <div className="itemInspect__statDetails">
+                {stat.details.map((detail) => (
+                  <div key={detail.label} className="itemInspect__statDetail">
+                    <span>{detail.label}</span>
+                    <strong>{detail.value}</strong>
+                  </div>
+                ))}
+              </div>
+            ) : null}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 function ItemsDropdown<T extends string>({
   label,
   value,
@@ -224,11 +293,14 @@ function ItemInspectTicker() {
       <div className="itemInspectTicker__viewport">
         <div className="itemInspectTicker__rail">
           <span className="itemInspectTicker__lead" />
+
           <div className="itemInspectTicker__inner">
             <span className="itemInspectTicker__copy" ref={measureRef}>
               {ITEM_TICKER_TEXT}
             </span>
+
             <span className="itemInspectTicker__gap" />
+
             <span className="itemInspectTicker__copy">{ITEM_TICKER_TEXT}</span>
           </div>
         </div>
@@ -260,6 +332,7 @@ function ItemEffectSimulator({
         <div className="itemInspect__effectRollHead">
           <strong>{effect.label}</strong>
         </div>
+
         <p>{effect.description}</p>
       </article>
     );
@@ -268,6 +341,7 @@ function ItemEffectSimulator({
   if (simulation.type === "enduring") {
     const baseValue = item.sellPrice ?? 0;
     const maxExtractions = simulation.maxExtractions ?? 10;
+
     const simulatedValue = computeEnduringValue(
       baseValue,
       extractions,
@@ -275,6 +349,7 @@ function ItemEffectSimulator({
       simulation.firstExtractionLimit,
       simulation.laterExtractionBonusRate
     );
+
     const gain = simulatedValue - baseValue;
 
     return (
@@ -327,9 +402,11 @@ function ItemEffectSimulator({
   if (simulation.type === "kills-scaling") {
     const baseValue = item.sellPrice ?? 0;
     const maxKills = simulation.maxKills ?? 50;
+
     const gain = Math.round(
       baseValue * BLOODTHIRSTY_VALUE_PER_KILL_RATE * kills
     );
+
     const simulatedValue = baseValue + gain;
 
     return (
@@ -410,6 +487,9 @@ export default function Items() {
   const [selectedItem, setSelectedItem] = useState<ItemEntry | null>(null);
   const [mediaMode, setMediaMode] = useState<ItemMediaMode>("image");
   const [selectedEffectId, setSelectedEffectId] = useState<string | null>(null);
+  const [selectedWeaponProfileId, setSelectedWeaponProfileId] = useState<
+    string | null
+  >(null);
 
   const categoryDropdownOptions = useMemo<DropdownOption<ItemCategoryFilter>[]>(
     () => [
@@ -459,6 +539,10 @@ export default function Items() {
         ...(item.stats?.flatMap(
           (stat) => stat.details?.map((detail) => detail.label) ?? []
         ) ?? []),
+        ...(item.weaponStatProfiles?.map((profile) => profile.weaponName) ?? []),
+        ...(item.weaponStatProfiles?.flatMap((profile) =>
+          profile.stats.map((stat) => stat.label)
+        ) ?? []),
       ]
         .filter(Boolean)
         .join(" ")
@@ -472,22 +556,33 @@ export default function Items() {
     });
   }, [selectedCategory, selectedRarity, searchQuery]);
 
+  const activeWeaponProfile = selectedItem?.weaponStatProfiles?.find(
+    (profile) => profile.weaponId === selectedWeaponProfileId
+  );
+
+  const displayedStats = activeWeaponProfile?.stats ?? selectedItem?.stats ?? [];
+
   const openItemModal = (item: ItemEntry) => {
     setSelectedItem(item);
     setMediaMode("image");
     setSelectedEffectId(null);
+    setSelectedWeaponProfileId(item.weaponStatProfiles?.[0]?.weaponId ?? null);
   };
 
   const closeItemModal = () => {
     setSelectedItem(null);
     setMediaMode("image");
     setSelectedEffectId(null);
+    setSelectedWeaponProfileId(null);
   };
 
   const openAmmoItem = () => {
     if (!selectedItem?.ammo?.itemId) return;
 
-    const ammoItem = itemsData.find((item) => item.id === selectedItem.ammo?.itemId);
+    const ammoItem = itemsData.find(
+      (item) => item.id === selectedItem.ammo?.itemId
+    );
+
     if (ammoItem) openItemModal(ammoItem);
   };
 
@@ -498,7 +593,9 @@ export default function Items() {
 
         <div className="itemsLandingHero__content">
           <p className="itemsLandingHero__kicker">Tau Ceti IV / Gear Archive</p>
+
           <h1 className="itemsLandingHero__title">ITEMS</h1>
+
           <p className="itemsLandingHero__text">
             Browse every known piece of equipment before deployment. Review
             implants, weapons, keys, valuables, consumables, mods, cores and
@@ -586,17 +683,21 @@ export default function Items() {
                     alt=""
                     className="itemsDatabase__icon"
                   />
+
                   <strong>{item.name}</strong>
                 </span>
 
                 <span>{itemCategoryLabels[item.category] ?? item.category}</span>
+
                 <span className="itemsDatabase__rarity">{item.rarity}</span>
 
                 <span>
                   {item.buyPrice || item.sellPrice
-                    ? `${item.buyPrice && item.buyPrice > 0 ? item.buyPrice : "—"} / ${
-                        item.sellPrice ?? "—"
-                      }`
+                    ? `${
+                        item.buyPrice && item.buyPrice > 0
+                          ? item.buyPrice
+                          : "—"
+                      } / ${item.sellPrice ?? "—"}`
                     : "—"}
                 </span>
 
@@ -630,6 +731,7 @@ export default function Items() {
                 </span>
 
                 <strong className="itemsGridCard__name">{item.name}</strong>
+
                 <span className="itemsGridCard__rarity">{item.rarity}</span>
 
                 {item.description ? (
@@ -757,78 +859,54 @@ export default function Items() {
               selectedItem.lore !== selectedItem.description ? (
                 <div className="itemInspect__intrinsic">
                   <strong>{selectedItem.effect ?? "Item Effect"}</strong>
+
                   <p>{renderHighlightedText(selectedItem.lore)}</p>
                 </div>
               ) : null}
 
-              {selectedItem.stats?.length ? (
-                <div className="itemInspect__stats">
-                  {selectedItem.stats.map((stat) => {
-                    const hasModifier =
-                      typeof stat.modifier === "number" && stat.modifier !== 0;
+              {selectedItem.weaponStatProfiles?.length ? (
+                <section className="itemInspect__weaponProfiles">
+                  <div className="itemInspect__weaponProfileNotice">
+                    <span>Displaying stats based on active weapon</span>
+                    <strong>
+                      {activeWeaponProfile?.weaponName ??
+                        selectedItem.weaponStatProfiles[0]?.weaponName}
+                    </strong>
+                  </div>
 
-                    const max = stat.max ?? 100;
-                    const visibleValue = hasModifier
-                      ? Math.abs(stat.modifier ?? 0)
-                      : stat.value;
-
-                    const percent = Math.min(100, (visibleValue / max) * 100);
-                    const isNegative = hasModifier && (stat.modifier ?? 0) < 0;
-                    const isPositive = hasModifier && (stat.modifier ?? 0) > 0;
-
-                    return (
-                      <div
-                        key={stat.label}
-                        className={`itemInspect__stat ${
-                          isNegative
-                            ? "is-negative"
-                            : isPositive
-                              ? "is-positive"
-                              : "is-neutral"
-                        }`}
-                        style={
-                          {
-                            "--stat-modifier": `${percent}%`,
-                          } as CSSProperties
+                  <div className="itemInspect__weaponProfileTabs">
+                    {selectedItem.weaponStatProfiles.map((profile) => (
+                      <button
+                        key={profile.weaponId}
+                        type="button"
+                        className={
+                          profile.weaponId === selectedWeaponProfileId ? "is-active" : ""
                         }
+                        onClick={() => setSelectedWeaponProfileId(profile.weaponId)}
                       >
-                        <div className="itemInspect__statTop">
-                          <span className="itemInspect__statName">
-                            {stat.label}
-                          </span>
+                        {(() => {
+                          const weaponItem = itemsData.find((item) => item.id === profile.weaponId);
 
-                          <strong className="itemInspect__statValue">
-                            <em>
-                              {hasModifier
-                                ? (stat.modifier ?? 0) > 0
-                                  ? `+${stat.modifier}`
-                                  : stat.modifier
-                                : formatStatValue(stat.value, stat.unit)}
-                            </em>
-                          </strong>
-                        </div>
+                          return (
+                            <>
+                              {weaponItem?.icon ? (
+                                <img src={weaponItem.icon} alt="" />
+                              ) : null}
 
-                        <div className="itemInspect__statBar">
-                          <span className="itemInspect__statBonus" />
-                        </div>
+                              <span>{profile.weaponName}</span>
+                            </>
+                          );
+                        })()}
+                      </button>
+                    ))}
+                  </div>
 
-                        {stat.details?.length ? (
-                          <div className="itemInspect__statDetails">
-                            {stat.details.map((detail) => (
-                              <div
-                                key={detail.label}
-                                className="itemInspect__statDetail"
-                              >
-                                <span>{detail.label}</span>
-                                <strong>{detail.value}</strong>
-                              </div>
-                            ))}
-                          </div>
-                        ) : null}
-                      </div>
-                    );
-                  })}
-                </div>
+                  {displayedStats.length ? (
+                    <ItemStatsBlock stats={displayedStats} />
+                  ) : null}
+                </section>
+              ) : displayedStats.length ? (
+                <ItemStatsBlock stats={displayedStats} />
               ) : null}
 
               <div className="itemInspect__meta">

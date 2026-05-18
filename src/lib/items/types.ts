@@ -119,6 +119,14 @@ export type ItemPossibleEffect = {
 };
 
 /* =========================
+   ITEM WEAPONS STATS
+========================= */
+export type ItemWeaponStatProfile = {
+  weaponId: string;
+  weaponName: string;
+  stats: ItemStat[];
+};
+/* =========================
    ITEM
 ========================= */
 
@@ -153,7 +161,7 @@ export type ItemEntry = {
   stats?: ItemStat[];
 
   isPriority?: boolean;
-
+  weaponStatProfiles?: ItemWeaponStatProfile[];
 
   ammo?: {
     itemId: string;

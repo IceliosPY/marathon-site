@@ -19,9 +19,12 @@ import { voltCell } from "./entries/volt-cells";
 import { slickMagIII } from "./entries/slickMagIII";
 import { rocketStart } from "./entries/rocket-start";
 import { hyphaticGel } from "./entries/hyphatic-gel";
-
+import { ironholdChoke } from "./entries/ironhold-choke";
+import { quickdrawGrip } from "./entries/quickdraw-grip";
 
 export const itemsData: ItemEntry[] = [
+  quickdrawGrip,
+  ironholdChoke,
   rocketStart,
   hyphaticGel,
   slickMagIII,

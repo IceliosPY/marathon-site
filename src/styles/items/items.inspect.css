@@ -469,7 +469,7 @@
   width:16px;
   height:16px;
   flex:0 0 16px;
-  background-image:url("/ressources/ui/credit.png");
+  background-image:url ("/ressources/ui/credit.png");
   background-repeat:no-repeat;
   background-position:center;
   background-size:contain;
@@ -1037,4 +1037,96 @@
   .itemInspect__effectResult{
     grid-template-columns:1fr;
   }
+}
+
+/* =========================
+   WEAPON STAT PROFILES
+========================= */
+
+.itemInspect__weaponProfiles{
+  width:100%;
+  max-width:520px;
+  display:grid;
+  gap:16px;
+}
+
+.itemInspect__weaponProfileNotice{
+  display:grid;
+  gap:4px;
+
+  padding:12px 14px;
+
+  background:rgba(140,150,165,.42);
+  border:1px solid rgba(255,255,255,.08);
+
+  color:#f4f4f4;
+
+  font-family:"PP Fraktion Mono Local", var(--font-ui), monospace;
+}
+
+.itemInspect__weaponProfileNotice span{
+  color:rgba(255,255,255,.78);
+
+  font-size:12px;
+  line-height:1.35;
+  letter-spacing:.04em;
+}
+
+.itemInspect__weaponProfileNotice strong{
+  color:#ffffff;
+
+  font-size:14px;
+  line-height:1.35;
+  font-weight:500;
+  letter-spacing:.05em;
+}
+
+.itemInspect__weaponProfileTabs{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.itemInspect__weaponProfileTabs button{
+  min-height:32px;
+  padding:7px 12px;
+
+  border:1px solid rgba(194,254,12,.22);
+  background:rgba(3,5,5,.72);
+  color:rgba(245,247,251,.72);
+
+  font-family:var(--font-ui);
+  font-size:10px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+
+  cursor:pointer;
+}
+
+.itemInspect__weaponProfileTabs button:hover,
+.itemInspect__weaponProfileTabs button.is-active{
+  border-color:#c2fe0c;
+  background:rgba(194,254,12,.12);
+  color:#c2fe0c;
+}
+
+.itemInspect__weaponProfileTabs button{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.itemInspect__weaponProfileTabs button img{
+  width:26px;
+  height:26px;
+  object-fit:contain;
+  flex:0 0 auto;
+
+  filter:drop-shadow(0 0 8px rgba(194,254,12,.16));
+}
+
+.itemInspect__weaponProfileTabs button span{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
 }

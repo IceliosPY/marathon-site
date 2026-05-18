@@ -35,17 +35,23 @@ export const slickMagIII: ItemEntry = {
     "misriah 2442",
   ],
 
-  stats: [
+  weaponStatProfiles: [
     {
-      label: "Rate of Fire",
-      value: 0,
-      modifier: 44,
-      unit: " RPM",
-    },
-    {
-      label: "Magazine",
-      value: 0,
-      modifier: 2,
+      weaponId: "misriah-2442",
+      weaponName: "Misriah 2442",
+      stats: [
+        {
+          label: "Rate of Fire",
+          value: 0,
+          modifier: 44,
+          unit: " RPM",
+        },
+        {
+          label: "Magazine",
+          value: 0,
+          modifier: 2,
+        },
+      ],
     },
   ],
 
