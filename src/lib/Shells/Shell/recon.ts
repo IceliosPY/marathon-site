@@ -21,7 +21,7 @@ export const recon: Shell = {
 
   background: asset("shells/recon/background.png"),
 
-  quote: "Recons use intel as a weapon.",
+  quote: "Find the pattern in the chaos.",
 
   preview: {
     role: "Intel specialist",
@@ -40,31 +40,70 @@ export const recon: Shell = {
   abilities: [
     {
       id: "echo-pulse",
+
       name: "Echo Pulse",
+
       type: "prime",
+
       description: "Prime Ability",
-      icon: asset("shells/recon/abilities/recon-prime.png"),
+
+      details:
+        "[A]: Activate your shell's <span class='hl'>advanced detection systems</span>, releasing a series of <span class='hl'>sonar pulses</span> that reveal the location of nearby hostiles.",
+
+      icon: asset(
+        "shells/recon/abilities/recon-prime.png"
+      ),
     },
+
     {
       id: "tracker-drone",
+
       name: "Tracker Drone",
+
       type: "tactical",
+
       description: "Tactical Ability",
-      icon: asset("shells/recon/abilities/recon-tactical.png"),
+
+      details:
+        "[F]: Deploy a mechanized <span class='hl'>microbot</span> that tracks down nearby hostiles and explodes, <span class='hl'>Overheating</span> any targets caught in the blast.",
+
+      icon: asset(
+        "shells/recon/abilities/recon-tactical.png"
+      ),
     },
+
     {
       id: "interrogation",
+
       name: "Interrogation",
+
       type: "trait",
+
       description: "Trait 1",
-      icon: asset("shells/recon/abilities/recon-trait1.png"),
+
+      details:
+        "When pinged by a hostile Runner, you automatically receive a <span class='hl'>warning</span> in your shell's HUD.\n\nPerforming a <span class='hl'>finisher</span> on a Runner <span class='hl'>pings</span> their crew.",
+
+      icon: asset(
+        "shells/recon/abilities/recon-trait1.png"
+      ),
     },
+
     {
       id: "stalker-protocol",
+
       name: "Stalker Protocol",
+
       type: "trait",
+
       description: "Trait 2",
-      icon: asset("shells/recon/abilities/recon-trait2.png"),
+
+      details:
+        "After breaking a target's shields, they leave behind a <span class='hl'>lingering holographic trail</span> for a short time.",
+
+      icon: asset(
+        "shells/recon/abilities/recon-trait2.png"
+      ),
     },
   ],
 };

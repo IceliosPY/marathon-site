@@ -40,31 +40,70 @@ export const assassin: Shell = {
   abilities: [
     {
       id: "smoke-screen",
+
       name: "Smoke Screen",
+
       type: "prime",
+
       description: "Prime Ability",
-      icon: asset("shells/assassin/abilities/assassin-prime.png"),
+
+      details:
+  "[A]: Throw a smoke disc that emits a <span class='hl'>line of smoke fields</span> in front of you.",
+
+      icon: asset(
+        "shells/assassin/abilities/assassin-prime.png"
+      ),
     },
+
     {
       id: "active-camo",
+
       name: "Active Camo",
+
       type: "tactical",
+
       description: "Tactical Ability",
-      icon: asset("shells/assassin/abilities/assassin-tactical.png"),
+
+      details:
+        "[F]: Activate your shell's camouflage systems, pulling a shroud of <span class='hl'>invisibility</span> over yourself.\n\nPerforming offensive actions, taking damage, and using abilities or consumables <span class='hl'>briefly disrupts your invisibility.</span>",
+
+      icon: asset(
+        "shells/assassin/abilities/assassin-tactical.png"
+      ),
     },
+
     {
       id: "shadow-dive",
+
       name: "Shadow Dive",
+
       type: "trait",
+
       description: "Trait 1",
-      icon: asset("shells/assassin/abilities/assassin-trait1.png"),
+
+      details:
+        "[V] Hold: Activate while <span class='hl'>Airborne</span> to slam a smoke disc into the ground, deploying a <span class='hl'>smoke field.</span>",
+
+      icon: asset(
+        "shells/assassin/abilities/assassin-trait1.png"
+      ),
     },
+
     {
       id: "shroud",
+
       name: "Shroud",
+
       type: "trait",
+
       description: "Trait 2",
-      icon: asset("shells/assassin/abilities/assassin-trait2.png"),
+
+      details:
+        "Your shell automatically activates its camouflage systems when entering any <span class='hl'>smoke field</span>, making you <span class='hl'>invisible.</span>.\n\nInvisibility persists for a short time after leaving the smoke field.",
+
+      icon: asset(
+        "shells/assassin/abilities/assassin-trait2.png"
+      ),
     },
   ],
 };

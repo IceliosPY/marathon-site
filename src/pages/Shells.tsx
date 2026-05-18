@@ -7,6 +7,7 @@ const HOVER_PREVIEW_DELAY = 300;
 export default function Shells() {
   const [activeShellId, setActiveShellId] = useState(shellsData[0]?.id ?? "");
   const [hoveredShellId, setHoveredShellId] = useState<string | null>(null);
+  const [hoveredAbilityId, setHoveredAbilityId] = useState<string | null>(null);
 
   const hoverTimeoutRef = useRef<number | null>(null);
 
@@ -21,6 +22,14 @@ export default function Shells() {
         ? shellsData.find((shell) => shell.id === hoveredShellId) ?? null
         : null,
     [hoveredShellId]
+  );
+
+  const hoveredAbility = useMemo(
+    () =>
+      hoveredAbilityId
+        ? activeShell.abilities.find((ability) => ability.id === hoveredAbilityId) ?? null
+        : null,
+    [activeShell, hoveredAbilityId]
   );
 
   const clearHoverPreview = () => {
@@ -43,18 +52,12 @@ export default function Shells() {
     }, HOVER_PREVIEW_DELAY);
   };
 
-  if (!activeShell) {
-    return null;
-  }
+  if (!activeShell) return null;
 
   return (
     <main className="shellsPage">
       <section className="shellsHero">
-        <img
-          src={activeShell.background}
-          alt=""
-          className="shellsHero__background"
-        />
+        <img src={activeShell.background} alt="" className="shellsHero__background" />
 
         <div className="shellsHero__overlay" />
         <div className="shellsHero__grid" />
@@ -66,14 +69,19 @@ export default function Shells() {
 
           <div className="shellsAbilities__list">
             {activeShell.abilities.map((ability) => (
-              <article key={ability.id} className="shellsAbility">
+              <article
+                key={ability.id}
+                className={`shellsAbility ${
+                  hoveredAbilityId === ability.id ? "is-hovered" : ""
+                }`}
+                onMouseEnter={() => setHoveredAbilityId(ability.id)}
+                onMouseLeave={() => setHoveredAbilityId(null)}
+                onFocus={() => setHoveredAbilityId(ability.id)}
+                onBlur={() => setHoveredAbilityId(null)}
+              >
                 <div className="shellsAbility__icon">
                   {ability.icon ? (
-                    <img
-                      src={ability.icon}
-                      alt=""
-                      className="shellsAbility__iconImg"
-                    />
+                    <img src={ability.icon} alt="" className="shellsAbility__iconImg" />
                   ) : null}
                 </div>
 
@@ -84,6 +92,21 @@ export default function Shells() {
               </article>
             ))}
           </div>
+
+          {hoveredAbility?.details ? (
+            <aside className="shellsAbilityPreview">
+              <h2 className="shellsAbilityPreview__title">{hoveredAbility.name}</h2>
+
+              <div className="shellsAbilityPreview__line" />
+
+              <p
+                className="shellsAbilityPreview__text"
+                dangerouslySetInnerHTML={{
+                  __html: hoveredAbility.details,
+                }}
+              />
+            </aside>
+          ) : null}
         </section>
 
         {activeShell.quote ? (
@@ -128,6 +151,7 @@ export default function Shells() {
               onClick={() => {
                 setActiveShellId(shell.id);
                 clearHoverPreview();
+                setHoveredAbilityId(null);
               }}
               onMouseEnter={() => scheduleHoverPreview(shell.id)}
               onMouseLeave={clearHoverPreview}

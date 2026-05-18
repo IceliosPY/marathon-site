@@ -4,16 +4,14 @@ export type ShellAbilityType =
   | "trait"
   | "passive";
 
-export type ShellAbility = {
-  id: string;
-  name: string;
-
-  type: ShellAbilityType;
-
-  description: string;
-
-  icon?: string;
-};
+  export type ShellAbility = {
+    id: string;
+    name: string;
+    type: "prime" | "tactical" | "trait" | "passive";
+    description: string;
+    details?: string;
+    icon?: string;
+  };
 
 export type ShellPreview = {
   role: string;

@@ -21,7 +21,7 @@ export const thief: Shell = {
 
   background: asset("shells/thief/background.png"),
 
-  quote: "A Thief always keeps their eyes on the prize.",
+  quote: "The best loot is the one they never notice missing.",
 
   preview: {
     role: "Covert acquisitions",
@@ -40,31 +40,70 @@ export const thief: Shell = {
   abilities: [
     {
       id: "pickpocket-drone",
+
       name: "Pickpocket Drone",
+
       type: "prime",
+
       description: "Prime Ability",
-      icon: asset("shells/thief/abilities/thief-prime.png"),
+
+      details:
+        "[A]: Deploy a <span class='hl'>remotely piloted</span> flying drone with a limited lifespan.\n\nWhile piloting the drone:\n\n🖱: Fire a <span class='hl'>hooked tether</span> that can eject the highest-value item from target inventories, collect and store loose loot, and open doors.\n\n[E]: Exit the drone and return to your shell.\n\nAt any point while the drone is still active, activate the ability again to <span class='hl'>continue piloting</span> the drone.",
+
+      icon: asset(
+        "shells/thief/abilities/thief-prime.png"
+      ),
     },
+
     {
       id: "grapple-device",
+
       name: "Grapple Device",
+
       type: "tactical",
+
       description: "Tactical Ability",
-      icon: asset("shells/thief/abilities/thief-tactical.png"),
+
+      details:
+        "[F]: Launch a <span class='hl'>grapple device</span> in your aim direction, propelling yourself toward it.",
+
+      icon: asset(
+        "shells/thief/abilities/thief-tactical.png"
+      ),
     },
+
     {
       id: "x-ray-visor",
+
       name: "X-Ray Visor",
+
       type: "trait",
+
       description: "Trait 1",
-      icon: asset("shells/thief/abilities/thief-trait1.png"),
+
+      details:
+        "[U]: Activate your <span class='hl'>visor</span>, highlighting hostiles and containers in the color of the <span class='hl'>most valuable item</span> they're storing. Containers are revealed through walls, while hostiles require line of sight.\n\nWhile active, aiming at a hostile for a short time <span class='hl'>Hacks</span> their optics, disrupting their vision until you look away.",
+
+      icon: asset(
+        "shells/thief/abilities/thief-trait1.png"
+      ),
     },
+
     {
       id: "the-finer-things",
+
       name: "The Finer Things",
+
       type: "trait",
+
       description: "Trait 2",
-      icon: asset("shells/thief/abilities/thief-trait2.png"),
+
+      details:
+        "Gain increased <span class='hl'>weapon handling</span> and accelerated Grapple Device <span class='hl'>recharge rate</span> based on the number of items in your <span class='hl'>Backpack</span>.",
+
+      icon: asset(
+        "shells/thief/abilities/thief-trait2.png"
+      ),
     },
   ],
 };

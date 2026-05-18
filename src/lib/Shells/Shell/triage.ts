@@ -21,7 +21,7 @@ export const triage: Shell = {
 
   background: asset("shells/triage/background.png"),
 
-  quote: "Triage saves lives.",
+  quote: "No one gets left behind.",
 
   preview: {
     role: "Field medic",
@@ -40,31 +40,70 @@ export const triage: Shell = {
   abilities: [
     {
       id: "reboot-plus",
+
       name: "Reboot+",
+
       type: "prime",
+
       description: "Prime Ability",
-      icon: asset("shells/triage/abilities/triage-prime.png"),
+
+      details:
+        "[A] Press: Ready your shell's emergency defibrillator systems.\n\n🖱 Hold: <span class='hl'>Lock on</span> to downed crew members or hostile targets and fire your Reboot+ device at them, which <span class='hl'>revives</span> crew members and <span class='hl'>EMPs</span> hostiles.\n\nWhile active, press [A] again to cancel.",
+
+      icon: asset(
+        "shells/triage/abilities/triage-prime.png"
+      ),
     },
+
     {
       id: "med-drone",
+
       name: "Med-Drone",
+
       type: "tactical",
+
       description: "Tactical Ability",
-      icon: asset("shells/triage/abilities/triage-tactical.png"),
+
+      details:
+        "[F] Press: Deploy a floating medical drone that attaches to crew members and <span class='hl'>restores health</span> or <span class='hl'>recharges shields</span>, and prevents them from bleeding out while downed.",
+
+      icon: asset(
+        "shells/triage/abilities/triage-tactical.png"
+      ),
     },
+
     {
       id: "shareware-exe",
+
       name: "Shareware.exe",
+
       type: "trait",
+
       description: "Trait 1",
-      icon: asset("shells/triage/abilities/triage-trait1.png"),
+
+      details:
+        "Benefits from medical consumables are shared between crew members with <span class='hl'>Med-Drone</span> attached to them.",
+
+      icon: asset(
+        "shells/triage/abilities/triage-trait1.png"
+      ),
     },
+
     {
       id: "battery-overcharge",
+
       name: "Battery Overcharge",
+
       type: "trait",
+
       description: "Trait 2",
-      icon: asset("shells/triage/abilities/triage-trait2.png"),
+
+      details:
+        "[U]: Divert energy from your cooling systems to <span class='hl'>boost the performance of your weapons</span> at the cost of generating additional heat.\n\nWhile active, breaking a target's shield with a volt weapon <span class='hl'>EMPs</span> them.",
+
+      icon: asset(
+        "shells/triage/abilities/triage-trait2.png"
+      ),
     },
   ],
 };
