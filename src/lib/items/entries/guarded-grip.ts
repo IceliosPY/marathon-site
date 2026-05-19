@@ -1,81 +1,115 @@
 import type { ItemEntry } from "../types";
 import { asset } from "../../assets";
 
-export const quickdrawGrip: ItemEntry = {
-  id: "quickdraw-grip",
-  name: "Quickdraw Grip",
+export const guardedGrip: ItemEntry = {
+  id: "guarded-grip",
+
+  name: "Guarded Grip",
 
   category: "mod",
   rarity: "superior",
 
-  icon: asset("items/icons/Quickdraw-grip.png"),
-  image: asset("items/icons/Quickdraw-grip.png"),
-  render: asset("items/icons/Quickdraw-grip.png"),
-  video: asset("items/videos/mods/QuickdrawGrip.mp4"),
+  icon: asset("items/icons/GuardedGrip.png"),
+  image: asset("items/icons/GuardedGrip.png"),
+  render: asset("items/icons/GuardedGrip.png"),
+  video: asset("items/videos/mods/GuardedGrip.mp4"),
 
   sellPrice: 540,
 
   effect: "Superior Shotgun Grip Mod",
 
-  description: "Greatly increases movement and ready speeds with this weapon.",
+  description:
+    "Greatly increases ready speed and stability.",
 
-  highlightTerms: ["movement", "ready speeds", "equip speed", "weight"],
+  highlightTerms: [
+    "ready speed",
+    "stability",
+    "equip speed",
+    "recoil",
+  ],
 
-  lore: "Compatible Weapons: WSTR Combat Shotgun, Misriah 2442, V85 Circuit Breaker",
+  lore:
+    "Stabilized tactical grip reducing recoil transfer while improving handling responsiveness.",
 
   tags: [
     "mod",
     "grip",
     "shotgun mod",
+    "stability",
+    "recoil",
     "handling",
     "equip speed",
-    "movement",
     "shotgun",
-    "wstr combat shotgun",
-    "misriah 2442",
-    "v85 circuit breaker",
   ],
+
+  /*
+    DEFAULT DISPLAY
+  */
+
+  stats: [
+    {
+      label: "Equip Speed",
+      value: 0,
+      modifier: -0.31,
+      unit: "s",
+    },
+    {
+      label: "Recoil",
+      value: 0,
+      modifier: -20,
+      unit: "%",
+    },
+  ],
+
+  /*
+    MULTI-WEAPON PROFILES
+  */
 
   weaponStatProfiles: [
     {
       weaponId: "wstr-combat-shotgun",
       weaponName: "WSTR Combat Shotgun",
+
       stats: [
         {
           label: "Equip Speed",
-          value: 0.9,
-          modifier: -0.34,
+          value: 0.90,
+          modifier: -0.28,
           unit: "s",
         },
         {
-          label: "Weight",
-          value: 36,
-          modifier: -16,
+          label: "Recoil",
+          value: 50.5,
+          modifier: -18,
           unit: "%",
         },
       ],
     },
+
     {
       weaponId: "misriah-2442",
       weaponName: "Misriah 2442",
+
       stats: [
         {
           label: "Equip Speed",
-          value: 0.9,
-          modifier: -0.45,
+          value: 0.90,
+          modifier: -0.40,
           unit: "s",
         },
         {
-          label: "Weight",
-          value: 36,
-          modifier: -16,
+          label: "Recoil",
+          value: 93,
+          modifier: -28,
           unit: "%",
         },
       ],
     },
+
     {
       weaponId: "v85-circuit-breaker",
       weaponName: "V85 Circuit Breaker",
+
       stats: [
         {
           label: "Equip Speed",
@@ -84,9 +118,9 @@ export const quickdrawGrip: ItemEntry = {
           unit: "s",
         },
         {
-          label: "Weight",
-          value: 32,
-          modifier: -14,
+          label: "Recoil",
+          value: 86.5,
+          modifier: -20,
           unit: "%",
         },
       ],

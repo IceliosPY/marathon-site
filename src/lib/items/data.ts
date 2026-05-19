@@ -21,8 +21,16 @@ import { rocketStart } from "./entries/rocket-start";
 import { hyphaticGel } from "./entries/hyphatic-gel";
 import { ironholdChoke } from "./entries/ironhold-choke";
 import { quickdrawGrip } from "./entries/quickdraw-grip";
+import { misriah2442 } from "./entries/misriah2442";
+import { wstrCombatShotgun } from "./entries/wstr-combat-shotgun";
+import { v85CircuitBreaker } from "./entries/v85-circuit-breaker";
+import { guardedGrip } from "./entries/guarded-grip";
 
 export const itemsData: ItemEntry[] = [
+  guardedGrip,
+  v85CircuitBreaker,
+  misriah2442,
+  wstrCombatShotgun,
   quickdrawGrip,
   ironholdChoke,
   rocketStart,

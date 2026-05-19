@@ -7,10 +7,10 @@ export const insurancePlan: ItemEntry = {
   category: "chip",
   rarity: "superior",
 
-  icon: asset("items/icons/insurance-plan.png"),
-  image: asset("items/icons/insurance-plan.png"),
-  render: asset("items/icons/insurance-plan.png"),
-  video: asset("items/videos/insurance-plan.mp4"),
+  icon: asset("items/icons/chip1.png"),
+  image: asset("items/icons/chip1.png"),
+  render: asset("items/icons/chip1.png"),
+  video: asset("items/videos/chip/chip1.mp4"),
 
   sellPrice: 621,
 

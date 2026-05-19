@@ -10,7 +10,7 @@ export const stackOverflow: ItemEntry = {
   icon: asset("items/icons/stack-overflow.png"),
   image: asset("items/icons/stack-overflow.png"),
   render: asset("items/icons/stack-overflow.png"),
-  video: asset("items/videos/stack-overflow.mp4"),
+  video: asset("items/videos/chip/chip2.mp4"),
 
   sellPrice: 621,
 

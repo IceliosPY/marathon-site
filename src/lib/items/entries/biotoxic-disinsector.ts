@@ -10,7 +10,7 @@ export const biotoxicDisinsector: ItemEntry = {
   icon: asset("items/icons/biotoxic.png"),
   image: asset("items/icons/biotoxic.png"),
   render: asset("items/icons/biotoxic.png"),
-  video: asset("items/videos/biotoxic-disinsector.mp4"),
+  video: asset("items/videos/weapons/biotoxic3.mp4"),
 
   buyPrice: undefined,
   sellPrice: 7777,

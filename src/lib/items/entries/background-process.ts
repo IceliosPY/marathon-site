@@ -10,7 +10,7 @@ export const backgroundProcess: ItemEntry = {
   icon: asset("items/icons/background-process.png"),
   image: asset("items/icons/background-process.png"),
   render: asset("items/icons/background-process.png"),
-  video: asset("items/videos/background-process.mp4"),
+  video: asset("items/videos/chip/chip2.mp4"),
 
   sellPrice: 207,
 

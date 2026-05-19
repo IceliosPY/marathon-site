@@ -10,7 +10,7 @@ export const protectorV3: ItemEntry = {
   icon: asset("items/icons/protector.png"),
   image: asset("items/icons/protector.png"),
   render: asset("items/icons/protector.png"),
-  video: asset("items/videos/protector.mp4"),
+  video: asset("items/videos/protector/protector.mp4"),
 
   buyPrice: -1,
   sellPrice: 900,

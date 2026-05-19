@@ -10,7 +10,7 @@ export const v85FreeTail: ItemEntry = {
   icon: asset("items/icons/v85-free-tail.png"),
   image: asset("items/icons/v85-free-tail.png"),
   render: asset("items/icons/v85-free-tail.png"),
-  video: asset("items/videos/v85-free-tail.mp4"),
+  video: asset("items/videos/weapons/V75.mp4"),
 
   sellPrice: 10401,
 

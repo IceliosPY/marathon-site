@@ -10,7 +10,7 @@ export const hyphaticGel: ItemEntry = {
   icon: asset("items/icons/hyphatic-gel.png"),
   image: asset("items/icons/hyphatic-gel.png"),
   render: asset("items/icons/hyphatic-gel.png"),
-  video: asset("items/videos/hyphatic-gel.mp4"),
+  video: asset("items/videos/ammo/hypathic2.mp4"),
 
   sellPrice: 1,
 

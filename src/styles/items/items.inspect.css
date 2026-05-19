@@ -811,12 +811,23 @@
 
 .itemInspect__image,
 .itemInspect__video{
-  width:min(340px, 62%);
-  height:min(340px, 62%);
   object-fit:contain;
   filter:
-    drop-shadow(0 0 22px rgba(194,254,12,.16))
-    drop-shadow(0 22px 32px rgba(0,0,0,.55));
+    drop-shadow(0 0 28px rgba(52,106,255,.22))
+    drop-shadow(0 26px 36px rgba(0,0,0,.62));
+}
+
+/* image stills stay compact and clean */
+.itemInspect__image{
+  width:min(520px, 78%);
+  height:min(520px, 74%);
+}
+
+/* videos get a dedicated armory-style preview frame */
+.itemInspect__video{
+  width:min(620px, 84%);
+  height:min(460px, 72%);
+  padding:24px;
 }
 
 .itemInspect__media::before,
@@ -1009,10 +1020,15 @@
     padding:86px 36px 72px;
   }
 
-  .itemInspect__image,
+  .itemInspect__image{
+    width:min(320px, 82%);
+    height:min(320px, 64%);
+  }
+
   .itemInspect__video{
-    width:260px;
-    height:260px;
+    width:min(420px, 86%);
+    height:min(320px, 64%);
+    padding:16px;
   }
 
   .itemInspect__ammoSlot{

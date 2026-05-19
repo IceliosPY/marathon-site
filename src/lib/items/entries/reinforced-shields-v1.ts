@@ -10,7 +10,7 @@ export const reinforcedShieldsV1: ItemEntry = {
   icon: asset("items/icons/protector.png"),
   image: asset("items/icons/protector.png"),
   render: asset("items/icons/protector.png"),
-  video: asset("items/videos/reinforced-shields-v1.mp4"),
+  video: asset("items/videos/protector/protector2.mp4"),
 
   buyPrice: 900,
   sellPrice: 180,

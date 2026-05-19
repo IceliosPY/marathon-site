@@ -10,7 +10,7 @@ export const ironholdChoke: ItemEntry = {
   icon: asset("items/icons/ironhold-choke.png"),
   image: asset("items/icons/ironhold-choke.png"),
   render: asset("items/icons/ironhold-choke.png"),
-  video: asset("items/videos/IronholdChoke.mp4"),
+  video: asset("items/videos/mods/IronholdChoke.mp4"),
 
   sellPrice: 540,
 

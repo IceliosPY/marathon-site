@@ -10,7 +10,7 @@ export const slickMagIII: ItemEntry = {
   icon: asset("items/icons/SlickMagIII.png"),
   image: asset("items/icons/SlickMagIII.png"),
   render: asset("items/icons/SlickMagIII.png"),
-  video: asset("items/videos/SlickMagIII.mp4"),
+  video: asset("items/videos/mods/SlickMagIII.mp4"),
 
   sellPrice: 540,
 
