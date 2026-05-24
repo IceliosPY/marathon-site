@@ -119,13 +119,49 @@ export type ItemPossibleEffect = {
 };
 
 /* =========================
-   ITEM WEAPONS STATS
+   ITEM WEAPON STAT PROFILES
 ========================= */
+
 export type ItemWeaponStatProfile = {
   weaponId: string;
   weaponName: string;
   stats: ItemStat[];
 };
+
+/* =========================
+   UNIQUE / LOCKED UPGRADES
+========================= */
+
+export type ItemLockedUpgradeKind =
+  | "optic"
+  | "magazine"
+  | "underbarrel"
+  | "grip"
+  | "stock"
+  | "chip"
+  | "core"
+  | "ammo"
+  | "other";
+
+export type ItemLockedUpgrade = {
+  id: string;
+  name: string;
+  kind: ItemLockedUpgradeKind;
+  rarity?: ItemRarity;
+  icon?: string;
+  description?: string;
+};
+
+/* =========================
+   AMMO LINK
+========================= */
+
+export type ItemAmmoLink = {
+  itemId: string;
+  label: string;
+  icon: string;
+};
+
 /* =========================
    ITEM
 ========================= */
@@ -161,11 +197,19 @@ export type ItemEntry = {
   stats?: ItemStat[];
 
   isPriority?: boolean;
+
   weaponStatProfiles?: ItemWeaponStatProfile[];
 
-  ammo?: {
-    itemId: string;
-    label: string;
-    icon: string;
-  };
+  /**
+   * Ancienne méthode : upgrades écrits directement dans l'arme.
+   */
+  lockedUpgrades?: ItemLockedUpgrade[];
+
+  /**
+   * Nouvelle méthode : IDs d'items déjà existants.
+   * Exemple : ["quickdraw-grip", "volt-tuning", "charge-accelerator"]
+   */
+  lockedUpgradeIds?: string[];
+
+  ammo?: ItemAmmoLink;
 };

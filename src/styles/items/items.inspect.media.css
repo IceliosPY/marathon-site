@@ -1,0 +1,179 @@
+/* =========================
+   RIGHT MEDIA
+========================= */
+
+.itemInspect__media{
+  grid-column:2;
+  grid-row:1;
+  position:relative;
+  z-index:2;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  min-width:0;
+  min-height:100%;
+  padding-top:32px;
+
+  background:
+    radial-gradient(circle at 50% 46%, rgba(24,49,110,.58), transparent 38%),
+    radial-gradient(circle at 53% 48%, rgba(194,254,12,.08), transparent 24%),
+    linear-gradient(180deg, rgba(2,3,7,.08), rgba(2,3,7,.62));
+}
+
+.itemInspect__image,
+.itemInspect__video{
+  width:min(560px, 78%);
+  height:min(440px, 64%);
+
+  object-fit:contain;
+  object-position:center;
+
+  background:transparent;
+  border:0;
+  padding:0;
+
+  filter:
+    drop-shadow(0 0 22px rgba(52,106,255,.18))
+    drop-shadow(0 24px 34px rgba(0,0,0,.62));
+}
+
+.itemInspect__video{
+  transform:scale(1.08);
+}
+
+.itemInspect__media video{
+  background:transparent !important;
+}
+
+.itemInspect__media::before,
+.itemInspect__media::after{
+  content:"";
+  position:absolute;
+  width:18px;
+  height:18px;
+  border-color:rgba(255,255,255,.22);
+  border-style:solid;
+  pointer-events:none;
+}
+
+.itemInspect__media::before{
+  top:58px;
+  left:26px;
+  border-width:4px 0 0 4px;
+}
+
+.itemInspect__media::after{
+  right:26px;
+  bottom:26px;
+  border-width:0 4px 4px 0;
+}
+
+/* =========================
+   AMMO SLOT
+========================= */
+
+.itemInspect__ammoSlot{
+  position:absolute;
+  left:34px;
+  bottom:34px;
+  z-index:12;
+
+  width:54px;
+  height:54px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:0;
+  border:1px solid rgba(194,254,12,.35);
+  background:
+    radial-gradient(circle at center, rgba(194,254,12,.16), transparent 62%),
+    rgba(3,5,5,.82);
+
+  cursor:pointer;
+}
+
+.itemInspect__ammoSlot:hover{
+  border-color:#c2fe0c;
+  box-shadow:0 0 18px rgba(194,254,12,.16);
+}
+
+.itemInspect__ammoSlot img{
+  width:34px;
+  height:34px;
+  object-fit:contain;
+  filter:drop-shadow(0 0 8px rgba(194,254,12,.26));
+}
+
+.itemInspect__ammoTooltip{
+  position:absolute;
+  left:0;
+  bottom:calc(100% + 8px);
+  z-index:20;
+
+  min-width:max-content;
+  max-width:220px;
+  padding:8px 10px;
+
+  border:1px solid rgba(194,254,12,.26);
+  background:rgba(3,5,5,.96);
+  color:#f5f7fb;
+
+  font-family:var(--font-ui);
+  font-size:10px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+
+  opacity:0;
+  transform:translateY(4px);
+  pointer-events:none;
+  transition:opacity .12s ease, transform .12s ease;
+}
+
+.itemInspect__ammoTooltip::before{
+  content:"AMMO // ";
+  color:#c2fe0c;
+}
+
+.itemInspect__ammoSlot:hover .itemInspect__ammoTooltip{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* =========================
+   MEDIA SWITCH
+========================= */
+
+.itemInspect__mediaSwitch{
+  position:absolute;
+  left:50%;
+  bottom:34px;
+  z-index:10;
+
+  display:flex;
+  gap:8px;
+  transform:translateX(-50%);
+}
+
+.itemInspect__mediaSwitch button{
+  min-height:32px;
+  padding:7px 12px;
+  border:1px solid rgba(194,254,12,.28);
+  background:rgba(0,0,0,.42);
+  color:rgba(255,255,255,.72);
+  font-family:var(--font-ui);
+  font-size:10px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  cursor:pointer;
+}
+
+.itemInspect__mediaSwitch button:hover,
+.itemInspect__mediaSwitch button.is-active{
+  border-color:#c2fe0c;
+  background:rgba(194,254,12,.12);
+  color:#c2fe0c;
+}

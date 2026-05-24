@@ -562,6 +562,10 @@ export default function Items() {
 
   const displayedStats = activeWeaponProfile?.stats ?? selectedItem?.stats ?? [];
 
+  const lockedUpgradeItems = selectedItem?.lockedUpgradeIds
+    ?.map((id) => itemsData.find((item) => item.id === id))
+    .filter((item): item is ItemEntry => Boolean(item));
+
   const openItemModal = (item: ItemEntry) => {
     setSelectedItem(item);
     setMediaMode("image");
@@ -827,6 +831,57 @@ export default function Items() {
                   className="itemInspect__image"
                 />
               )}
+
+              {lockedUpgradeItems?.length ? (
+                <section className="itemInspect__mediaLockedSlots">
+                  <div className="itemInspect__mediaLockedSlotsHead">
+                    <span>MODS</span>
+                    <strong>↗</strong>
+                  </div>
+
+                  <div className="itemInspect__mediaLockedSlotsGrid">
+                    {lockedUpgradeItems.map((upgrade) => (
+                      <article
+                        key={upgrade.id}
+                        className={`itemInspect__mediaLockedSlot rarity-${upgrade.rarity}`}
+                        role="button"
+                        tabIndex={0}
+                        onClick={() => {
+                          openItemModal(upgrade);
+                        }}
+                        onKeyDown={(event) => {
+                          if (event.key === "Enter" || event.key === " ") {
+                            event.preventDefault();
+                            openItemModal(upgrade);
+                          }
+                        }}
+                      >
+                        <div className="itemInspect__mediaLockedSlotBand">
+                          {itemCategoryLabels[upgrade.category] ?? upgrade.category}
+                        </div>
+
+                        {upgrade.icon ? (
+                          <img src={upgrade.icon} alt={upgrade.name} />
+                        ) : null}
+
+                        <div className="itemInspect__mediaLockedTooltip">
+                          <span>
+                            {rarityLabels[upgrade.rarity] ?? upgrade.rarity}{" "}
+                            {itemCategoryLabels[upgrade.category] ??
+                              upgrade.category}
+                          </span>
+
+                          <strong>{upgrade.name}</strong>
+
+                          {upgrade.description ? (
+                            <p>{upgrade.description}</p>
+                          ) : null}
+                        </div>
+                      </article>
+                    ))}
+                  </div>
+                </section>
+              ) : null}
             </div>
 
             <div className="itemInspect__content">
@@ -977,7 +1032,6 @@ export default function Items() {
                   )}
                 </section>
               ) : null}
-
               {selectedItem.sources?.length ? (
                 <section className="itemInspect__sources">
                   <div className="itemInspect__sourcesHead">

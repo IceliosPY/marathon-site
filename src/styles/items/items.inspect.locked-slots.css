@@ -1,0 +1,352 @@
+/* =========================
+   WEAPON STAT PROFILES
+========================= */
+
+.itemInspect__weaponProfiles{
+  width:100%;
+  max-width:520px;
+  display:grid;
+  gap:16px;
+}
+
+.itemInspect__weaponProfileNotice{
+  display:grid;
+  gap:4px;
+
+  padding:12px 14px;
+
+  background:rgba(140,150,165,.42);
+  border:1px solid rgba(255,255,255,.08);
+
+  color:#f4f4f4;
+
+  font-family:"PP Fraktion Mono Local", var(--font-ui), monospace;
+}
+
+.itemInspect__weaponProfileNotice span{
+  color:rgba(255,255,255,.78);
+
+  font-size:12px;
+  line-height:1.35;
+  letter-spacing:.04em;
+}
+
+.itemInspect__weaponProfileNotice strong{
+  color:#ffffff;
+
+  font-size:14px;
+  line-height:1.35;
+  font-weight:500;
+  letter-spacing:.05em;
+}
+
+.itemInspect__weaponProfileTabs{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.itemInspect__weaponProfileTabs button{
+  min-height:32px;
+  padding:7px 12px;
+
+  border:1px solid rgba(194,254,12,.22);
+  background:rgba(3,5,5,.72);
+  color:rgba(245,247,251,.72);
+
+  font-family:var(--font-ui);
+  font-size:10px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+
+  cursor:pointer;
+}
+
+.itemInspect__weaponProfileTabs button:hover,
+.itemInspect__weaponProfileTabs button.is-active{
+  border-color:#c2fe0c;
+  background:rgba(194,254,12,.12);
+  color:#c2fe0c;
+}
+
+.itemInspect__weaponProfileTabs button{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.itemInspect__weaponProfileTabs button img{
+  width:26px;
+  height:26px;
+  object-fit:contain;
+  flex:0 0 auto;
+
+  filter:drop-shadow(0 0 8px rgba(194,254,12,.16));
+}
+
+.itemInspect__weaponProfileTabs button span{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+/* =========================
+   MEDIA LOCKED UPGRADE SLOTS
+========================= */
+
+.itemInspect__mediaLockedSlots{
+  position:absolute;
+  left:34px;
+  top:70px;
+  z-index:20;
+
+  width:auto;
+  padding:10px;
+
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+
+  overflow:visible;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(8,10,18,.82),
+      rgba(4,6,12,.90)
+    );
+
+  border:1px solid rgba(120,140,255,.10);
+
+  box-shadow:
+    0 0 24px rgba(0,0,0,.42),
+    inset 0 0 0 1px rgba(255,255,255,.02);
+
+  backdrop-filter:blur(8px);
+}
+
+.itemInspect__mediaLockedSlotsHead{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  margin-bottom:2px;
+
+  color:rgba(255,255,255,.62);
+
+  font-family:var(--font-ui);
+  font-size:9px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+
+.itemInspect__mediaLockedSlotsHead span{
+  color:inherit;
+  font:inherit;
+}
+
+.itemInspect__mediaLockedSlotsHead strong{
+  color:rgba(255,255,255,.42);
+
+  font-family:var(--font-ui);
+  font-size:10px;
+  font-weight:500;
+}
+
+.itemInspect__mediaLockedSlotsGrid{
+  display:flex;
+  gap:6px;
+  overflow:visible;
+}
+
+.itemInspect__mediaLockedSlot{
+  position:relative;
+
+  width:52px;
+  height:52px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  overflow:visible;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.03),
+      rgba(255,255,255,.01)
+    );
+
+  border:1px solid rgba(255,255,255,.08);
+
+  transition:
+    transform .12s ease,
+    border-color .12s ease,
+    box-shadow .12s ease;
+
+  cursor:pointer;
+}
+
+.itemInspect__mediaLockedSlot:hover{
+  transform:translateY(-1px);
+
+  border-color:rgba(210,74,255,.65);
+
+  box-shadow:
+    0 0 10px rgba(210,74,255,.16),
+    inset 0 0 10px rgba(210,74,255,.04);
+}
+
+.itemInspect__mediaLockedSlotBand{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  z-index:3;
+
+  height:10px;
+
+  display:flex;
+  align-items:center;
+
+  padding:0 4px;
+
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+
+  color:#050607;
+
+  font-family:var(--font-ui);
+  font-size:6px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.itemInspect__mediaLockedSlot.rarity-standard .itemInspect__mediaLockedSlotBand{
+  background:#f2f5f7;
+}
+
+.itemInspect__mediaLockedSlot.rarity-enhanced .itemInspect__mediaLockedSlotBand{
+  background:#57ff8f;
+}
+
+.itemInspect__mediaLockedSlot.rarity-deluxe .itemInspect__mediaLockedSlotBand{
+  background:#419eea;
+  color:#fff;
+}
+
+.itemInspect__mediaLockedSlot.rarity-superior .itemInspect__mediaLockedSlotBand{
+  background:#c650ff;
+  color:#fff;
+}
+
+.itemInspect__mediaLockedSlot.rarity-prestige .itemInspect__mediaLockedSlotBand{
+  background:#ffd84d;
+}
+
+.itemInspect__mediaLockedSlot.rarity-contraband .itemInspect__mediaLockedSlotBand{
+  background:#ff3b3b;
+  color:#fff;
+}
+
+.itemInspect__mediaLockedSlot.rarity-priority .itemInspect__mediaLockedSlotBand{
+  background:#c2fe0c;
+  color:#050607;
+}
+
+.itemInspect__mediaLockedSlot img{
+  position:relative;
+  z-index:2;
+
+  width:26px;
+  height:26px;
+
+  object-fit:contain;
+
+  filter:
+    drop-shadow(0 0 6px rgba(255,255,255,.08))
+    drop-shadow(0 6px 10px rgba(0,0,0,.45));
+}
+
+.itemInspect__mediaLockedTooltip{
+  position:absolute;
+  left:calc(100% + 12px);
+  top:calc(100% + 6px);
+  z-index:120;
+
+  width:220px;
+  padding:10px 12px;
+
+  transform:translateX(-4px);
+
+  background:rgba(5,7,14,.98);
+  border:1px solid rgba(210,74,255,.45);
+
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+
+  box-shadow:
+    0 18px 40px rgba(0,0,0,.62),
+    inset 0 0 0 1px rgba(255,255,255,.025);
+
+  transition:
+    opacity .12s ease,
+    visibility .12s ease,
+    transform .12s ease;
+}
+
+.itemInspect__mediaLockedSlot:hover .itemInspect__mediaLockedTooltip,
+.itemInspect__mediaLockedSlot:focus-within .itemInspect__mediaLockedTooltip{
+  opacity:1;
+  visibility:visible;
+  transform:translateX(0);
+}
+
+
+.itemInspect__mediaLockedTooltip span{
+  display:block;
+  margin-bottom:4px;
+
+  color:#c95cff;
+
+  font-family:var(--font-ui);
+  font-size:8px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.itemInspect__mediaLockedTooltip strong{
+  display:block;
+  margin-bottom:5px;
+
+  color:#fff;
+
+  font-family:var(--font-ui);
+  font-size:11px;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+}
+
+.itemInspect__mediaLockedTooltip p{
+  margin:0;
+
+  color:rgba(255,255,255,.7);
+
+  font-family:var(--font-ui);
+  font-size:10px;
+  line-height:1.45;
+}
+
+/* Compatibility cleanup: old left-column locked slot block is disabled. */
+.itemInspect__lockedSlots,
+.itemInspect__lockedSlotsHead,
+.itemInspect__lockedSlotsGrid,
+.itemInspect__lockedSlot,
+.itemInspect__lockedSlotBand,
+.itemInspect__lockedSlotTooltip{
+  display:none !important;
+}

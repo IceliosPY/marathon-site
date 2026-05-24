@@ -33,7 +33,7 @@ export function initCursor() {
       el.dataset.name ||
       el.getAttribute("aria-label") ||
       el.getAttribute("title") ||
-      "TARGET"
+      ""
     );
   };
 
@@ -86,7 +86,7 @@ export function initCursor() {
     event?: MouseEvent | PointerEvent
   ) => {
     if (document.body.classList.contains("maps-modal-open")) {
-      label.classList.remove("is-target");
+      label.classList.remove("is-target", "has-label");
       if (text) text.textContent = "";
       return;
     }
@@ -95,17 +95,20 @@ export function initCursor() {
     const clickable = el?.closest(clickableSelector) as HTMLElement | null;
 
     if (clickable && !document.body.classList.contains("is-text-selecting")) {
+      const labelText = getLabel(clickable)
+        .replace(/\s+/g, " ")
+        .trim()
+        .slice(0, 22)
+        .toUpperCase();
+
       label.classList.add("is-target");
+      label.classList.toggle("has-label", Boolean(labelText));
 
       if (text) {
-        text.textContent = getLabel(clickable)
-          .replace(/\s+/g, " ")
-          .trim()
-          .slice(0, 22)
-          .toUpperCase();
+        text.textContent = labelText;
       }
     } else {
-      label.classList.remove("is-target");
+      label.classList.remove("is-target", "has-label");
 
       if (text && event) {
         const x = Math.round(event.pageX - 1);

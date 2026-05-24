@@ -1,0 +1,88 @@
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width:1100px){
+  .itemInspectModal{
+    padding:24px;
+  }
+
+  .itemInspect{
+    width:calc(100vw - 48px);
+    height:min(780px, calc(100vh - 48px));
+    grid-template-columns:1fr;
+    overflow:auto;
+  }
+
+  .itemInspect__content,
+  .itemInspect__media{
+    grid-column:1;
+  }
+
+  .itemInspect__media{
+    min-height:320px;
+    order:2;
+  }
+
+  .itemInspect__content{
+    padding:86px 36px 72px;
+  }
+
+  .itemInspect__image{
+    width:min(320px, 82%);
+    height:min(320px, 64%);
+  }
+
+  .itemInspect__video{
+    width:min(420px, 86%);
+    height:min(320px, 64%);
+    padding:16px;
+  }
+
+  .itemInspect__ammoSlot{
+    left:24px;
+    bottom:28px;
+    width:48px;
+    height:48px;
+  }
+
+  .itemInspect__ammoSlot img{
+    width:30px;
+    height:30px;
+  }
+
+  .itemInspect .itemInspectTicker{
+    height:30px !important;
+  }
+
+  .itemInspect .itemInspectTicker__copy{
+    font-size:8px !important;
+    line-height:30px !important;
+  }
+
+  .itemInspect__effectResult{
+    grid-template-columns:1fr;
+  }
+
+  .itemInspect__mediaLockedSlots{
+    left:24px;
+    top:64px;
+    padding:10px;
+  }
+
+  .itemInspect__mediaLockedSlotsGrid{
+    overflow:visible;
+    padding-bottom:0;
+  }
+
+  .itemInspect__mediaLockedSlot{
+    flex:0 0 52px;
+    width:52px;
+    height:52px;
+  }
+
+  .itemInspect__mediaLockedSlot img{
+    width:26px;
+    height:26px;
+  }
+}

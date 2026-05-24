@@ -1,0 +1,222 @@
+/* =========================
+   LEFT CONTENT
+========================= */
+
+.itemInspect__content{
+  grid-column:1;
+  grid-row:1;
+  position:relative;
+  z-index:3;
+
+  min-height:0;
+  max-height:100%;
+  overflow-y:auto;
+  overflow-x:hidden;
+  scrollbar-gutter:stable;
+
+  padding:86px 64px 72px;
+
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(7,8,10,.98) 0%,
+      rgba(8,9,12,.96) 78%,
+      rgba(8,9,12,.62) 100%
+    );
+}
+
+.itemInspect__content::-webkit-scrollbar{
+  width:8px;
+}
+
+.itemInspect__content::-webkit-scrollbar-track{
+  background:#040505;
+}
+
+.itemInspect__content::-webkit-scrollbar-thumb{
+  background:#c2fe0c;
+  border:1px solid rgba(0,0,0,.6);
+}
+
+.itemInspect__content::-webkit-scrollbar-thumb:hover{
+  background:#d4ff3a;
+}
+
+.itemInspect__eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin:0 0 18px;
+  padding:5px 12px 5px 34px;
+  position:relative;
+  color:#f4fbff;
+  font-family:var(--font-ui);
+  font-size:12px;
+  line-height:1;
+  letter-spacing:.08em;
+  text-transform:capitalize;
+}
+
+.itemInspect__eyebrow::before{
+  content:"";
+  position:absolute;
+  left:10px;
+  top:50%;
+  width:12px;
+  height:12px;
+  transform:translateY(-50%);
+  border:2px solid currentColor;
+  clip-path:polygon(50% 0, 100% 28%, 86% 100%, 14% 100%, 0 28%);
+}
+
+.itemInspect.rarity-standard .itemInspect__eyebrow{
+  background:#f2f5f7;
+  color:#050607;
+}
+
+.itemInspect.rarity-enhanced .itemInspect__eyebrow{
+  background:#57ff8f;
+  color:#03160a;
+}
+
+.itemInspect.rarity-deluxe .itemInspect__eyebrow{
+  background:#419eea;
+  color:#f4fbff;
+}
+
+.itemInspect.rarity-superior .itemInspect__eyebrow{
+  background:linear-gradient(90deg, #b800ff 0%, #c61cff 55%, #d94cff 100%);
+  color:#ffffff;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.08),
+    0 0 14px rgba(200,20,255,.28);
+}
+
+.itemInspect.rarity-prestige .itemInspect__eyebrow{
+  background:#ffd84d;
+  color:#050607;
+}
+
+.itemInspect.rarity-contraband .itemInspect__eyebrow{
+  background:#ff3b3b;
+  color:#ffffff;
+}
+
+.itemInspect__title{
+  margin:0 0 22px;
+  color:#f3f3f3;
+  font-family:serif;
+  font-size:clamp(46px, 3.2vw, 62px);
+  line-height:.92;
+  font-weight:500;
+  letter-spacing:.02em;
+  text-transform:uppercase;
+}
+
+.itemInspect__effect{
+  margin:0 0 38px;
+  color:rgba(245,247,251,.82);
+  font-family:var(--font-ui);
+  font-size:16px;
+  line-height:1.5;
+  letter-spacing:.06em;
+}
+
+.itemInspect__effectBonus{
+  color:#17f5c8;
+  text-shadow:0 0 10px rgba(23,245,200,.28);
+}
+
+.itemInspect__descriptionText{
+  margin:0 0 24px;
+  max-width:520px;
+  color:rgba(245,247,251,.78);
+  font-family:var(--font-ui);
+  font-size:14px;
+  line-height:1.55;
+  letter-spacing:.04em;
+}
+
+.itemInspect__intrinsic{
+  width:100%;
+  max-width:520px;
+  margin:0 0 28px;
+  display:grid;
+  gap:6px;
+}
+
+.itemInspect__intrinsic strong{
+  color:#c650ff;
+  font-family:var(--font-ui);
+  font-size:13px;
+  letter-spacing:.08em;
+}
+
+.itemInspect__intrinsic p{
+  margin:0;
+  color:rgba(245,247,251,.72);
+  font-family:var(--font-ui);
+  font-size:13px;
+  line-height:1.45;
+}
+
+.itemInspect__highlight{
+  color:#2f8fff;
+  text-shadow:0 0 8px rgba(47,143,255,.28);
+}
+
+.itemInspect__description,
+.itemInspect__lore{
+  display:none;
+}
+
+/* =========================
+   META / PRICES
+========================= */
+
+.itemInspect__meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:38px;
+  position:static;
+}
+
+.itemInspect__meta span{
+  min-height:32px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 12px;
+  border:1px solid rgba(194,254,12,.25);
+  background:rgba(194,254,12,.04);
+  color:#d6ff48;
+  font-family:var(--font-ui);
+  font-size:11px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.itemInspect__meta span::before{
+  content:none;
+}
+
+.itemInspect__meta span.priceTag::before{
+  content:"";
+  width:16px;
+  height:16px;
+  flex:0 0 16px;
+
+  background-image:url("/ressources/ui/credit.png");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:contain;
+
+  filter:
+    brightness(1.25)
+    drop-shadow(0 0 6px rgba(194,254,12,.25));
+}

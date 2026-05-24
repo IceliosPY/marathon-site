@@ -4,4 +4,14 @@
 @import "./items.grid.css";
 @import "./items.card.css";
 @import "./items.database.css";
-@import "./items.inspect.css";
+
+/* INSPECT */
+@import "./items.inspect.modal.css";
+@import "./items.inspect.layout.css";
+@import "./items.inspect.content.css";
+@import "./items.inspect.stats.css";
+@import "./items.inspect.effects.css";
+@import "./items.inspect.sources.css";
+@import "./items.inspect.media.css";
+@import "./items.inspect.locked-slots.css";
+@import "./items.inspect.responsive.css";

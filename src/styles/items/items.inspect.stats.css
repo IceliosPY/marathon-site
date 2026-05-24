@@ -1,0 +1,112 @@
+/* =========================
+   STATS
+========================= */
+
+.itemInspect__stats{
+  width:100%;
+  display:grid;
+  gap:24px;
+  max-width:520px;
+}
+
+.itemInspect__stat{
+  display:grid;
+  gap:8px;
+}
+
+.itemInspect__statTop{
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:end;
+  gap:18px;
+}
+
+.itemInspect__statName{
+  color:#eeeeee;
+  font-family:var(--font-ui);
+  font-size:16px;
+  font-weight:700;
+  letter-spacing:.04em;
+}
+
+.itemInspect__statValue{
+  color:#eeeeee;
+  font-family:var(--font-ui);
+  font-size:20px;
+  font-weight:400;
+  line-height:1;
+  white-space:nowrap;
+}
+
+.itemInspect__statValue em{
+  margin-left:8px;
+  font-style:normal;
+}
+
+.itemInspect__statBar{
+  position:relative;
+  width:100%;
+  height:4px;
+  background:rgba(235,239,246,.72);
+  overflow:hidden;
+}
+
+.itemInspect__statBonus{
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  width:var(--stat-modifier);
+}
+
+.itemInspect__stat.is-positive .itemInspect__statValue em{
+  color:#17f5c8;
+}
+
+.itemInspect__stat.is-positive .itemInspect__statBonus{
+  background:#17f5c8;
+  box-shadow:0 0 8px rgba(23,245,200,.45);
+}
+
+.itemInspect__stat.is-negative .itemInspect__statValue em{
+  color:#ff2a55;
+}
+
+.itemInspect__stat.is-negative .itemInspect__statBonus{
+  background:#ff2a55;
+  box-shadow:0 0 8px rgba(255,42,85,.55);
+}
+
+.itemInspect__stat.is-neutral .itemInspect__statValue em{
+  color:#f5f7fb;
+}
+
+.itemInspect__stat.is-neutral .itemInspect__statBonus{
+  background:rgba(235,239,246,.72);
+}
+
+.itemInspect__statDetails{
+  display:grid;
+  gap:8px;
+  margin-top:8px;
+  padding-left:14px;
+}
+
+.itemInspect__statDetail{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:rgba(245,247,251,.58);
+  font-family:var(--font-ui);
+  font-size:13px;
+  letter-spacing:.04em;
+}
+
+.itemInspect__statDetail span{
+  flex:0 0 auto;
+}
+
+.itemInspect__statDetail strong{
+  color:rgba(245,247,251,.78);
+  font-weight:500;
+}

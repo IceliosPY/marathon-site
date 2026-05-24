@@ -1,0 +1,129 @@
+/* =========================
+   MAIN CARD
+========================= */
+
+.itemInspect{
+  position:relative;
+  width:min(1180px, calc(100vw - 96px));
+  height:min(700px, calc(100vh - 96px));
+  overflow:hidden;
+
+  display:grid;
+  grid-template-columns:48% 52%;
+
+  border:1px solid rgba(255,255,255,.08);
+  background:
+    linear-gradient(90deg, rgba(9,10,12,.98) 0%, rgba(7,8,10,.96) 48%, transparent 48%),
+    radial-gradient(circle at 68% 42%, rgba(25,43,100,.42), transparent 38%),
+    linear-gradient(90deg, #07080a 0%, #050609 100%);
+
+  box-shadow:
+    0 38px 110px rgba(0,0,0,.78),
+    inset 0 0 0 1px rgba(255,255,255,.025);
+}
+
+.itemInspect::before{
+  display:none !important;
+  content:none !important;
+}
+
+.itemInspect::after{
+  content:"";
+  position:absolute;
+  inset:32px 0 0;
+  z-index:1;
+  pointer-events:none;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,.028) 0 1px,
+      transparent 1px 4px
+    );
+  opacity:.13;
+  mix-blend-mode:screen;
+}
+
+/* =========================
+   TICKER
+========================= */
+
+.itemInspect .itemInspectTicker,
+.itemInspect .itemInspectTicker *,
+.itemInspect .itemInspectTicker *::before,
+.itemInspect .itemInspectTicker *::after{
+  box-sizing:border-box;
+}
+
+.itemInspect .itemInspectTicker{
+  --item-ticker-distance:954px;
+  --item-ticker-duration:11.925s;
+
+  position:absolute !important;
+  top:0 !important;
+  left:0 !important;
+  right:0 !important;
+  z-index:80 !important;
+
+  overflow:hidden !important;
+  width:100% !important;
+  height:32px !important;
+  background:#c2fe0c !important;
+  white-space:nowrap !important;
+  isolation:isolate !important;
+  pointer-events:none !important;
+}
+
+.itemInspect .itemInspectTicker__viewport{
+  width:100% !important;
+  height:100% !important;
+  overflow:hidden !important;
+  white-space:nowrap !important;
+}
+
+.itemInspect .itemInspectTicker__rail{
+  display:flex !important;
+  align-items:stretch !important;
+  height:100% !important;
+  white-space:nowrap !important;
+}
+
+.itemInspect .itemInspectTicker__lead{
+  display:inline-block !important;
+  width:12px !important;
+  min-width:12px !important;
+  height:100% !important;
+}
+
+.itemInspect .itemInspectTicker__inner{
+  display:inline-block !important;
+  white-space:nowrap !important;
+  will-change:transform !important;
+  padding-left:4px !important;
+  animation:itemInspectTickerScroll var(--item-ticker-duration) linear infinite !important;
+}
+
+.itemInspect .itemInspectTicker__copy{
+  all:unset;
+  display:inline-block !important;
+  white-space:nowrap !important;
+  vertical-align:top !important;
+  padding-left:10px !important;
+  padding-right:10px !important;
+  font-family:"PP Fraktion Mono Local", var(--font-ui), monospace !important;
+  font-size:20px !important;
+  line-height:32px !important;
+  letter-spacing:0.01em !important;
+  text-transform:uppercase !important;
+  color:#111111 !important;
+}
+
+.itemInspect .itemInspectTicker__gap{
+  display:inline-block !important;
+  width:16px !important;
+  height:1px !important;
+}
+
+@keyframes itemInspectTickerScroll{
+  from{ transform:translate3d(0,0,0); }
+  to{ transform:translate3d(calc((var(--item-ticker-distance) + 16px) * -1),0,0); }
+}

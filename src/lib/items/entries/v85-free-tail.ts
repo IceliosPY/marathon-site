@@ -3,7 +3,9 @@ import { asset } from "../../assets";
 
 export const v85FreeTail: ItemEntry = {
   id: "v85-free-tail",
+
   name: "V85 Free-Tail",
+
   category: "weapon",
   rarity: "prestige",
 
@@ -16,6 +18,11 @@ export const v85FreeTail: ItemEntry = {
 
   description:
     "A modified V85 Circuit Breaker, adjusted for increased charge and fire rates.",
+
+  effect: "Prestige Unique Shotgun",
+
+  lore:
+    "Experimental V85 variant rebuilt with proprietary charge acceleration systems and locked high-voltage internal tuning.",
 
   sources: [
     {
@@ -35,8 +42,19 @@ export const v85FreeTail: ItemEntry = {
       id: "unique",
       label: "Unique",
       description:
-        "This weapon uses unique upgrades; its mod slots are locked.",
+        "This weapon uses unique upgrades; its mod slots are permanently locked.",
     },
+  ],
+
+  /*
+    LOCKED UNIQUE UPGRADES
+    Uses existing item IDs
+  */
+
+  lockedUpgradeIds: [
+    "quickdraw-grip",
+    "quickdraw-grip",
+    "quickdraw-grip",
   ],
 
   stats: [
@@ -44,44 +62,81 @@ export const v85FreeTail: ItemEntry = {
       label: "Firepower",
       value: 220,
       max: 250,
+
       details: [
-        { label: "Firepower", value: "220" },
-        { label: "Damage", value: "18.3" },
-        { label: "Precision", value: "1.2" },
-        { label: "Rate of Fire", value: "109 RPM" },
+        {
+          label: "Firepower",
+          value: "220",
+        },
+        {
+          label: "Damage",
+          value: "18.3",
+        },
+        {
+          label: "Precision",
+          value: "1.2",
+        },
+        {
+          label: "Rate of Fire",
+          value: "109 RPM",
+        },
       ],
     },
+
     {
       label: "Handling",
       value: 54,
       max: 100,
+
       details: [
-        { label: "Equip Speed", value: "0.45S" },
-        { label: "ADS Speed", value: "0.40S" },
-        { label: "Weight", value: "18.0%" },
-        { label: "Recoil", value: "81.5%" },
-        { label: "Aim Assist", value: "3.05°" },
-        { label: "Reload Speed", value: "3.12S" },
+        {
+          label: "Equip Speed",
+          value: "0.45S",
+        },
+        {
+          label: "ADS Speed",
+          value: "0.40S",
+        },
+        {
+          label: "Weight",
+          value: "18.0%",
+        },
+        {
+          label: "Recoil",
+          value: "81.5%",
+        },
+        {
+          label: "Aim Assist",
+          value: "3.05°",
+        },
+        {
+          label: "Reload Speed",
+          value: "3.12S",
+        },
       ],
     },
+
     {
       label: "Spread Angle",
       value: 1.5,
       max: 10,
       unit: "°",
     },
+
     {
       label: "Range",
       value: 15,
       max: 100,
       unit: "M",
     },
+
     {
       label: "Volt Drain",
       value: 6.4,
       max: 100,
       unit: "%",
     },
+
     {
       label: "Zoom",
       value: 1.1,
@@ -90,5 +145,14 @@ export const v85FreeTail: ItemEntry = {
     },
   ],
 
-  tags: ["v85", "free-tail", "shotgun", "prestige", "unique", "weapon"],
+  tags: [
+    "weapon",
+    "shotgun",
+    "v85",
+    "free-tail",
+    "prestige",
+    "unique",
+    "volt",
+    "charge",
+  ],
 };

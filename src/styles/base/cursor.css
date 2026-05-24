@@ -187,3 +187,8 @@ body.is-text-selecting *{
 body.maps-modal-open #cursorLabel{
   display:none !important;
 }
+
+/* masque le label quand aucun vrai texte n'est fourni */
+#cursorLabel.is-target:not(.has-label){
+  display:none !important;
+}
