@@ -161,7 +161,11 @@ export type ItemAmmoLink = {
   label: string;
   icon: string;
 };
-
+export type ItemPrestigeFeature = {
+  title: string;
+  description: string;
+  color?: "yellow" | "purple" | "red" | "green";
+};
 /* =========================
    ITEM
 ========================= */
@@ -177,7 +181,7 @@ export type ItemEntry = {
   image?: string;
   render?: string;
   video?: string;
-
+  prestigeFeature?: ItemPrestigeFeature;
   description?: string;
   lore?: string;
   effect?: string;

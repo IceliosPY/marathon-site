@@ -918,7 +918,22 @@ export default function Items() {
                   <p>{renderHighlightedText(selectedItem.lore)}</p>
                 </div>
               ) : null}
+              {selectedItem.prestigeFeature ? (
+              <div
+                className={`itemInspect__prestigeFeature feature-${
+                  selectedItem.prestigeFeature.color ?? "yellow"
+                }`}
+              >
+                <strong>{selectedItem.prestigeFeature.title}</strong>
 
+                <p>
+                  {renderHighlightedText(
+                    selectedItem.prestigeFeature.description,
+                    selectedItem.highlightTerms
+                  )}
+                </p>
+              </div>
+                    ) : null}
               {selectedItem.weaponStatProfiles?.length ? (
                 <section className="itemInspect__weaponProfiles">
                   <div className="itemInspect__weaponProfileNotice">

@@ -220,3 +220,53 @@
     brightness(1.25)
     drop-shadow(0 0 6px rgba(194,254,12,.25));
 }
+
+/* =========================
+   PRESTIGE FEATURE
+========================= */
+
+.itemInspect__prestigeFeature{
+  width:100%;
+  max-width:520px;
+
+  margin:0 0 24px;
+  padding:0 0 14px;
+
+  border-bottom:1px solid rgba(255,255,255,.10);
+
+  display:grid;
+  gap:6px;
+}
+
+.itemInspect__prestigeFeature strong{
+  font-family:var(--font-ui);
+  font-size:13px;
+  letter-spacing:.08em;
+  text-transform:none;
+}
+
+.itemInspect__prestigeFeature p{
+  margin:0;
+
+  color:rgba(245,247,251,.72);
+
+  font-family:var(--font-ui);
+  font-size:13px;
+  line-height:1.45;
+}
+
+.itemInspect__prestigeFeature.feature-yellow strong{
+  color:#ffd84d;
+}
+
+.itemInspect__prestigeFeature.feature-purple strong{
+  color:#c650ff;
+}
+
+.itemInspect__prestigeFeature.feature-red strong{
+  color:#ff3b3b;
+}
+
+.itemInspect__prestigeFeature.feature-green strong{
+  color:#17f5c8;
+}

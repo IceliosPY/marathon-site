@@ -25,8 +25,10 @@ import { misriah2442 } from "./entries/misriah2442";
 import { wstrCombatShotgun } from "./entries/wstr-combat-shotgun";
 import { v85CircuitBreaker } from "./entries/v85-circuit-breaker";
 import { guardedGrip } from "./entries/guarded-grip";
+import { fullAutoSelector } from "./entries/fullautoselector";
 
 export const itemsData: ItemEntry[] = [
+  fullAutoSelector,
   guardedGrip,
   v85CircuitBreaker,
   misriah2442,
