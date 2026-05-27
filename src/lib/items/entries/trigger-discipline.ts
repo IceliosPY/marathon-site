@@ -7,10 +7,10 @@ export const triggerDiscipline: ItemEntry = {
   category: "chip",
   rarity: "superior",
 
-  icon: asset("items/icons/trigger-discipline.png"),
-  image: asset("items/icons/trigger-discipline.png"),
-  render: asset("items/icons/trigger-discipline.png"),
-  video: asset("items/videos/trigger-discipline.mp4"),
+  icon: asset("items/icons/chip3.png"),
+  image: asset("items/icons/chip3.png"),
+  render: asset("items/icons/chip3.png"),
+  video: asset("items/videos/chips/chip3.mp4"),
 
   sellPrice: 621,
 

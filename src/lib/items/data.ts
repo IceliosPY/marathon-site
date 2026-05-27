@@ -38,8 +38,36 @@ import { spectreArmor } from "./entries/spectre-armor";
 import { reinforcedShieldsV2 } from "./entries/reinforced-shields-v2";
 import { commendationGenerator } from "./entries/commendation-generator";
 import { synapseCube } from "./entries/synapse-cube";
+import { cryoMaintenance01 } from "./entries/cryo-maintenance-cryo-archive-01";
+import { generatorRoomCryoArchive02 } from "./entries/generator-room-cryo-archive-02";
+import { pumpStationCryoArchive03 } from "./entries/pump-station-cryo-archive-03";
+import { cryoMonitoringCryoArchive04 } from "./entries/cryo-monitoring-cryo-archive-04";
+import { secretCargoCryoArchive05 } from "./entries/secret-cargo-cryo-archive-05";
+import { xs24BasePack } from "./entries/24xs-base-pack";
+import { hazardCapsule } from "./entries/hazard-capsule";
+import { alienAlloy } from "./entries/alien-alloy";
+import { advancedPatchKit } from "./entries/advanced-patch-kit";
+import { advancedShieldCharge } from "./entries/advanced-shield-charge";
+import { selfRevive } from "./entries/self-revive";
+import { compartmentalMagIII } from "./entries/compartmental-mag-iii";
+import { battleRunner } from "./entries/battle-runner";
+import { overclockedDelimiter } from "./entries/overclocked-delimiter";
 
 export const itemsData: ItemEntry[] = [
+  overclockedDelimiter,
+  battleRunner,
+  compartmentalMagIII,
+  selfRevive,
+  advancedShieldCharge,
+  advancedPatchKit,
+  alienAlloy,
+  hazardCapsule,
+  xs24BasePack,
+  secretCargoCryoArchive05,
+  cryoMonitoringCryoArchive04,
+  pumpStationCryoArchive03,
+  generatorRoomCryoArchive02,
+  cryoMaintenance01,
   synapseCube,
   commendationGenerator,
   reinforcedShieldsV2,

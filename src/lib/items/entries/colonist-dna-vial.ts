@@ -29,7 +29,7 @@ export const colonistDnaVial: ItemEntry = {
 
   sources: [
     {
-      label: "Key 7 Opening",
+      label: "DNA Opening",
       kind: "world-loot",
     },
   ],

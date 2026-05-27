@@ -54,7 +54,7 @@ export const v85FreeTail: ItemEntry = {
   lockedUpgradeIds: [
     "quickdraw-grip",
     "quickdraw-grip",
-    "quickdraw-grip",
+    "overclocked-delimiter",
   ],
 
   stats: [
