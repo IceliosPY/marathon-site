@@ -1,4 +1,6 @@
 export type ItemCategory =
+  | "trinket" 
+  | "backpack" 
   | "weapon"
   | "consumable"
   | "ammo"

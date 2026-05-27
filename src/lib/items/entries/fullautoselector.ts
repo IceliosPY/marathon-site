@@ -86,13 +86,25 @@ export const fullAutoSelector: ItemEntry = {
 
 
   sources: [
-  {
-    label: "Misriah 2442",
-    kind: "other",
-    target: {
-      type: "page",
-      id: "misriah-2442",
+    {
+        label: "Traxus market",
+        kind: "vendor",
+        target: {
+          type: "vendor",
+          id: "armory",
+        },
     },
-  },
+    {
+        label: "Cyac market",
+        kind: "vendor",
+        target: {
+          type: "vendor",
+          id: "armory",
+        },
+    },
+    {
+        label: "World Loot",
+        kind: "world-loot",
+      },
 ],
 };

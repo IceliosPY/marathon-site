@@ -110,6 +110,28 @@ function renderHighlightedText(text: string, terms?: string[]) {
   });
 }
 
+
+function renderDescriptionLines(text: string, terms?: string[]) {
+  return text.split("\n").map((line, index) => {
+    const trimmedLine = line.trim();
+
+    if (!trimmedLine) {
+      return <br key={`description-break-${index}`} />;
+    }
+
+    return (
+      <p
+        key={`${trimmedLine}-${index}`}
+        className={`itemInspect__descriptionLine ${
+          trimmedLine.startsWith("+") ? "is-bonus-line" : ""
+        }`}
+      >
+        {renderHighlightedText(trimmedLine, terms)}
+      </p>
+    );
+  });
+}
+
 function ItemStatsBlock({
   stats,
 }: {
@@ -762,7 +784,7 @@ export default function Items() {
           onClick={closeItemModal}
         >
           <section
-            className={`itemInspect rarity-${selectedItem.rarity}`}
+            className={`itemInspect rarity-${selectedItem.rarity} category-${selectedItem.category}`}
             onClick={(event) => event.stopPropagation()}
           >
             <ItemInspectTicker />
@@ -901,12 +923,12 @@ export default function Items() {
               ) : null}
 
               {selectedItem.description ? (
-                <p className="itemInspect__descriptionText">
-                  {renderHighlightedText(
+                <div className="itemInspect__descriptionText itemInspect__descriptionText--lines">
+                  {renderDescriptionLines(
                     selectedItem.description,
                     selectedItem.highlightTerms
                   )}
-                </p>
+                </div>
               ) : null}
 
               {selectedItem.lore &&

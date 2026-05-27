@@ -1,44 +1,36 @@
 import type { ItemEntry } from "../types";
 import { asset } from "../../assets";
 
-export const reinforcedShieldsV1: ItemEntry = {
-  id: "reinforced-shields-v1",
-  name: "Reinforced Shields V1",
+export const reinforcedShieldsV2: ItemEntry = {
+  id: "reinforced-shields-v2",
+
+  name: "Reinforced Shields V2",
+
   category: "implant",
-  rarity: "enhanced",
+  rarity: "prestige",
 
   icon: asset("items/icons/protector2.png"),
   image: asset("items/icons/protector2.png"),
   render: asset("items/icons/protector2.png"),
   video: asset("items/videos/protector/protector2.mp4"),
 
-  buyPrice: 900,
-  sellPrice: 180,
+  sellPrice: 3000,
 
-  description: "Reinforced shields take half damage.",
+  effect: "+1 Reinforced Shield Slot",
 
-  effect: "Reinforces your base shields.",
+  description:
+    "Reinforced shields take half damage.",
+
+  highlightTerms: [
+    "+1 Reinforced Shield Slot",
+    "Reinforced",
+  ],
+
 
   sources: [
     {
-      label: "Nucaloric Contracts",
-      kind: "contract",
-      target: {
-        type: "contract",
-        id: "nucaloric-contracts",
-      },
-    },
-    {
       label: "World Loot",
       kind: "world-loot",
-    },
-    {
-      label: "Buyable in the Armory",
-      kind: "vendor",
-      target: {
-        type: "vendor",
-        id: "armory",
-      },
     },
   ],
 
@@ -62,13 +54,23 @@ export const reinforcedShieldsV1: ItemEntry = {
   stats: [
     {
       label: "Heat Capacity",
-      value: 0,
-      modifier: -5,
+      value: 40,
+      modifier: -15,
     },
     {
       label: "Agility",
-      value: 0,
-      modifier: -5,
+      value: 50,
+      modifier: -15,
     },
+  ],
+
+  tags: [
+    "implant",
+    "shield",
+    "reinforced",
+    "prestige",
+    "tank",
+    "survivability",
+    "uesc",
   ],
 };

@@ -27,8 +27,12 @@ export const hyphaticGel: ItemEntry = {
 
   sources: [
     {
-      label: "World Loot",
-      kind: "world-loot",
+      label: "Cyac market",
+      kind: "vendor",
+      target: {
+        type: "vendor",
+        id: "armory",
+      },
     },
   ],
 };

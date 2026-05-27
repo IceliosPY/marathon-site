@@ -1,6 +1,8 @@
 import type { ItemCategory } from "./types";
 
 export const itemCategoryLabels: Record<ItemCategory, string> = {
+  trinket: "Trinkets",
+  backpack: "Backpacks",
   weapon: "Weapons",
   consumable: "Consumables",
   ammo: "Ammos",
