@@ -58,7 +58,10 @@ import { blueBlood } from "./entries/blue-blood";
 import { taperedHeatSink } from "./entries/tapered-heat-sink";
 import { v99ChannelRifle } from "./entries/v99-channel-rifle";
 import { v00ZeusRg } from "./entries/v00-zeus-rg";
+import { airCooledChamber } from "./entries/air-cooled-chamber";
+
 export const itemsData: ItemEntry[] = [
+  airCooledChamber,
   v00ZeusRg,
   v99ChannelRifle,
   taperedHeatSink,
