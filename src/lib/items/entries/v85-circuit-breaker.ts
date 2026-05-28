@@ -117,7 +117,11 @@ export const v85CircuitBreaker: ItemEntry = {
       unit: "X",
     },
   ],
-
+  acceptedModSubcategories: [
+    "chip",
+    "shotgun-grip",
+    "volt-cell",
+  ],
   tags: [
     "weapon",
     "shotgun",

@@ -1,9 +1,10 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { CSSProperties } from "react";
-import { itemsData, itemCategoryLabels } from "../lib/items";
+import { itemsData, itemCategoryLabels, itemModSubcategoryLabels } from "../lib/items";
 import type {
   ItemCategory,
   ItemEntry,
+  ItemModSubcategory,
   ItemPossibleEffect,
   ItemRarity,
 } from "../lib/items";
@@ -13,6 +14,7 @@ type ItemsViewMode = "list" | "cards";
 type ItemMediaMode = "image" | "video";
 type ItemCategoryFilter = "all" | ItemCategory;
 type ItemRarityFilter = "all" | ItemRarity;
+type ItemModSubcategoryFilter = "all" | ItemModSubcategory;
 
 const ITEM_TICKER_TEXT =
   "DATA DECRYPTED :: ACCESSING DATA // DATA DECRYPTED :: ACCESSING DATA // DATA DECRYPTED :: ACCESSING DATA //";
@@ -48,6 +50,16 @@ const categoryOptions = Array.from(
 const rarityOptions = Array.from(
   new Set(itemsData.map((item) => item.rarity))
 ) as ItemRarity[];
+
+const modSubcategoryOptions = Array.from(
+  new Set(
+    itemsData
+      .map((item) => item.modSubcategory)
+      .filter((subcategory): subcategory is ItemModSubcategory =>
+        Boolean(subcategory)
+      )
+  )
+) as ItemModSubcategory[];
 
 type DropdownOption<T extends string> = {
   value: T;
@@ -505,6 +517,8 @@ export default function Items() {
   const [selectedCategory, setSelectedCategory] =
     useState<ItemCategoryFilter>("all");
   const [selectedRarity, setSelectedRarity] = useState<ItemRarityFilter>("all");
+  const [selectedModSubcategory, setSelectedModSubcategory] =
+    useState<ItemModSubcategoryFilter>("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedItem, setSelectedItem] = useState<ItemEntry | null>(null);
   const [mediaMode, setMediaMode] = useState<ItemMediaMode>("image");
@@ -535,6 +549,19 @@ export default function Items() {
     []
   );
 
+  const modSubcategoryDropdownOptions = useMemo<
+    DropdownOption<ItemModSubcategoryFilter>[]
+  >(
+    () => [
+      { value: "all", label: "All mod slots" },
+      ...modSubcategoryOptions.map((subcategory) => ({
+        value: subcategory,
+        label: itemModSubcategoryLabels[subcategory] ?? subcategory,
+      })),
+    ],
+    []
+  );
+
   const filteredItems = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
 
@@ -543,11 +570,18 @@ export default function Items() {
         selectedCategory === "all" || item.category === selectedCategory;
       const matchRarity =
         selectedRarity === "all" || item.rarity === selectedRarity;
+      const matchModSubcategory =
+        selectedModSubcategory === "all" ||
+        item.modSubcategory === selectedModSubcategory;
 
       const searchableText = [
         item.name,
         item.category,
         item.rarity,
+        item.modSubcategory,
+        item.modSubcategory
+          ? itemModSubcategoryLabels[item.modSubcategory]
+          : undefined,
         item.description,
         item.effect,
         item.lore,
@@ -573,10 +607,11 @@ export default function Items() {
       return (
         matchCategory &&
         matchRarity &&
+        matchModSubcategory &&
         (!query || searchableText.includes(query))
       );
     });
-  }, [selectedCategory, selectedRarity, searchQuery]);
+  }, [selectedCategory, selectedRarity, selectedModSubcategory, searchQuery]);
 
   const activeWeaponProfile = selectedItem?.weaponStatProfiles?.find(
     (profile) => profile.weaponId === selectedWeaponProfileId
@@ -660,6 +695,13 @@ export default function Items() {
             options={rarityDropdownOptions}
             onChange={setSelectedRarity}
           />
+
+          <ItemsDropdown
+            label="Mod slot"
+            value={selectedModSubcategory}
+            options={modSubcategoryDropdownOptions}
+            onChange={setSelectedModSubcategory}
+          />
         </div>
 
         <div className="itemsToolbar__view">
@@ -713,7 +755,15 @@ export default function Items() {
                   <strong>{item.name}</strong>
                 </span>
 
-                <span>{itemCategoryLabels[item.category] ?? item.category}</span>
+                <span>
+                  {itemCategoryLabels[item.category] ?? item.category}
+                  {item.modSubcategory
+                    ? ` / ${
+                        itemModSubcategoryLabels[item.modSubcategory] ??
+                        item.modSubcategory
+                      }`
+                    : ""}
+                </span>
 
                 <span className="itemsDatabase__rarity">{item.rarity}</span>
 
@@ -754,6 +804,12 @@ export default function Items() {
               <div className="itemsGridCard__overlay">
                 <span className="itemsGridCard__type">
                   {itemCategoryLabels[item.category] ?? item.category}
+                  {item.modSubcategory
+                    ? ` / ${
+                        itemModSubcategoryLabels[item.modSubcategory] ??
+                        item.modSubcategory
+                      }`
+                    : ""}
                 </span>
 
                 <strong className="itemsGridCard__name">{item.name}</strong>
@@ -907,11 +963,13 @@ export default function Items() {
             </div>
 
             <div className="itemInspect__content">
-              <div className="itemInspect__eyebrow">
-                {itemCategoryLabels[selectedItem.category] ??
-                  selectedItem.category}
-                {" // "}
-                {selectedItem.rarity}
+              <div className="itemInspect__topRow">
+                <div className="itemInspect__eyebrow">
+                  {itemCategoryLabels[selectedItem.category] ??
+                    selectedItem.category}
+                  {" // "}
+                  {selectedItem.rarity}
+                </div>
               </div>
 
               <h2 className="itemInspect__title">{selectedItem.name}</h2>

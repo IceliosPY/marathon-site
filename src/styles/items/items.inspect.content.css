@@ -376,3 +376,32 @@
   color:#ffd84d;
   text-shadow:0 0 8px rgba(255,216,77,.22);
 }
+.itemInspect__modSubcategoryIcon{
+  width:42px;
+  height:24px;
+  object-fit:contain;
+
+  margin:0 0 18px;
+
+  image-rendering:auto;
+  filter:drop-shadow(0 0 8px rgba(198,80,255,.35));
+}
+
+.itemInspect__topRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-bottom: 1.5rem;
+}
+
+.itemInspect__modSubcategoryIcon {
+  width: 34px;
+  height: 34px;
+
+  object-fit: contain;
+
+  image-rendering: pixelated;
+
+  opacity: 0.95;
+}

@@ -52,8 +52,19 @@ import { selfRevive } from "./entries/self-revive";
 import { compartmentalMagIII } from "./entries/compartmental-mag-iii";
 import { battleRunner } from "./entries/battle-runner";
 import { overclockedDelimiter } from "./entries/overclocked-delimiter";
-
+import { snapshotGrip } from "./entries/snapshot-grip";
+import { pinpointBarrel } from "./entries/pinpoint-barrel";
+import { blueBlood } from "./entries/blue-blood";
+import { taperedHeatSink } from "./entries/tapered-heat-sink";
+import { v99ChannelRifle } from "./entries/v99-channel-rifle";
+import { v00ZeusRg } from "./entries/v00-zeus-rg";
 export const itemsData: ItemEntry[] = [
+  v00ZeusRg,
+  v99ChannelRifle,
+  taperedHeatSink,
+  blueBlood,
+  pinpointBarrel,
+  snapshotGrip,
   overclockedDelimiter,
   battleRunner,
   compartmentalMagIII,

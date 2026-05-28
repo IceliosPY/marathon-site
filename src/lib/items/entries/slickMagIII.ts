@@ -6,7 +6,7 @@ export const slickMagIII: ItemEntry = {
   name: "Slick Mag III",
   category: "mod",
   rarity: "superior",
-
+  modSubcategory: "magazine",
   icon: asset("items/icons/SlickMagIII.png"),
   image: asset("items/icons/SlickMagIII.png"),
   render: asset("items/icons/SlickMagIII.png"),

@@ -5,7 +5,7 @@ export const guardedGrip: ItemEntry = {
   id: "guarded-grip",
 
   name: "Guarded Grip",
-
+  modSubcategory: "shotgun-grip",
   category: "mod",
   rarity: "superior",
 

@@ -145,7 +145,12 @@ export const misriah2442: ItemEntry = {
       unit: "X",
     },
   ],
-
+  acceptedModSubcategories: [
+    "chip",
+    "shotgun-grip",
+    "magazine",
+    "underbarrel",
+  ],
   tags: [
     "weapon",
     "shotgun",

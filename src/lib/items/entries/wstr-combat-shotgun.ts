@@ -79,7 +79,11 @@ export const wstrCombatShotgun: ItemEntry = {
       unit: "X",
     },
   ],
-
+  acceptedModSubcategories: [
+    "chip",
+    "shotgun-grip",
+    "underbarrel",
+  ],
   tags: [
     "weapon",
     "shotgun",

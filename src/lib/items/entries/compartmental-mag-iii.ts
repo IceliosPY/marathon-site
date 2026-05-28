@@ -6,7 +6,8 @@ export const compartmentalMagIII: ItemEntry = {
   name: "Compartmental Mag III",
   category: "mod",
   rarity: "superior",
-
+  modSubcategory: "magazine",
+  
   icon: asset("items/icons/compartmental-mag-iii.png"),
   image: asset("items/icons/compartmental-mag-iii.png"),
   render: asset("items/icons/compartmental-mag-iii.png"),

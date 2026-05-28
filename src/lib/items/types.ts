@@ -1,6 +1,6 @@
 export type ItemCategory =
-  | "trinket" 
-  | "backpack" 
+  | "trinket"
+  | "backpack"
   | "weapon"
   | "consumable"
   | "ammo"
@@ -27,6 +27,32 @@ export type ItemRarity =
   | "prestige"
   | "contraband"
   | "priority";
+
+/* =========================
+   MOD SUBCATEGORIES
+========================= */
+
+export type ItemModSubcategory =
+  | "chip"
+  | "shotgun-grip"
+  | "underbarrel"
+  | "magazine"
+  | "volt-cell"
+  | "ion-dampener"
+  | "generator"
+  | "sniper-optic";
+
+
+  export const itemModSubcategoryLabels: Record<ItemModSubcategory, string> = {
+    generator: "Generator",
+    "sniper-optic" : "Sniper Optic",
+    "ion-dampener" : "Ion Dampener",
+    chip: "Chip",
+    "shotgun-grip": "Shotgun Grip",
+    underbarrel: "Underbarrel",
+    magazine: "Magazine",
+    "volt-cell": "Volt Cell",
+  };
 
 /* =========================
    STATS
@@ -127,6 +153,7 @@ export type ItemPossibleEffect = {
 export type ItemWeaponStatProfile = {
   weaponId: string;
   weaponName: string;
+  weaponIcon?: string;
   stats: ItemStat[];
 };
 
@@ -163,11 +190,17 @@ export type ItemAmmoLink = {
   label: string;
   icon: string;
 };
+
+/* =========================
+   PRESTIGE FEATURE
+========================= */
+
 export type ItemPrestigeFeature = {
   title: string;
   description: string;
   color?: "yellow" | "purple" | "red" | "green";
 };
+
 /* =========================
    ITEM
 ========================= */
@@ -179,11 +212,25 @@ export type ItemEntry = {
   category: ItemCategory;
   rarity: ItemRarity;
 
+  /**
+   * Pour les mods : type de mod.
+   * Exemple : "magazine", "shotgun-grip", "underbarrel", "volt-cell"
+   */
+  modSubcategory?: ItemModSubcategory;
+
+  /**
+   * Pour les armes : types de mods acceptés par cette arme.
+   * Exemple : ["shotgun-grip", "underbarrel", "magazine"]
+   */
+  acceptedModSubcategories?: ItemModSubcategory[];
+
   icon?: string;
   image?: string;
   render?: string;
   video?: string;
+
   prestigeFeature?: ItemPrestigeFeature;
+
   description?: string;
   lore?: string;
   effect?: string;

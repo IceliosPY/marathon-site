@@ -7,7 +7,7 @@ export const quickdrawGrip: ItemEntry = {
 
   category: "mod",
   rarity: "superior",
-
+  modSubcategory: "shotgun-grip",
   icon: asset("items/icons/Quickdraw-grip.png"),
   image: asset("items/icons/Quickdraw-grip.png"),
   render: asset("items/icons/Quickdraw-grip.png"),
