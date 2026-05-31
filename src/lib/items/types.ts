@@ -33,17 +33,28 @@ export type ItemRarity =
 ========================= */
 
 export type ItemModSubcategory =
+  | "pistol-magazine"
   | "chip"
+  | "pistol-optic"
   | "shotgun-grip"
   | "underbarrel"
   | "magazine"
   | "volt-cell"
   | "ion-dampener"
   | "generator"
+  | "assault-magazine"
+  | "assault-optic"
+  | "cqc-barrel"
   | "sniper-optic";
 
 
+
   export const itemModSubcategoryLabels: Record<ItemModSubcategory, string> = {
+    "assault-magazine" : "Assault Magazine",
+    "pistol-magazine" : "Pistol Magazine",
+    "pistol-optic" : "Pistol optic",
+    "cqc-barrel" : "CQC Barrel",
+    "assault-optic" : "Assault Optic",
     generator: "Generator",
     "sniper-optic" : "Sniper Optic",
     "ion-dampener" : "Ion Dampener",

@@ -59,8 +59,38 @@ import { taperedHeatSink } from "./entries/tapered-heat-sink";
 import { v99ChannelRifle } from "./entries/v99-channel-rifle";
 import { v00ZeusRg } from "./entries/v00-zeus-rg";
 import { airCooledChamber } from "./entries/air-cooled-chamber";
+import { samaritan } from "./entries/samaritan";
+import { doubleDose } from "./entries/double-dose";
+import { aresRG } from "./entries/ares-rg";
+import { balancedPayload } from "./entries/balanced-payload";
+import { hiVelocityPayload } from "./entries/hi-velocity-payload";
+import { impactShockwave } from "./entries/impact-shockwave";
+import { tunedGenerator } from "./entries/tuned-generator";
+import { stabilizingGenerator } from "./entries/stabilizing-generator";
+import { overclockedGenerator } from "./entries/overclockedGenerator";
+import { copperheadRf } from "./entries/copperhead-rf";
+import { magnumMc } from "./entries/magnum-mc";
+import { ceTacticalSidearm } from "./entries/ce-tactical-sidearm";
+import { brrtSmg } from "./entries/brrtSmg";
+import { bullySmg } from "./entries/bully-smg";
+import { ironholdBarrel } from "./entries/ironhold-barrel";
 
 export const itemsData: ItemEntry[] = [
+  ironholdBarrel,
+  bullySmg,
+  brrtSmg,
+  ceTacticalSidearm,
+  magnumMc,
+  copperheadRf,
+  overclockedGenerator,
+  stabilizingGenerator,
+  tunedGenerator,
+  impactShockwave,
+  hiVelocityPayload,
+  balancedPayload,
+  aresRG,
+  doubleDose,
+  samaritan,
   airCooledChamber,
   v00ZeusRg,
   v99ChannelRifle,
