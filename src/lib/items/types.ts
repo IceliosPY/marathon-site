@@ -33,6 +33,13 @@ export type ItemRarity =
 ========================= */
 
 export type ItemModSubcategory =
+  |"belt-fed-magazine"
+  |"lmg-optic"
+  |"shield"
+  |"volt-array"
+  |"volt-dampener"
+  | "rifle-grip"
+  | "assault-barrel"
   | "pistol-magazine"
   | "chip"
   | "pistol-optic"
@@ -45,11 +52,27 @@ export type ItemModSubcategory =
   | "assault-magazine"
   | "assault-optic"
   | "cqc-barrel"
-  | "sniper-optic";
+  | "sniper-optic"
+  | "precision-magazine"
+  | "precision-optic"
+  | "precision-barrel";
 
-
-
+  export interface SpecialEffect {
+    name: string;
+    description: string;
+    color?: string;
+  }
   export const itemModSubcategoryLabels: Record<ItemModSubcategory, string> = {
+  "belt-fed-magazine" : "Belt-Fed Magazine",
+  "lmg-optic" : "Lmg Optic",
+  "shield" : "Shield",
+  "volt-array" : "Volt Array",
+  "volt-dampener" : "Volt Damperer",
+    "rifle-grip" : "Rifle Grip",
+    "assault-barrel" : "Assault Barrel",
+     "precision-magazine" : "Precision Magazine",
+     "precision-optic" : "Precision Optic",
+     "precision-barrel" : "Precision Barrel",
     "assault-magazine" : "Assault Magazine",
     "pistol-magazine" : "Pistol Magazine",
     "pistol-optic" : "Pistol optic",
@@ -234,7 +257,7 @@ export type ItemEntry = {
    * Exemple : ["shotgun-grip", "underbarrel", "magazine"]
    */
   acceptedModSubcategories?: ItemModSubcategory[];
-
+  specialEffects?: SpecialEffect[];
   icon?: string;
   image?: string;
   render?: string;

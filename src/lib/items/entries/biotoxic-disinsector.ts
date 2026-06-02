@@ -74,6 +74,7 @@ export const biotoxicDisinsector: ItemEntry = {
   ],
 
   tags: [
+    "boss",
     "hybrid",
     "alien",
     "human",
