@@ -12,6 +12,7 @@ const navItems: NavItem[] = [
   { to: "/shells", label: "Shells", tone: "shells" },
   { to: "/maps", label: "Maps", tone: "maps" },
   { to: "/items", label: "Items", tone: "items" },
+  { to: "/weapon-builder", label: "Weapon Builder", tone: "items" },
 ];
 
 export default function Nav() {
