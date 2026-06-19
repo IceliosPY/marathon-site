@@ -53,7 +53,9 @@ export default function WeaponBuilderPanel() {
     <main className="weaponBuilder">
       <header className="weaponBuilder__hero">
         <p className="weaponBuilder__kicker">Tau Ceti IV / Armory Simulator</p>
+
         <h1>Weapon Builder</h1>
+
         <p>
           Select a weapon, install compatible mods, and preview the resulting
           stat changes before deployment.
@@ -69,8 +71,10 @@ export default function WeaponBuilderPanel() {
 
         <section className="weaponBuilder__center">
           {selectedWeapon ? (
-            <>
-              <div className="weaponBuilder__preview">
+            <div className="weaponBuilder__preview">
+              {selectedWeapon.render ??
+              selectedWeapon.image ??
+              selectedWeapon.icon ? (
                 <img
                   src={
                     selectedWeapon.render ??
@@ -79,12 +83,13 @@ export default function WeaponBuilderPanel() {
                   }
                   alt={selectedWeapon.name}
                 />
+              ) : null}
 
-                <div>
-                  <span>{selectedWeapon.rarity}</span>
-                  <h2>{selectedWeapon.name}</h2>
-                  <p>{selectedWeapon.effect}</p>
-                </div>
+              <div className="weaponBuilder__previewInfo">
+                <span>{selectedWeapon.rarity}</span>
+                <h2>{selectedWeapon.name}</h2>
+
+                {selectedWeapon.effect ? <p>{selectedWeapon.effect}</p> : null}
               </div>
 
               <WeaponModSlots
@@ -93,8 +98,14 @@ export default function WeaponBuilderPanel() {
                 selection={selection}
                 onChange={handleSelectMod}
               />
-            </>
-          ) : null}
+            </div>
+          ) : (
+            <section className="weaponBuilder__preview">
+              <p className="weaponBuilder__empty">
+                Select a weapon to begin.
+              </p>
+            </section>
+          )}
         </section>
 
         <BuilderStatsPanel stats={finalStats} />

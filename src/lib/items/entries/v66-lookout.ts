@@ -139,11 +139,7 @@ export const v66Lookout: ItemEntry = {
     },
   ],
 
-  /*
-    DEFAULT MODS
-  */
-
-  lockedUpgradeIds: [
+  acceptedModSubcategories: [
     "chip",
     "volt-array",
     "precision-optic",
@@ -159,5 +155,6 @@ export const v66Lookout: ItemEntry = {
     "charge fire",
     "uesc",
     "marksman",
+    "standard",
   ],
 };

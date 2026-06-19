@@ -16,8 +16,7 @@ export const v22VoltThrower: ItemEntry = {
 
   sellPrice: 160,
 
-  description:
-    "Volt-actuated submachine gun with smart lock-on system.",
+  description: "Volt-actuated submachine gun with smart lock-on system.",
 
   effect: "Standard Submachine Gun",
 
@@ -139,11 +138,7 @@ export const v22VoltThrower: ItemEntry = {
     },
   ],
 
-  /*
-    DEFAULT MODS
-  */
-
-  lockedUpgradeIds: [
+  acceptedModSubcategories: [
     "chip",
     "volt-array",
     "volt-dampener",
@@ -155,8 +150,10 @@ export const v22VoltThrower: ItemEntry = {
     "submachine gun",
     "volt",
     "v22",
+    "volt thrower",
     "uesc",
     "energy",
     "tracking",
+    "standard",
   ],
 };

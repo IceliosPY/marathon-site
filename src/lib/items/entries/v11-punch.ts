@@ -139,11 +139,7 @@ export const v11Punch: ItemEntry = {
     },
   ],
 
-  /*
-    DEFAULT MODS
-  */
-
-  lockedUpgradeIds: [
+  acceptedModSubcategories: [
     "chip",
     "volt-array",
     "pistol-optic",
@@ -159,5 +155,6 @@ export const v11Punch: ItemEntry = {
     "burst",
     "uesc",
     "sidearm",
+    "standard",
   ],
 };
