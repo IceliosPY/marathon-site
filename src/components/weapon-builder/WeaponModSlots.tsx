@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { MouseEvent } from "react";
 import type { ItemEntry, ItemModSubcategory } from "../../lib/items";
 import { itemModSubcategoryLabels } from "../../lib/items";
@@ -21,6 +21,8 @@ type TooltipPosition = {
   y: number;
 };
 
+const REMOVE_ALL_HOLD_MS = 1000;
+
 function getSlotLabel(slot: ItemModSubcategory) {
   return itemModSubcategoryLabels[slot] ?? slot;
 }
@@ -34,6 +36,7 @@ function getSlotShortLabel(slot: ItemModSubcategory) {
   if (slot.includes("shield")) return "SHIELD";
   if (slot.includes("chip")) return "CHIP";
   if (slot.includes("generator")) return "GEN";
+
   return getSlotLabel(slot).toUpperCase();
 }
 
@@ -58,18 +61,33 @@ export default function WeaponModSlots({
   );
 
   const [hoveredMod, setHoveredMod] = useState<ItemEntry | null>(null);
+
   const [tooltipPosition, setTooltipPosition] = useState<TooltipPosition>({
     x: 0,
     y: 0,
   });
+
+  const [isHoldingRemove, setIsHoldingRemove] = useState(false);
+
+  const removeAllTimerRef = useRef<number | null>(null);
+  const removeAllTriggeredRef = useRef(false);
 
   useEffect(() => {
     setActiveSlot(slots[0] ?? null);
     setHoveredMod(null);
   }, [weapon.id, slots]);
 
+  useEffect(() => {
+    return () => {
+      if (removeAllTimerRef.current !== null) {
+        window.clearTimeout(removeAllTimerRef.current);
+      }
+    };
+  }, []);
+
   const activeMods = useMemo(() => {
     if (!activeSlot) return [];
+
     return getCompatibleModsForSlot(weapon, activeSlot, items);
   }, [weapon, activeSlot, items]);
 
@@ -85,6 +103,50 @@ export default function WeaponModSlots({
       x: Math.min(event.clientX + 42, window.innerWidth - 500),
       y: Math.max(24, Math.min(event.clientY - 120, window.innerHeight - 560)),
     });
+  };
+
+  const clearRemoveAllTimer = () => {
+    if (removeAllTimerRef.current !== null) {
+      window.clearTimeout(removeAllTimerRef.current);
+      removeAllTimerRef.current = null;
+    }
+
+    setIsHoldingRemove(false);
+  };
+
+  const removeAllMods = () => {
+    slots.forEach((slot) => {
+      onChange(slot, null);
+    });
+
+    setHoveredMod(null);
+  };
+
+  const handleRemovePointerDown = () => {
+    removeAllTriggeredRef.current = false;
+    setIsHoldingRemove(true);
+
+    removeAllTimerRef.current = window.setTimeout(() => {
+      removeAllTriggeredRef.current = true;
+      removeAllMods();
+      clearRemoveAllTimer();
+    }, REMOVE_ALL_HOLD_MS);
+  };
+
+  const handleRemovePointerUp = () => {
+    clearRemoveAllTimer();
+  };
+
+  const handleRemoveClick = () => {
+    if (!activeSlot) return;
+
+    if (removeAllTriggeredRef.current) {
+      removeAllTriggeredRef.current = false;
+      return;
+    }
+
+    onChange(activeSlot, null);
+    setHoveredMod(null);
   };
 
   if (!slots.length) {
@@ -172,13 +234,21 @@ export default function WeaponModSlots({
             {activeMod ? (
               <button
                 type="button"
-                className="weaponBuilder__removeModButton"
-                onClick={() => {
-                  onChange(activeSlot, null);
-                  setHoveredMod(null);
-                }}
+                className={`weaponBuilder__removeModButton ${
+                  isHoldingRemove ? "is-holding" : ""
+                }`}
+                onPointerDown={handleRemovePointerDown}
+                onPointerUp={handleRemovePointerUp}
+                onPointerLeave={handleRemovePointerUp}
+                onPointerCancel={handleRemovePointerUp}
+                onClick={handleRemoveClick}
+                title="Click: remove current mod. Hold 3 seconds: remove all mods."
               >
-                Remove mod
+                <span className="weaponBuilder__removeModLabel">
+                  Remove mod
+                </span>
+
+                <span className="weaponBuilder__removeModProgress" />
               </button>
             ) : null}
           </div>
