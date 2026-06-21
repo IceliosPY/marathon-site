@@ -8,7 +8,7 @@ export const infinityBelt: ItemEntry = {
 
   category: "mod",
   rarity: "prestige",
-  modSubcategory: "magazine",
+  modSubcategory: "belt-fed-magazine",
 
   icon: asset("items/icons/InfinityBelt.png"),
   image: asset("items/icons/InfinityBelt.png"),

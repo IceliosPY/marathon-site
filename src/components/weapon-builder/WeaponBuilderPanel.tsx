@@ -7,6 +7,7 @@ import BuilderStatsPanel from "./BuilderStatsPanel";
 import {
   calculateWeaponBuildStats,
   createEmptyBuildSelection,
+  getSelectedBuildEffects,
   isWeapon,
   type WeaponBuildSelection,
 } from "../../utils/weapons/weaponBuilder";
@@ -32,6 +33,11 @@ export default function WeaponBuilderPanel() {
         ? calculateWeaponBuildStats(selectedWeapon, selection)
         : [],
     [selectedWeapon, selection]
+  );
+
+  const selectedEffects = useMemo(
+    () => getSelectedBuildEffects(selection),
+    [selection]
   );
 
   const handleSelectWeapon = (weapon: ItemEntry) => {
@@ -108,7 +114,7 @@ export default function WeaponBuilderPanel() {
           )}
         </section>
 
-        <BuilderStatsPanel stats={finalStats} />
+        <BuilderStatsPanel stats={finalStats} effects={selectedEffects} />
       </div>
     </main>
   );

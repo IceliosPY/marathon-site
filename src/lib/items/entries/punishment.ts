@@ -6,8 +6,9 @@ export const punishment: ItemEntry = {
 
   name: "Punishment",
 
-  category: "chip",
+  category: "mod",
   rarity: "superior",
+  modSubcategory: "chip",
 
   icon: asset("items/icons/chip3.png"),
   image: asset("items/icons/chip3.png"),
@@ -16,15 +17,25 @@ export const punishment: ItemEntry = {
 
   sellPrice: 621,
 
-  effect: "Superior Chip Mod",
+  effect: "Superior Universal Chip Mod",
 
   description:
-    "This weapon deals significantly increased damage against Spht combatants.",
+    "This weapon deals significantly increased damage against SPHT combatants.",
 
+  lore:
+    "Developed during the height of the SPHT incursions, Punishment analyzes enemy architecture and dynamically adjusts projectile behavior to maximize lethality against synthetic targets.",
+
+  specialEffects: [
+    {
+      name: "Punishment",
+      description:
+        "This weapon deals substantially increased damage against SPHT combatants.",
+    },
+  ],
 
   highlightTerms: [
     "increased damage",
-    "Synth combatants",
+    "SPHT combatants",
     "universal chip mod",
     "damage",
     "spht",
@@ -33,9 +44,8 @@ export const punishment: ItemEntry = {
   ],
 
   tags: [
-    "boss",
-    "chip",
     "mod",
+    "chip",
     "chip mod",
     "universal chip mod",
     "superior",
@@ -44,6 +54,9 @@ export const punishment: ItemEntry = {
     "spht combatants",
     "weapon mod",
     "compiler",
+    "boss",
+    "synthetic",
+    "elite",
   ],
 
   sources: [

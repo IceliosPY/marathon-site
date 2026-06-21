@@ -167,7 +167,7 @@ export const copperheadRf: ItemEntry = {
   ],
   acceptedModSubcategories: [
     "chip",
-    "magazine",
+    "assault-magazine",
     "assault-optic",
     "cqc-barrel",
   ],

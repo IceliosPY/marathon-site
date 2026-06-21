@@ -3,23 +3,36 @@ import { asset } from "../../assets";
 
 export const fiveFingerDiscount: ItemEntry = {
   id: "five-finger-discount",
+
   name: "Five Finger Discount",
-  category: "chip",
+
+  category: "mod",
   rarity: "superior",
+  modSubcategory: "chip",
 
   icon: asset("items/icons/stack-overflow.png"),
   image: asset("items/icons/stack-overflow.png"),
   render: asset("items/icons/stack-overflow.png"),
-  video: asset("items/videos/chip/chip2.mp4"),
+  video: asset("items/videos/chips/chip2.mp4"),
 
   sellPrice: 621,
 
-  effect: "Universal Chip Mod",
+  effect: "Superior Universal Chip Mod",
 
   description:
-    "Eliminating UESC or downing Runners with a melee or knife attack partially reloads this weapon by a massive amount.",
+    "Eliminating UESC personnel or downing Runners with a melee or knife attack partially reloads this weapon by a massive amount.",
 
-  lore: "Chip mods can be installed onto any weapon.",
+  lore:
+    "An infamous black-market combat chip originally developed for boarding operations. Five Finger Discount rewards close-quarters aggression by siphoning ammunition reserves back into the weapon whenever targets are eliminated through melee execution.",
+
+
+  specialEffects: [
+    {
+      name: "Five Finger Discount",
+      description:
+        "Melee and knife eliminations partially reload the equipped weapon by a massive amount.",
+    },
+  ],
 
   highlightTerms: [
     "UESC",
@@ -27,17 +40,21 @@ export const fiveFingerDiscount: ItemEntry = {
     "melee",
     "knife attack",
     "reloads",
+    "close quarters",
   ],
 
   tags: [
+    "mod",
     "chip",
+    "universal chip",
     "melee",
     "knife",
     "reload",
     "runner",
     "uesc",
+    "close quarters",
     "weapon mod",
-    "universal mod",
+    "superior",
   ],
 
   sources: [

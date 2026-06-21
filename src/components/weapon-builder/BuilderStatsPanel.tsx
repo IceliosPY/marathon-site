@@ -1,7 +1,12 @@
-import type { BuilderStat } from "../../utils/weapons/weaponBuilder";
+import { useState } from "react";
+import type {
+  BuilderStat,
+  BuilderSpecialEffect,
+} from "../../utils/weapons/weaponBuilder";
 
 type BuilderStatsPanelProps = {
   stats: BuilderStat[];
+  effects: BuilderSpecialEffect[];
 };
 
 function formatValue(value: number, unit?: string) {
@@ -34,67 +39,169 @@ function getChangeClass(modifier: number) {
   return "";
 }
 
-export default function BuilderStatsPanel({ stats }: BuilderStatsPanelProps) {
+function getEffectRarityClass(effect: BuilderSpecialEffect) {
+  return `rarity-${effect.rarity ?? "standard"}`;
+}
+
+function formatEffectRarity(effect: BuilderSpecialEffect) {
+  if (!effect.rarity) return "Standard";
+  return effect.rarity.charAt(0).toUpperCase() + effect.rarity.slice(1);
+}
+
+export default function BuilderStatsPanel({
+  stats,
+  effects,
+}: BuilderStatsPanelProps) {
+  const [activeTab, setActiveTab] = useState<"stats" | "effects">("stats");
+
   return (
     <section className="weaponBuilder__section weaponBuilder__statsPanel">
-      <h2>Final Stats</h2>
+      <div className="weaponBuilder__tabs">
+        <button
+          type="button"
+          className={`weaponBuilder__tab ${
+            activeTab === "stats" ? "is-active" : ""
+          }`}
+          onClick={() => setActiveTab("stats")}
+        >
+          Stats
+        </button>
 
-      <div className="weaponBuilder__stats">
-        {stats.map((stat) => {
-          const max = getMaxValue(stat);
-          const basePercent = getPercent(stat.baseValue, max);
-          const finalPercent = getPercent(stat.finalValue, max);
+        <button
+          type="button"
+          className={`weaponBuilder__tab ${
+            activeTab === "effects" ? "is-active" : ""
+          }`}
+          onClick={() => setActiveTab("effects")}
+        >
+          Effects ({effects.length})
+        </button>
+      </div>
 
-          const hasChange = stat.modifier !== 0;
-          const changeClass = getChangeClass(stat.modifier);
+      <div className="weaponBuilder__tabContent">
+        {activeTab === "stats" ? (
+          <div className="weaponBuilder__stats">
+            {stats.map((stat) => {
+              const max = getMaxValue(stat);
+              const basePercent = getPercent(stat.baseValue, max);
+              const finalPercent = getPercent(stat.finalValue, max);
 
-          return (
-            <div
-              key={stat.label}
-              className={`weaponBuilder__statBlock ${
-                hasChange ? "has-change" : ""
-              }`}
-            >
-              <div className="weaponBuilder__statTop">
-                <span className="weaponBuilder__statName">{stat.label}</span>
+              const hasChange = stat.modifier !== 0;
+              const changeClass = getChangeClass(stat.modifier);
 
-                <span className="weaponBuilder__statBase">
-                  {formatValue(stat.baseValue, stat.unit)}
+              return (
+                <div
+                  key={stat.label}
+                  className={`weaponBuilder__statBlock ${
+                    hasChange ? "has-change" : ""
+                  }`}
+                >
+                  <div className="weaponBuilder__statTop">
+                    <span className="weaponBuilder__statName">
+                      {stat.label}
+                    </span>
+
+                    <span className="weaponBuilder__statBase">
+                      {formatValue(stat.baseValue, stat.unit)}
+                    </span>
+
+                    <strong className={changeClass}>
+                      {hasChange
+                        ? formatModifier(stat.modifier, stat.unit)
+                        : "—"}
+                    </strong>
+
+                    <strong className="weaponBuilder__statFinal">
+                      {formatValue(stat.finalValue, stat.unit)}
+                    </strong>
+                  </div>
+
+                  <div className="weaponBuilder__barCompare">
+                    <div className="weaponBuilder__barLine">
+                      <span
+                        className="weaponBuilder__barBase"
+                        style={{ width: `${basePercent}%` }}
+                      />
+                    </div>
+
+                    <div className="weaponBuilder__barLine">
+                      <span
+                        className={`weaponBuilder__barFinal ${changeClass}`}
+                        style={{ width: `${finalPercent}%` }}
+                      />
+                    </div>
+                  </div>
+
+                  {hasChange ? (
+                    <>
+                      <p
+                        className={`weaponBuilder__statDelta ${changeClass}`}
+                      >
+                        {formatModifier(stat.modifier, stat.unit)}{" "}
+                        {stat.label}
+                      </p>
+
+                      {stat.modifiers.length > 0 ? (
+                        <div className="weaponBuilder__statTooltip">
+                          <div className="weaponBuilder__statTooltipTitle">
+                            Modified by
+                          </div>
+
+                          {stat.modifiers.map((modifier) => (
+                            <div
+                              key={`${stat.label}-${modifier.sourceName}`}
+                              className="weaponBuilder__statTooltipEntry"
+                            >
+                              <span>{modifier.sourceName}</span>
+
+                              <strong
+                                className={
+                                  modifier.value > 0
+                                    ? "is-positive"
+                                    : modifier.value < 0
+                                    ? "is-negative"
+                                    : ""
+                                }
+                              >
+                                {formatModifier(
+                                  modifier.value,
+                                  stat.unit
+                                )}
+                              </strong>
+                            </div>
+                          ))}
+                        </div>
+                      ) : null}
+                    </>
+                  ) : null}
+                </div>
+              );
+            })}
+          </div>
+        ) : effects.length > 0 ? (
+          <div className="weaponBuilder__effectsList">
+            {effects.map((effect) => (
+              <article
+                key={`${effect.sourceName}-${effect.name}`}
+                className={`weaponBuilder__effectCard ${getEffectRarityClass(
+                  effect
+                )}`}
+              >
+                <strong>{effect.name}</strong>
+
+                <span>
+                  {effect.sourceName} • {formatEffectRarity(effect)}
                 </span>
 
-                <strong className={changeClass}>
-                  {hasChange ? formatModifier(stat.modifier, stat.unit) : "—"}
-                </strong>
-
-                <strong className="weaponBuilder__statFinal">
-                  {formatValue(stat.finalValue, stat.unit)}
-                </strong>
-              </div>
-
-              <div className="weaponBuilder__barCompare">
-                <div className="weaponBuilder__barLine">
-                  <span
-                    className="weaponBuilder__barBase"
-                    style={{ width: `${basePercent}%` }}
-                  />
-                </div>
-
-                <div className="weaponBuilder__barLine">
-                  <span
-                    className={`weaponBuilder__barFinal ${changeClass}`}
-                    style={{ width: `${finalPercent}%` }}
-                  />
-                </div>
-              </div>
-
-              {hasChange ? (
-                <p className={`weaponBuilder__statDelta ${changeClass}`}>
-                  {formatModifier(stat.modifier, stat.unit)} {stat.label}
-                </p>
-              ) : null}
-            </div>
-          );
-        })}
+                <p>{effect.description}</p>
+              </article>
+            ))}
+          </div>
+        ) : (
+          <div className="weaponBuilder__emptyEffects">
+            No active effects.
+          </div>
+        )}
       </div>
     </section>
   );

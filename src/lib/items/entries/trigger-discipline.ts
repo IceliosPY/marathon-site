@@ -3,9 +3,12 @@ import { asset } from "../../assets";
 
 export const triggerDiscipline: ItemEntry = {
   id: "trigger-discipline",
+
   name: "Trigger Discipline",
-  category: "chip",
+
+  category: "mod",
   rarity: "superior",
+  modSubcategory: "chip",
 
   icon: asset("items/icons/chip3.png"),
   image: asset("items/icons/chip3.png"),
@@ -14,15 +17,40 @@ export const triggerDiscipline: ItemEntry = {
 
   sellPrice: 621,
 
-  effect: "Universal Chip Mod",
+  effect: "Superior Universal Chip Mod",
 
   description:
     "Grants a significant amount of increased accuracy for the first few rounds of a trigger pull.",
 
-  lore: "Chip mods can be installed onto any weapon.",
+  lore:
+    "An adaptive targeting chip that stabilizes weapon handling during the opening moments of sustained fire, rewarding controlled bursts and disciplined trigger usage.",
+
+
+  specialEffects: [
+    {
+      name: "Trigger Discipline",
+      description:
+        "The first rounds fired after pulling the trigger gain a substantial accuracy bonus.",
+    },
+  ],
 
   highlightTerms: [
     "increased accuracy",
+    "burst fire",
+    "precision",
+    "first shots",
+  ],
+
+  tags: [
+    "mod",
+    "chip",
+    "accuracy",
+    "precision",
+    "trigger",
+    "burst",
+    "weapon mod",
+    "universal chip",
+    "superior",
   ],
 
   sources: [
@@ -46,14 +74,5 @@ export const triggerDiscipline: ItemEntry = {
         id: "nucaloric-armory",
       },
     },
-  ],
-
-  tags: [
-    "chip",
-    "accuracy",
-    "precision",
-    "trigger",
-    "burst",
-    "weapon mod",
   ],
 };

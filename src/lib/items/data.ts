@@ -196,8 +196,10 @@ import { m77Omnipositor } from "./entries/m77-omnipositor";
 import { intuition } from "./entries/intuition";
 import { earlyWarningSystem } from "./entries/early-warning-system";
 import { hipshotGrip } from "./entries/hipshot-grip";
+import {afterburner} from "./entries/afterburner";
 
 export const itemsData: ItemEntry[] = [
+  afterburner,
   hipshotGrip,
   earlyWarningSystem,
   intuition,

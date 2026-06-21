@@ -3,23 +3,43 @@ import { asset } from "../../assets";
 
 export const stackOverflow: ItemEntry = {
   id: "stack-overflow",
+
   name: "Stack Overflow",
-  category: "chip",
+
+  category: "mod",
   rarity: "superior",
+  modSubcategory: "chip",
 
   icon: asset("items/icons/stack-overflow.png"),
   image: asset("items/icons/stack-overflow.png"),
   render: asset("items/icons/stack-overflow.png"),
-  video: asset("items/videos/chip/chip2.mp4"),
+  video: asset("items/videos/chips/chip2.mp4"),
 
   sellPrice: 621,
 
-  effect: "Universal Chip Mod",
+  effect: "Superior Universal Chip Mod",
 
   description:
     "Reloading this weapon when the magazine is empty overflows the magazine by a massive amount.",
 
-  highlightTerms: ["overflows the magazine"],
+  lore:
+    "A controversial ammunition management chip originally developed for extended combat operations. By exploiting reserve-feed buffering, it allows magazines to temporarily exceed their intended capacity after a full empty reload.",
+
+
+  specialEffects: [
+    {
+      name: "Stack Overflow",
+      description:
+        "Reloading from an empty magazine massively overfills the weapon's magazine capacity.",
+    },
+  ],
+
+  highlightTerms: [
+    "overflow magazine",
+    "empty reload",
+    "bonus ammunition",
+    "extended capacity",
+  ],
 
   sources: [
     {
@@ -45,6 +65,7 @@ export const stackOverflow: ItemEntry = {
   ],
 
   tags: [
+    "mod",
     "chip",
     "overflow",
     "reload",
@@ -52,5 +73,7 @@ export const stackOverflow: ItemEntry = {
     "magazine",
     "ballistic",
     "volt",
+    "universal chip",
+    "superior",
   ],
 };

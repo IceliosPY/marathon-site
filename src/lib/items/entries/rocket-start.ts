@@ -3,33 +3,57 @@ import { asset } from "../../assets";
 
 export const rocketStart: ItemEntry = {
   id: "rocket-start",
+
   name: "Rocket Start",
-  category: "chip",
+
+  category: "mod",
   rarity: "superior",
+  modSubcategory: "chip",
 
   icon: asset("items/icons/stack-overflow.png"),
   image: asset("items/icons/stack-overflow.png"),
   render: asset("items/icons/stack-overflow.png"),
-  video: asset("items/videos/chip/chip2.mp4"),
+  video: asset("items/videos/chips/chip2.mp4"),
 
   sellPrice: 621,
 
-  effect: "Universal Chip Mod",
+  effect: "Superior Universal Chip Mod",
 
   description:
     "Eliminating a hostile shortly after sprinting grants you the effects of Cardio Kick for a long duration.",
 
-  lore: "Chip mods can be installed onto any weapon.",
+  lore:
+    "Developed for rapid assault operators, Rocket Start rewards aggressive movement by converting combat momentum into sustained combat performance. Successful sprint engagements trigger an extended Cardio Kick state.",
 
-  highlightTerms: ["Cardio Kick"],
+
+  specialEffects: [
+    {
+      name: "Rocket Start",
+      description:
+        "Eliminating a hostile shortly after sprinting activates Cardio Kick for an extended duration.",
+    },
+  ],
+
+  highlightTerms: [
+    "Cardio Kick",
+    "sprinting",
+    "mobility",
+    "kill trigger",
+    "movement buff",
+  ],
 
   tags: [
+    "mod",
     "chip",
+    "universal chip",
     "mobility",
     "sprint",
     "kill trigger",
     "cardio kick",
+    "movement",
+    "aggressive playstyle",
     "weapon mod",
+    "superior",
   ],
 
   sources: [

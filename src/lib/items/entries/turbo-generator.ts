@@ -25,13 +25,6 @@ export const turboGenerator: ItemEntry = {
   lore:
     "An overclocked energy regulator that accelerates weapon handling and power cycling. Favored by operators who rely on rapid target acquisition and fast charge recovery.",
 
-  specialEffects: [
-    {
-      name: "Turbo Cycle",
-      description:
-        "Improves aiming responsiveness while reducing weapon charge delays.",
-    },
-  ],
 
   highlightTerms: [
     "ADS speed",

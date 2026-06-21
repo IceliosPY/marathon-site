@@ -6,17 +6,18 @@ export const commonEnemy: ItemEntry = {
 
   name: "Common Enemy",
 
-  category: "chip",
+  category: "mod",
   rarity: "superior",
+  modSubcategory: "chip",
 
   icon: asset("items/icons/hurricane.png"),
   image: asset("items/icons/hurricane.png"),
   render: asset("items/icons/hurricane.png"),
-  video: asset("items/videos/hurricane.mp4"),
+  video: asset("items/videos/chips/hurricane.mp4"),
 
   sellPrice: 621,
 
-  effect: "Universal Chip Mod",
+  effect: "Superior Universal Chip Mod",
 
   description:
     "Dealing damage to enemy combatants causes them to take a massive amount of increased damage from allied or enemy Runners for a short duration.",
@@ -24,15 +25,26 @@ export const commonEnemy: ItemEntry = {
   lore:
     "A battlefield analysis chip that flags hostile targets as priority threats. Marked enemies become significantly more vulnerable to incoming damage from all sources.",
 
+  specialEffects: [
+    {
+      name: "Common Enemy",
+      description:
+        "Damaging an enemy combatant marks them, causing them to take greatly increased damage from allied or enemy Runners for a short duration.",
+    },
+  ],
+
   highlightTerms: [
     "increased damage",
     "enemy combatants",
     "allied Runners",
     "enemy Runners",
+    "marked targets",
   ],
 
   tags: [
+    "mod",
     "chip",
+    "universal chip",
     "debuff",
     "damage amplification",
     "mark target",
@@ -40,14 +52,8 @@ export const commonEnemy: ItemEntry = {
     "teamplay",
     "combat",
     "weapon mod",
+    "superior",
   ],
-
-  prestigeFeature: {
-    title: "Universal Chip Mod",
-    description:
-      "Chip mods can be installed onto any weapon.",
-    color: "purple",
-  },
 
   sources: [
     {

@@ -41,6 +41,10 @@ function getModSummary(mod: ItemEntry) {
   return mod.effect ?? mod.description ?? "Compatible weapon upgrade.";
 }
 
+function getRarityClass(item: ItemEntry | null) {
+  return item?.rarity ? `rarity-${item.rarity}` : "";
+}
+
 export default function WeaponModSlots({
   weapon,
   items,
@@ -124,9 +128,11 @@ export default function WeaponModSlots({
               role="tab"
               aria-selected={isActive}
               title={getSlotLabel(slot)}
-              className={`weaponBuilder__modSlotCard ${
-                isActive ? "is-active" : ""
-              } ${selectedMod ? "has-mod" : ""}`}
+              className={`weaponBuilder__modSlotCard ${getRarityClass(
+                selectedMod
+              )} ${isActive ? "is-active" : ""} ${
+                selectedMod ? "has-mod" : ""
+              }`}
               onClick={() => setActiveSlot(slot)}
               onMouseMove={(event) => {
                 if (selectedMod) handleModHover(event, selectedMod);
@@ -206,9 +212,9 @@ export default function WeaponModSlots({
                 <button
                   key={mod.id}
                   type="button"
-                  className={`weaponBuilder__modChoiceCard ${
-                    isSelected ? "is-selected" : ""
-                  }`}
+                  className={`weaponBuilder__modChoiceCard rarity-${
+                    mod.rarity
+                  } ${isSelected ? "is-selected" : ""}`}
                   onClick={() => onChange(activeSlot, mod)}
                   onMouseMove={(event) => handleModHover(event, mod)}
                   onMouseLeave={() => setHoveredMod(null)}

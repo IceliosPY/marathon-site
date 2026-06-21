@@ -1,1077 +1,1659 @@
 .weaponBuilder {
-    width: min(1680px, calc(100vw - 96px));
-    margin: 0 auto;
-    padding: 84px 0 72px;
-    color: #f4f7ff;
+  width: min(1680px, calc(100vw - 96px));
+  margin: 0 auto;
+  padding: 84px 0 72px;
+  color: #f4f7ff;
+}
+
+.weaponBuilder * {
+  box-sizing: border-box;
+}
+
+/* ===== Hero ===== */
+
+.weaponBuilder__hero {
+  margin-bottom: 24px;
+}
+
+.weaponBuilder__kicker {
+  margin: 0 0 10px;
+  color: #b7ff37;
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.weaponBuilder__hero h1 {
+  margin: 0 0 14px;
+  font-size: clamp(2.2rem, 3.6vw, 4rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.weaponBuilder__hero p {
+  max-width: 980px;
+  margin: 0;
+  color: rgba(244, 247, 255, 0.78);
+}
+
+/* ===== Layout ===== */
+
+.weaponBuilder__layout {
+  display: grid;
+  grid-template-columns: 300px minmax(620px, 1fr) 440px;
+  gap: 22px;
+  align-items: start;
+  height: calc(100vh - 180px);
+  min-height: 760px;
+}
+
+.weaponBuilder__section,
+.weaponBuilder__center,
+.weaponBuilder__preview,
+.weaponBuilder__modDock {
+  background: rgba(4, 7, 14, 0.9);
+  border: 1px solid rgba(183, 255, 55, 0.18);
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.45);
+}
+
+.weaponBuilder__section,
+.weaponBuilder__center {
+  min-width: 0;
+  min-height: 0;
+  padding: 20px;
+}
+
+.weaponBuilder__layout > .weaponBuilder__section:first-child,
+.weaponBuilder__center,
+.weaponBuilder__statsPanel {
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.weaponBuilder__section h2 {
+  margin: 0 0 18px;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+/* ===== Weapon selector ===== */
+
+.weaponBuilder__search {
+  margin-bottom: 12px;
+}
+
+.weaponBuilder__search input {
+  width: 100%;
+  padding: 11px 12px;
+  color: #f4f7ff;
+  background: #050812;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  outline: none;
+}
+
+.weaponBuilder__search input:focus {
+  border-color: #b7ff37;
+}
+
+.weaponBuilder__search input::placeholder {
+  color: rgba(244, 247, 255, 0.45);
+}
+
+.weaponBuilder__weaponGrid {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  height: calc(100% - 112px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 8px;
+}
+
+.weaponBuilder__weaponCard {
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+  min-height: 92px;
+  padding: 10px;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.weaponBuilder__weaponCard:hover {
+  border-color: rgba(183, 255, 55, 0.45);
+  background: rgba(183, 255, 55, 0.06);
+}
+
+.weaponBuilder__weaponCard.is-active {
+  border-color: #b7ff37;
+  background: rgba(183, 255, 55, 0.11);
+}
+
+.weaponBuilder__weaponCard img {
+  width: 88px;
+  height: 58px;
+  object-fit: contain;
+  display: block;
+}
+
+.weaponBuilder__weaponCard span {
+  display: block;
+  max-width: 100%;
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1.22;
+  overflow-wrap: break-word;
+}
+
+.weaponBuilder__weaponCard small {
+  display: block;
+  margin-top: 5px;
+  color: rgba(244, 247, 255, 0.58);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ===== Center preview ===== */
+
+.weaponBuilder__center {
+  display: block;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.weaponBuilder__preview {
+  display: grid;
+  grid-template-rows: 300px auto auto;
+  gap: 18px;
+  min-height: 100%;
+  padding: 18px;
+  overflow: visible;
+}
+
+.weaponBuilder__preview > img {
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+  display: block;
+  background:
+    radial-gradient(circle at center, rgba(54, 79, 130, 0.35), transparent 60%),
+    rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.weaponBuilder__previewInfo {
+  min-width: 0;
+}
+
+.weaponBuilder__previewInfo span,
+.weaponBuilder__preview span {
+  display: block;
+  margin-top: 0;
+  color: rgba(244, 247, 255, 0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+}
+
+.weaponBuilder__preview h2 {
+  margin: 6px 0;
+  font-size: clamp(1.7rem, 2.2vw, 2.3rem);
+  line-height: 1;
+}
+
+.weaponBuilder__preview p {
+  margin: 0;
+  color: rgba(244, 247, 255, 0.72);
+}
+
+/* ===== Mods dock ===== */
+
+.weaponBuilder__modDock {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-height: 280px;
+  padding: 18px;
+  background: rgba(4, 7, 14, 0.92);
+  border: 1px solid rgba(183, 255, 55, 0.18);
+}
+
+.weaponBuilder__modDock--empty {
+  justify-content: center;
+}
+
+.weaponBuilder__modDockHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.weaponBuilder__modDockHead h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.weaponBuilder__modDockHead span,
+.weaponBuilder__eyebrow {
+  display: block;
+  margin: 0;
+  color: #b7ff37;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.weaponBuilder__modDockHead strong {
+  color: rgba(244, 247, 255, 0.76);
+  font-size: 0.82rem;
+}
+
+/* ===== Installed mod slots ===== */
+
+.weaponBuilder__modSlotsBar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 12px;
+  width: 100%;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.weaponBuilder__modSlotCard {
+  width: 100%;
+  min-width: 90px;
+  height: 92px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  color: #f4f7ff;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.weaponBuilder__modSlotCard:hover {
+  transform: translateY(-1px);
+  border-color: rgba(183, 255, 55, 0.55);
+  background: rgba(183, 255, 55, 0.06);
+}
+
+.weaponBuilder__modSlotCard.is-active {
+  border-color: #b7ff37;
+  background: rgba(183, 255, 55, 0.08);
+  box-shadow:
+    inset 0 0 0 1px rgba(183, 255, 55, 0.2),
+    0 0 20px rgba(183, 255, 55, 0.14);
+}
+
+.weaponBuilder__modSlotCard.has-mod {
+  box-shadow: inset 0 0 12px rgba(183, 255, 55, 0.08);
+}
+
+.weaponBuilder__modSlotCard.rarity-standard.has-mod {
+  border-color: rgba(244, 247, 255, 0.22);
+}
+
+.weaponBuilder__modSlotCard.rarity-enhanced.has-mod {
+  border-color: rgba(45, 255, 154, 0.34);
+}
+
+.weaponBuilder__modSlotCard.rarity-enhanced.has-mod .weaponBuilder__modSlotType,
+.weaponBuilder__modSlotCard.rarity-enhanced.has-mod small {
+  color: #2dff9a;
+}
+
+.weaponBuilder__modSlotCard.rarity-deluxe.has-mod {
+  border-color: rgba(61, 189, 255, 0.34);
+}
+
+.weaponBuilder__modSlotCard.rarity-deluxe.has-mod .weaponBuilder__modSlotType,
+.weaponBuilder__modSlotCard.rarity-deluxe.has-mod small {
+  color: #3dbdff;
+}
+
+.weaponBuilder__modSlotCard.rarity-superior.has-mod {
+  border-color: rgba(180, 90, 255, 0.42);
+}
+
+.weaponBuilder__modSlotCard.rarity-superior.has-mod .weaponBuilder__modSlotType,
+.weaponBuilder__modSlotCard.rarity-superior.has-mod small {
+  color: #b45aff;
+}
+
+.weaponBuilder__modSlotCard.rarity-prestige.has-mod {
+  border-color: rgba(255, 215, 70, 0.46);
+}
+
+.weaponBuilder__modSlotCard.rarity-prestige.has-mod .weaponBuilder__modSlotType,
+.weaponBuilder__modSlotCard.rarity-prestige.has-mod small {
+  color: #ffd746;
+}
+
+.weaponBuilder__modSlotCard.rarity-superior.has-mod:hover,
+.weaponBuilder__modSlotCard.rarity-superior.has-mod.is-active {
+  border-color: #b45aff;
+  background: rgba(180, 90, 255, 0.08);
+  box-shadow:
+    inset 0 0 0 1px rgba(180, 90, 255, 0.18),
+    0 0 22px rgba(180, 90, 255, 0.2);
+}
+
+.weaponBuilder__modSlotCard.rarity-prestige.has-mod:hover,
+.weaponBuilder__modSlotCard.rarity-prestige.has-mod.is-active {
+  border-color: #ffd746;
+  background: rgba(255, 215, 70, 0.08);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 215, 70, 0.18),
+    0 0 26px rgba(255, 215, 70, 0.24);
+}
+
+.weaponBuilder__modSlotType {
+  color: #b7ff37;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.weaponBuilder__modSlotIcon {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+}
+
+.weaponBuilder__modSlotIcon img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.weaponBuilder__modSlotIcon span {
+  color: rgba(244, 247, 255, 0.5);
+  font-size: 1.5rem;
+}
+
+.weaponBuilder__modSlotCard small {
+  color: rgba(244, 247, 255, 0.55);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+/* ===== Mod inspector ===== */
+
+.weaponBuilder__modInspect {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+.weaponBuilder__modInspectTop {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.weaponBuilder__modInspectTop > div {
+  min-width: 0;
+}
+
+.weaponBuilder__modInspectTop span {
+  color: #b7ff37;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.weaponBuilder__modInspectTop strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 1.15rem;
+  line-height: 1.2;
+  overflow-wrap: break-word;
+}
+
+.weaponBuilder__removeModButton {
+  flex: 0 0 auto;
+  padding: 9px 12px;
+  color: #f4f7ff;
+  cursor: pointer;
+  background: rgba(255, 79, 145, 0.08);
+  border: 1px solid rgba(255, 79, 145, 0.35);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.68rem;
+}
+
+.weaponBuilder__removeModButton:hover {
+  background: rgba(255, 79, 145, 0.16);
+  border-color: rgba(255, 79, 145, 0.75);
+}
+
+/* ===== Mod choice grid ===== */
+
+.weaponBuilder__modChoiceGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+  max-height: 360px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 8px;
+  align-items: stretch;
+}
+
+.weaponBuilder__modChoiceCard {
+  display: grid;
+  grid-template-rows: 74px auto;
+  gap: 10px;
+  min-height: 190px;
+  height: auto;
+  padding: 12px;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.weaponBuilder__modChoiceCard:hover {
+  transform: translateY(-2px);
+  border-color: rgba(183, 255, 55, 0.5);
+  background: rgba(183, 255, 55, 0.06);
+}
+
+.weaponBuilder__modChoiceCard.is-selected {
+  border-color: #b7ff37;
+  background: rgba(183, 255, 55, 0.1);
+  box-shadow:
+    inset 0 0 0 1px rgba(183, 255, 55, 0.16),
+    0 0 18px rgba(183, 255, 55, 0.12);
+}
+
+.weaponBuilder__modChoiceCard.rarity-standard {
+  border-color: rgba(244, 247, 255, 0.16);
+}
+
+.weaponBuilder__modChoiceCard.rarity-enhanced {
+  border-color: rgba(45, 255, 154, 0.28);
+}
+
+.weaponBuilder__modChoiceCard.rarity-enhanced:hover {
+  border-color: #2dff9a;
+  box-shadow:
+    0 0 22px rgba(45, 255, 154, 0.16),
+    inset 0 0 0 1px rgba(45, 255, 154, 0.12);
+}
+
+.weaponBuilder__modChoiceCard.rarity-enhanced .weaponBuilder__modChoiceContent small {
+  color: #2dff9a;
+}
+
+.weaponBuilder__modChoiceCard.rarity-deluxe {
+  border-color: rgba(61, 189, 255, 0.28);
+}
+
+.weaponBuilder__modChoiceCard.rarity-deluxe:hover {
+  border-color: #3dbdff;
+  box-shadow:
+    0 0 22px rgba(61, 189, 255, 0.16),
+    inset 0 0 0 1px rgba(61, 189, 255, 0.12);
+}
+
+.weaponBuilder__modChoiceCard.rarity-deluxe .weaponBuilder__modChoiceContent small {
+  color: #3dbdff;
+}
+
+.weaponBuilder__modChoiceCard.rarity-superior {
+  border-color: rgba(180, 90, 255, 0.34);
+}
+
+.weaponBuilder__modChoiceCard.rarity-superior:hover {
+  border-color: #b45aff;
+  box-shadow:
+    0 0 24px rgba(180, 90, 255, 0.18),
+    inset 0 0 0 1px rgba(180, 90, 255, 0.12);
+}
+
+.weaponBuilder__modChoiceCard.rarity-superior .weaponBuilder__modChoiceContent small {
+  color: #b45aff;
+}
+
+.weaponBuilder__modChoiceCard.rarity-prestige {
+  border-color: rgba(255, 215, 70, 0.36);
+}
+
+.weaponBuilder__modChoiceCard.rarity-prestige:hover {
+  border-color: #ffd746;
+  box-shadow:
+    0 0 28px rgba(255, 215, 70, 0.2),
+    inset 0 0 0 1px rgba(255, 215, 70, 0.15);
+}
+
+.weaponBuilder__modChoiceCard.rarity-prestige .weaponBuilder__modChoiceContent small {
+  color: #ffd746;
+}
+
+.weaponBuilder__modChoiceCard.is-selected.rarity-enhanced {
+  border-color: #2dff9a;
+  background: rgba(45, 255, 154, 0.08);
+  box-shadow:
+    inset 0 0 0 1px rgba(45, 255, 154, 0.16),
+    0 0 22px rgba(45, 255, 154, 0.2);
+}
+
+.weaponBuilder__modChoiceCard.is-selected.rarity-deluxe {
+  border-color: #3dbdff;
+  background: rgba(61, 189, 255, 0.08);
+  box-shadow:
+    inset 0 0 0 1px rgba(61, 189, 255, 0.16),
+    0 0 22px rgba(61, 189, 255, 0.2);
+}
+
+.weaponBuilder__modChoiceCard.is-selected.rarity-superior {
+  border-color: #b45aff;
+  background: rgba(180, 90, 255, 0.08);
+  box-shadow:
+    inset 0 0 0 1px rgba(180, 90, 255, 0.16),
+    0 0 24px rgba(180, 90, 255, 0.24);
+}
+
+.weaponBuilder__modChoiceCard.is-selected.rarity-prestige {
+  border-color: #ffd746;
+  background: rgba(255, 215, 70, 0.08);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 215, 70, 0.18),
+    0 0 28px rgba(255, 215, 70, 0.28);
+}
+
+.weaponBuilder__modChoiceVisual {
+  display: grid;
+  place-items: center;
+  min-height: 0;
+  background:
+    radial-gradient(circle at center, rgba(54, 79, 130, 0.24), transparent 65%),
+    rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.weaponBuilder__modChoiceVisual img {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+}
+
+.weaponBuilder__modChoiceVisual span {
+  color: rgba(244, 247, 255, 0.45);
+  font-size: 1.7rem;
+}
+
+.weaponBuilder__modChoiceContent {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.weaponBuilder__modChoiceContent strong {
+  display: -webkit-box;
+  line-height: 1.18;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.weaponBuilder__modChoiceContent small {
+  display: block;
+  margin-top: 5px;
+  color: #b7ff37;
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.weaponBuilder__modChoiceContent p {
+  display: -webkit-box;
+  margin: 7px 0 0;
+  color: rgba(244, 247, 255, 0.68);
+  font-size: 0.82rem;
+  line-height: 1.35;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.weaponBuilder__slotHint,
+.weaponBuilder__empty {
+  margin: 7px 0 0;
+  color: rgba(244, 247, 255, 0.68);
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+/* ===== Stats / Effects tabs ===== */
+
+.weaponBuilder__statsPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.weaponBuilder__tabs {
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  margin: 0 0 16px;
+  padding: 0;
+  background: rgba(4, 7, 14, 0.82);
+  border: 1px solid rgba(183, 255, 55, 0.16);
+}
+
+.weaponBuilder__tab {
+  min-width: 0;
+  padding: 13px 10px 12px;
+  color: rgba(244, 247, 255, 0.62);
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.025);
+  border: 0;
+  border-right: 1px solid rgba(183, 255, 55, 0.14);
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  transition:
+    color 160ms ease,
+    background 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.weaponBuilder__tab:last-child {
+  border-right: 0;
+}
+
+.weaponBuilder__tab:hover {
+  color: #f4f7ff;
+  background: rgba(183, 255, 55, 0.07);
+}
+
+.weaponBuilder__tab.is-active {
+  color: #050812;
+  background: #b7ff37;
+  box-shadow:
+    0 0 22px rgba(183, 255, 55, 0.18),
+    inset 0 -2px 0 rgba(255, 255, 255, 0.28);
+}
+
+.weaponBuilder__tabContent {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(183, 255, 55, 0.035),
+      rgba(4, 7, 14, 0.42)
+    );
+  border: 1px solid rgba(183, 255, 55, 0.12);
+}
+
+.weaponBuilder__stats {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 14px 10px 14px 14px;
+}
+
+.weaponBuilder__statBlock {
+  display: grid;
+  gap: 8px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.weaponBuilder__statBlock.has-change {
+  animation: statChangeGlow 500ms ease-out;
+}
+
+.weaponBuilder__statTop {
+  display: grid;
+  grid-template-columns: minmax(116px, 1fr) 72px 72px 72px;
+  gap: 8px;
+  align-items: center;
+  min-width: 0;
+  font-size: 0.84rem;
+}
+
+.weaponBuilder__statName {
+  min-width: 0;
+  font-weight: 800;
+  line-height: 1.18;
+  overflow-wrap: break-word;
+}
+
+.weaponBuilder__statBase,
+.weaponBuilder__statTop strong {
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ===== Double animated stat bars ===== */
+
+.weaponBuilder__barCompare {
+  display: grid;
+  gap: 5px;
+}
+
+.weaponBuilder__barLine {
+  position: relative;
+  height: 5px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.weaponBuilder__barLine::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.12)
+  );
+}
+
+.weaponBuilder__barBase,
+.weaponBuilder__barFinal {
+  position: absolute;
+  inset: 0 auto 0 0;
+  height: 100%;
+}
+
+.weaponBuilder__barBase {
+  background: rgba(244, 247, 255, 0.36);
+}
+
+.weaponBuilder__barFinal {
+  background: rgba(244, 247, 255, 0.86);
+  transition:
+    width 850ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.weaponBuilder__barFinal.is-positive {
+  background: #45ffd2;
+  box-shadow: 0 0 14px rgba(69, 255, 210, 0.65);
+}
+
+.weaponBuilder__barFinal.is-negative {
+  background: #ff4f91;
+  box-shadow: 0 0 14px rgba(255, 79, 145, 0.65);
+}
+
+.weaponBuilder__statDelta {
+  margin: 0;
+  font-size: 0.72rem;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.is-positive {
+  color: #45ffd2;
+}
+
+.is-negative {
+  color: #ff4f91;
+}
+
+@keyframes statChangeGlow {
+  0% {
+    background: rgba(183, 255, 55, 0.12);
   }
-  
-  .weaponBuilder * {
-    box-sizing: border-box;
+
+  100% {
+    background: transparent;
   }
-  
-  /* ===== Hero ===== */
-  
-  .weaponBuilder__hero {
-    margin-bottom: 24px;
+}
+
+/* ===== Scrollbars ===== */
+
+.weaponBuilder__weaponGrid::-webkit-scrollbar,
+.weaponBuilder__center::-webkit-scrollbar,
+.weaponBuilder__stats::-webkit-scrollbar,
+.weaponBuilder__effectsList::-webkit-scrollbar,
+.weaponBuilder__modChoiceGrid::-webkit-scrollbar {
+  width: 8px;
+}
+
+.weaponBuilder__weaponGrid::-webkit-scrollbar-track,
+.weaponBuilder__center::-webkit-scrollbar-track,
+.weaponBuilder__stats::-webkit-scrollbar-track,
+.weaponBuilder__effectsList::-webkit-scrollbar-track,
+.weaponBuilder__modChoiceGrid::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.weaponBuilder__weaponGrid::-webkit-scrollbar-thumb,
+.weaponBuilder__center::-webkit-scrollbar-thumb,
+.weaponBuilder__stats::-webkit-scrollbar-thumb,
+.weaponBuilder__effectsList::-webkit-scrollbar-thumb,
+.weaponBuilder__modChoiceGrid::-webkit-scrollbar-thumb {
+  background: rgba(183, 255, 55, 0.55);
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 1450px) {
+  .weaponBuilder {
+    width: min(1540px, calc(100vw - 90px));
   }
-  
-  .weaponBuilder__kicker {
-    margin: 0 0 10px;
-    color: #b7ff37;
-    font-size: 0.74rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-  }
-  
-  .weaponBuilder__hero h1 {
-    margin: 0 0 14px;
-    font-size: clamp(2.2rem, 3.6vw, 4rem);
-    line-height: 0.95;
-    text-transform: uppercase;
-  }
-  
-  .weaponBuilder__hero p {
-    max-width: 980px;
-    margin: 0;
-    color: rgba(244, 247, 255, 0.78);
-  }
-  
-  /* ===== Layout ===== */
-  
+
   .weaponBuilder__layout {
-    display: grid;
-    grid-template-columns: 300px minmax(620px, 1fr) 440px;
-    gap: 22px;
-    align-items: start;
-    height: calc(100vh - 180px);
-    min-height: 760px;
+    grid-template-columns: 280px minmax(540px, 1fr) 400px;
   }
-  
-  .weaponBuilder__section,
-  .weaponBuilder__center,
-  .weaponBuilder__preview,
-  .weaponBuilder__modDock {
-    background: rgba(4, 7, 14, 0.9);
-    border: 1px solid rgba(183, 255, 55, 0.18);
-    box-shadow: 0 20px 70px rgba(0, 0, 0, 0.45);
+
+  .weaponBuilder__statTop {
+    grid-template-columns: minmax(104px, 1fr) 68px 68px 68px;
+    font-size: 0.8rem;
   }
-  
-  .weaponBuilder__section,
-  .weaponBuilder__center {
-    min-width: 0;
+
+  .weaponBuilder__modChoiceGrid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+}
+
+@media (max-width: 1200px) {
+  .weaponBuilder__layout {
+    grid-template-columns: 280px minmax(0, 1fr);
+    height: auto;
     min-height: 0;
-    padding: 20px;
   }
-  
+
   .weaponBuilder__layout > .weaponBuilder__section:first-child,
   .weaponBuilder__center,
   .weaponBuilder__statsPanel {
-    height: 100%;
-    max-height: 100%;
-    overflow: hidden;
-  }
-  
-  .weaponBuilder__section h2 {
-    margin: 0 0 18px;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-  }
-  
-  /* ===== Weapon selector ===== */
-  
-  .weaponBuilder__search {
-    margin-bottom: 12px;
-  }
-  
-  .weaponBuilder__search input {
-    width: 100%;
-    padding: 11px 12px;
-    color: #f4f7ff;
-    background: #050812;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    outline: none;
-  }
-  
-  .weaponBuilder__search input:focus {
-    border-color: #b7ff37;
-  }
-  
-  .weaponBuilder__search input::placeholder {
-    color: rgba(244, 247, 255, 0.45);
-  }
-  
-  .weaponBuilder__weaponGrid {
-    display: grid;
-    align-content: start;
-    gap: 10px;
-    height: calc(100% - 112px);
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding-right: 8px;
-  }
-  
-  .weaponBuilder__weaponCard {
-    display: grid;
-    grid-template-columns: 88px minmax(0, 1fr);
-    gap: 12px;
-    align-items: center;
-    width: 100%;
-    min-height: 92px;
-    padding: 10px;
-    color: inherit;
-    text-align: left;
-    cursor: pointer;
-    background: rgba(255, 255, 255, 0.035);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  
-  .weaponBuilder__weaponCard:hover {
-    border-color: rgba(183, 255, 55, 0.45);
-    background: rgba(183, 255, 55, 0.06);
-  }
-  
-  .weaponBuilder__weaponCard.is-active {
-    border-color: #b7ff37;
-    background: rgba(183, 255, 55, 0.11);
-  }
-  
-  .weaponBuilder__weaponCard img {
-    width: 88px;
-    height: 58px;
-    object-fit: contain;
-    display: block;
-  }
-  
-  .weaponBuilder__weaponCard span {
-    display: block;
-    max-width: 100%;
-    font-size: 0.92rem;
-    font-weight: 800;
-    line-height: 1.22;
-    overflow-wrap: break-word;
-  }
-  
-  .weaponBuilder__weaponCard small {
-    display: block;
-    margin-top: 5px;
-    color: rgba(244, 247, 255, 0.58);
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-  
-  /* ===== Center preview ===== */
-  
-  .weaponBuilder__center {
-    display: block;
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-  
-  .weaponBuilder__preview {
-    display: grid;
-    grid-template-rows: 300px auto auto;
-    gap: 18px;
-    min-height: 100%;
-    padding: 18px;
-    overflow: visible;
-  }
-  
-  .weaponBuilder__preview > img {
-    width: 100%;
-    height: 300px;
-    object-fit: contain;
-    display: block;
-    background:
-      radial-gradient(circle at center, rgba(54, 79, 130, 0.35), transparent 60%),
-      rgba(255, 255, 255, 0.035);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-  }
-  
-  .weaponBuilder__previewInfo {
-    min-width: 0;
-  }
-  
-  .weaponBuilder__previewInfo span,
-  .weaponBuilder__preview span {
-    display: block;
-    margin-top: 0;
-    color: rgba(244, 247, 255, 0.55);
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    font-size: 0.72rem;
-  }
-  
-  .weaponBuilder__preview h2 {
-    margin: 6px 0;
-    font-size: clamp(1.7rem, 2.2vw, 2.3rem);
-    line-height: 1;
-  }
-  
-  .weaponBuilder__preview p {
-    margin: 0;
-    color: rgba(244, 247, 255, 0.72);
-  }
-  
-  /* ===== Mods dock ===== */
-  
-  .weaponBuilder__modDock {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    min-height: 280px;
-    padding: 18px;
-    background: rgba(4, 7, 14, 0.92);
-    border: 1px solid rgba(183, 255, 55, 0.18);
-  }
-  
-  .weaponBuilder__modDock--empty {
-    justify-content: center;
-  }
-  
-  .weaponBuilder__modDockHead {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 16px;
-  }
-  
-  .weaponBuilder__modDockHead h2 {
-    margin: 0;
-    font-size: 1.4rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-  }
-  
-  .weaponBuilder__modDockHead span,
-  .weaponBuilder__eyebrow {
-    display: block;
-    margin: 0;
-    color: #b7ff37;
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-  }
-  
-  .weaponBuilder__modDockHead strong {
-    color: rgba(244, 247, 255, 0.76);
-    font-size: 0.82rem;
-  }
-  
-  /* ===== Installed mod slots ===== */
-  
-  .weaponBuilder__modSlotsBar {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-    gap: 12px;
-    width: 100%;
-    padding-bottom: 14px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  }
-  
-  .weaponBuilder__modSlotCard {
-    width: 100%;
-    min-width: 90px;
-    height: 92px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 10px;
-    color: #f4f7ff;
-    cursor: pointer;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    transition:
-      border-color 160ms ease,
-      background 160ms ease,
-      box-shadow 160ms ease,
-      transform 160ms ease;
-  }
-  
-  .weaponBuilder__modSlotCard:hover {
-    transform: translateY(-1px);
-    border-color: rgba(183, 255, 55, 0.55);
-    background: rgba(183, 255, 55, 0.06);
-  }
-  
-  .weaponBuilder__modSlotCard.is-active {
-    border-color: #b7ff37;
-    background: rgba(183, 255, 55, 0.08);
-    box-shadow:
-      inset 0 0 0 1px rgba(183, 255, 55, 0.2),
-      0 0 20px rgba(183, 255, 55, 0.14);
-  }
-  
-  .weaponBuilder__modSlotCard.has-mod {
-    box-shadow: inset 0 0 12px rgba(183, 255, 55, 0.08);
-  }
-  
-  .weaponBuilder__modSlotType {
-    color: #b7ff37;
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-  }
-  
-  .weaponBuilder__modSlotIcon {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 0;
-  }
-  
-  .weaponBuilder__modSlotIcon img {
-    width: 42px;
-    height: 42px;
-    object-fit: contain;
-  }
-  
-  .weaponBuilder__modSlotIcon span {
-    color: rgba(244, 247, 255, 0.5);
-    font-size: 1.5rem;
-  }
-  
-  .weaponBuilder__modSlotCard small {
-    color: rgba(244, 247, 255, 0.55);
-    font-size: 0.7rem;
-    text-transform: uppercase;
-  }
-  
-  /* ===== Mod inspector ===== */
-  
-  .weaponBuilder__modInspect {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    min-width: 0;
-  }
-  
-  .weaponBuilder__modInspectTop {
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    align-items: flex-start;
-  }
-  
-  .weaponBuilder__modInspectTop > div {
-    min-width: 0;
-  }
-  
-  .weaponBuilder__modInspectTop span {
-    color: #b7ff37;
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-  }
-  
-  .weaponBuilder__modInspectTop strong {
-    display: block;
-    margin-top: 4px;
-    font-size: 1.15rem;
-    line-height: 1.2;
-    overflow-wrap: break-word;
-  }
-  
-  .weaponBuilder__removeModButton {
-    flex: 0 0 auto;
-    padding: 9px 12px;
-    color: #f4f7ff;
-    cursor: pointer;
-    background: rgba(255, 79, 145, 0.08);
-    border: 1px solid rgba(255, 79, 145, 0.35);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-size: 0.68rem;
-  }
-  
-  .weaponBuilder__removeModButton:hover {
-    background: rgba(255, 79, 145, 0.16);
-    border-color: rgba(255, 79, 145, 0.75);
-  }
-  
-  /* ===== Mod choice grid ===== */
-  
-  .weaponBuilder__modChoiceGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(178px, 1fr));
-    gap: 12px;
-    max-height: 360px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding-right: 8px;
-  }
-  
-  .weaponBuilder__modChoiceCard {
-    display: grid;
-    grid-template-rows: 74px minmax(0, 1fr);
-    gap: 10px;
-    min-height: 190px;
-    padding: 12px;
-    color: inherit;
-    text-align: left;
-    cursor: pointer;
-    background: rgba(255, 255, 255, 0.035);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition:
-      border-color 160ms ease,
-      background 160ms ease,
-      transform 160ms ease,
-      box-shadow 160ms ease;
-  }
-  
-  .weaponBuilder__modChoiceCard:hover {
-    transform: translateY(-2px);
-    border-color: rgba(183, 255, 55, 0.5);
-    background: rgba(183, 255, 55, 0.06);
-  }
-  
-  .weaponBuilder__modChoiceCard.is-selected {
-    border-color: #b7ff37;
-    background: rgba(183, 255, 55, 0.1);
-    box-shadow:
-      inset 0 0 0 1px rgba(183, 255, 55, 0.16),
-      0 0 18px rgba(183, 255, 55, 0.12);
-  }
-  
-  .weaponBuilder__modChoiceVisual {
-    display: grid;
-    place-items: center;
-    min-height: 0;
-    background:
-      radial-gradient(circle at center, rgba(54, 79, 130, 0.24), transparent 65%),
-      rgba(255, 255, 255, 0.035);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-  }
-  
-  .weaponBuilder__modChoiceVisual img {
-    width: 58px;
-    height: 58px;
-    object-fit: contain;
-  }
-  
-  .weaponBuilder__modChoiceVisual span {
-    color: rgba(244, 247, 255, 0.45);
-    font-size: 1.7rem;
-  }
-  
-  .weaponBuilder__modChoiceContent {
-    min-width: 0;
-  }
-  
-  .weaponBuilder__modChoiceContent strong {
-    display: block;
-    line-height: 1.18;
-    overflow-wrap: break-word;
-  }
-  
-  .weaponBuilder__modChoiceContent small {
-    display: block;
-    margin-top: 5px;
-    color: #b7ff37;
-    font-size: 0.66rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-  
-  .weaponBuilder__modChoiceContent p,
-  .weaponBuilder__slotHint,
-  .weaponBuilder__empty {
-    margin: 7px 0 0;
-    color: rgba(244, 247, 255, 0.68);
-    font-size: 0.82rem;
-    line-height: 1.4;
-  }
-  
-  /* ===== Stats ===== */
-  
-  .weaponBuilder__statsPanel {
-    display: grid;
-    grid-template-rows: auto minmax(0, 1fr);
-    min-width: 0;
-    overflow: hidden;
-  }
-  
-  .weaponBuilder__statsPanel h2 {
-    margin-bottom: 18px;
-  }
-  
-  .weaponBuilder__stats {
-    display: grid;
-    align-content: start;
-    gap: 14px;
-    min-height: 0;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding-right: 10px;
-  }
-  
-  .weaponBuilder__statBlock {
-    display: grid;
-    gap: 8px;
-    padding-bottom: 14px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  }
-  
-  .weaponBuilder__statBlock.has-change {
-    animation: statChangeGlow 500ms ease-out;
-  }
-  
-  .weaponBuilder__statTop {
-    display: grid;
-    grid-template-columns: minmax(116px, 1fr) 72px 72px 72px;
-    gap: 8px;
-    align-items: center;
-    min-width: 0;
-    font-size: 0.84rem;
-  }
-  
-  .weaponBuilder__statName {
-    min-width: 0;
-    font-weight: 800;
-    line-height: 1.18;
-    overflow-wrap: break-word;
-  }
-  
-  .weaponBuilder__statBase,
-  .weaponBuilder__statTop strong {
-    text-align: right;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  
-  /* ===== Double animated stat bars ===== */
-  
-  .weaponBuilder__barCompare {
-    display: grid;
-    gap: 5px;
-  }
-  
-  .weaponBuilder__barLine {
-    position: relative;
-    height: 5px;
-    overflow: hidden;
-    background: rgba(255, 255, 255, 0.1);
-  }
-  
-  .weaponBuilder__barLine::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.04),
-      rgba(255, 255, 255, 0.12)
-    );
-  }
-  
-  .weaponBuilder__barBase,
-  .weaponBuilder__barFinal {
-    position: absolute;
-    inset: 0 auto 0 0;
-    height: 100%;
-  }
-  
-  .weaponBuilder__barBase {
-    background: rgba(244, 247, 255, 0.36);
-  }
-  
-  .weaponBuilder__barFinal {
-    background: rgba(244, 247, 255, 0.86);
-    transition:
-      width 850ms cubic-bezier(0.22, 1, 0.36, 1),
-      background-color 200ms ease,
-      box-shadow 200ms ease;
-  }
-  
-  .weaponBuilder__barFinal.is-positive {
-    background: #45ffd2;
-    box-shadow: 0 0 14px rgba(69, 255, 210, 0.65);
-  }
-  
-  .weaponBuilder__barFinal.is-negative {
-    background: #ff4f91;
-    box-shadow: 0 0 14px rgba(255, 79, 145, 0.65);
-  }
-  
-  .weaponBuilder__statDelta {
-    margin: 0;
-    font-size: 0.72rem;
-    line-height: 1.2;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    opacity: 0.9;
-  }
-  
-  .is-positive {
-    color: #45ffd2;
-  }
-  
-  .is-negative {
-    color: #ff4f91;
-  }
-  
-  @keyframes statChangeGlow {
-    0% {
-      background: rgba(183, 255, 55, 0.12);
-    }
-  
-    100% {
-      background: transparent;
-    }
-  }
-  
-  /* ===== Scrollbars ===== */
-  
-  .weaponBuilder__weaponGrid::-webkit-scrollbar,
-  .weaponBuilder__center::-webkit-scrollbar,
-  .weaponBuilder__stats::-webkit-scrollbar,
-  .weaponBuilder__modChoiceGrid::-webkit-scrollbar {
-    width: 8px;
-  }
-  
-  .weaponBuilder__weaponGrid::-webkit-scrollbar-track,
-  .weaponBuilder__center::-webkit-scrollbar-track,
-  .weaponBuilder__stats::-webkit-scrollbar-track,
-  .weaponBuilder__modChoiceGrid::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.06);
-  }
-  
-  .weaponBuilder__weaponGrid::-webkit-scrollbar-thumb,
-  .weaponBuilder__center::-webkit-scrollbar-thumb,
-  .weaponBuilder__stats::-webkit-scrollbar-thumb,
-  .weaponBuilder__modChoiceGrid::-webkit-scrollbar-thumb {
-    background: rgba(183, 255, 55, 0.55);
-  }
-  
-  /* ===== Responsive ===== */
-  
-  @media (max-width: 1450px) {
-    .weaponBuilder {
-      width: min(1540px, calc(100vw - 90px));
-    }
-  
-    .weaponBuilder__layout {
-      grid-template-columns: 280px minmax(540px, 1fr) 400px;
-    }
-  
-    .weaponBuilder__statTop {
-      grid-template-columns: minmax(104px, 1fr) 68px 68px 68px;
-      font-size: 0.8rem;
-    }
-  
-    .weaponBuilder__modChoiceGrid {
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    }
-  }
-  
-  @media (max-width: 1200px) {
-    .weaponBuilder__layout {
-      grid-template-columns: 280px minmax(0, 1fr);
-      height: auto;
-      min-height: 0;
-    }
-  
-    .weaponBuilder__layout > .weaponBuilder__section:first-child,
-    .weaponBuilder__center,
-    .weaponBuilder__statsPanel {
-      height: auto;
-      max-height: none;
-    }
-  
-    .weaponBuilder__layout > .weaponBuilder__section:last-child {
-      grid-column: 1 / -1;
-    }
-  
-    .weaponBuilder__weaponGrid {
-      height: auto;
-      max-height: 520px;
-    }
-  
-    .weaponBuilder__center {
-      overflow: visible;
-    }
-  
-    .weaponBuilder__preview {
-      min-height: 0;
-    }
-  
-    .weaponBuilder__stats {
-      height: auto;
-      max-height: 620px;
-    }
-  
-    .weaponBuilder__statTop {
-      grid-template-columns: minmax(160px, 1fr) 100px 100px 100px;
-      font-size: 0.9rem;
-    }
-  }
-  
-  @media (max-width: 850px) {
-    .weaponBuilder {
-      width: min(100% - 32px, 1680px);
-      padding: 64px 0;
-    }
-  
-    .weaponBuilder__layout {
-      grid-template-columns: 1fr;
-    }
-  
-    .weaponBuilder__weaponGrid {
-      max-height: 520px;
-    }
-  
-    .weaponBuilder__preview {
-      grid-template-rows: auto auto auto;
-    }
-  
-    .weaponBuilder__preview > img {
-      height: 240px;
-    }
-  
-    .weaponBuilder__statTop {
-      grid-template-columns: 1fr 80px 80px 80px;
-    }
-  }
-  
-  @media (max-width: 560px) {
-    .weaponBuilder__weaponCard {
-      grid-template-columns: 76px minmax(0, 1fr);
-    }
-  
-    .weaponBuilder__weaponCard img {
-      width: 76px;
-      height: 54px;
-    }
-  
-    .weaponBuilder__modSlotsBar {
-      grid-template-columns: repeat(auto-fit, minmax(78px, 1fr));
-    }
-  
-    .weaponBuilder__modSlotCard {
-      min-width: 78px;
-      height: 78px;
-    }
-  
-    .weaponBuilder__modSlotIcon img {
-      width: 36px;
-      height: 36px;
-    }
-  
-    .weaponBuilder__modInspectTop {
-      flex-direction: column;
-    }
-  
-    .weaponBuilder__modChoiceGrid {
-      grid-template-columns: 1fr;
-      max-height: none;
-      overflow: visible;
-      padding-right: 0;
-    }
-  
-    .weaponBuilder__modChoiceCard {
-      grid-template-rows: auto;
-      grid-template-columns: 54px minmax(0, 1fr);
-      min-height: 96px;
-    }
-  
-    .weaponBuilder__modChoiceVisual {
-      min-height: 54px;
-    }
-  
-    .weaponBuilder__modChoiceVisual img {
-      width: 44px;
-      height: 44px;
-    }
-  
-    .weaponBuilder__statTop {
-      grid-template-columns: 1fr;
-      gap: 4px;
-    }
-  
-    .weaponBuilder__statBase,
-    .weaponBuilder__statTop strong {
-      text-align: left;
-    }
+    height: auto;
+    max-height: none;
   }
 
-  .weaponBuilder__selectorPanel {
-    position: relative;
+  .weaponBuilder__layout > .weaponBuilder__section:last-child {
+    grid-column: 1 / -1;
   }
-  
-  .weaponBuilder__weaponCardWrap {
-    position: relative;
+
+  .weaponBuilder__weaponGrid {
+    height: auto;
+    max-height: 520px;
   }
-  
+
+  .weaponBuilder__center {
+    overflow: visible;
+  }
+
+  .weaponBuilder__preview {
+    min-height: 0;
+  }
+
+  .weaponBuilder__tabContent {
+    min-height: 520px;
+  }
+
+  .weaponBuilder__stats {
+    height: 100%;
+    max-height: 620px;
+  }
+
+  .weaponBuilder__effectsList {
+    max-height: 620px;
+  }
+
+  .weaponBuilder__statTop {
+    grid-template-columns: minmax(160px, 1fr) 100px 100px 100px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 850px) {
+  .weaponBuilder {
+    width: min(100% - 32px, 1680px);
+    padding: 64px 0;
+  }
+
+  .weaponBuilder__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .weaponBuilder__weaponGrid {
+    max-height: 520px;
+  }
+
+  .weaponBuilder__preview {
+    grid-template-rows: auto auto auto;
+  }
+
+  .weaponBuilder__preview > img {
+    height: 240px;
+  }
+
+  .weaponBuilder__statTop {
+    grid-template-columns: 1fr 80px 80px 80px;
+  }
+}
+
+@media (max-width: 560px) {
+  .weaponBuilder__weaponCard {
+    grid-template-columns: 76px minmax(0, 1fr);
+  }
+
+  .weaponBuilder__weaponCard img {
+    width: 76px;
+    height: 54px;
+  }
+
+  .weaponBuilder__modSlotsBar {
+    grid-template-columns: repeat(auto-fit, minmax(78px, 1fr));
+  }
+
+  .weaponBuilder__modSlotCard {
+    min-width: 78px;
+    height: 78px;
+  }
+
+  .weaponBuilder__modSlotIcon img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .weaponBuilder__modInspectTop {
+    flex-direction: column;
+  }
+
+  .weaponBuilder__modChoiceGrid {
+    grid-template-columns: 1fr;
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
+  }
+
+  .weaponBuilder__modChoiceCard {
+    grid-template-rows: auto;
+    grid-template-columns: 54px minmax(0, 1fr);
+    min-height: 96px;
+  }
+
+  .weaponBuilder__modChoiceVisual {
+    min-height: 54px;
+  }
+
+  .weaponBuilder__modChoiceVisual img {
+    width: 44px;
+    height: 44px;
+  }
+
+  .weaponBuilder__statTop {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .weaponBuilder__statBase,
+  .weaponBuilder__statTop strong {
+    text-align: left;
+  }
+
+  .weaponBuilder__tab {
+    padding: 12px 8px;
+    font-size: 0.72rem;
+  }
+
+  .weaponBuilder__tabContent {
+    min-height: 360px;
+  }
+
+  .weaponBuilder__effectsList {
+    max-height: none;
+  }
+}
+
+.weaponBuilder__selectorPanel {
+  position: relative;
+}
+
+.weaponBuilder__weaponCardWrap {
+  position: relative;
+}
+
+.weaponBuilder__weaponTooltipMount {
+  position: fixed;
+  z-index: 99999;
+  width: 440px;
+  pointer-events: none;
+  animation: weaponTooltipIn 140ms ease-out;
+  transform: translateZ(0);
+}
+
+.weaponTooltip {
+  position: relative;
+  width: 100%;
+  background: rgba(39, 39, 42, 0.92);
+  border: 1px solid rgba(194, 254, 12, 0.28);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.65);
+}
+
+.weaponTooltip__dots {
+  background-position: top left;
+  background-image: radial-gradient(
+    rgba(194, 254, 12, 0.45) 5%,
+    transparent 0
+  );
+  background-size: 32px 32px;
+}
+
+.weaponTooltip__content {
+  background: rgba(39, 39, 42, 0.55);
+}
+
+.weaponTooltip__header {
+  display: flex;
+  align-items: center;
+  min-height: 28px;
+  color: #f4f7ff;
+  background: #0284c7;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.weaponTooltip__header span {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  align-self: stretch;
+  border-right: 1px solid rgba(8, 47, 73, 0.9);
+}
+
+.weaponTooltip__header strong {
+  padding: 4px 14px;
+}
+
+.weaponTooltip__body {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+}
+
+.weaponTooltip__identity {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+}
+
+.weaponTooltip__identity img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
+.weaponTooltip__identity h3 {
+  margin: 0;
+  color: #f4f7ff;
+  font-size: 1.65rem;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.weaponTooltip__identity p {
+  margin: 4px 0 0;
+  color: #fde047;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.weaponTooltip__divider {
+  height: 2px;
+  background: rgba(244, 247, 255, 0.16);
+}
+
+.weaponTooltip__description {
+  margin: 0;
+  color: rgba(244, 247, 255, 0.9);
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.weaponTooltip__stats {
+  display: grid;
+  gap: 7px;
+  max-height: 300px;
+  overflow: hidden;
+}
+
+.weaponTooltip__stats div {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+}
+
+.weaponTooltip__stats span,
+.weaponTooltip__slots > span {
+  color: rgba(244, 247, 255, 0.55);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.weaponTooltip__stats strong {
+  color: #f4f7ff;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.weaponTooltip__slots {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+}
+
+.weaponTooltip__slots div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.weaponTooltip__slots strong {
+  padding: 2px 8px;
+  color: #f4f7ff;
+  border: 1px solid rgba(244, 247, 255, 0.28);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.weaponTooltip__corner {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+}
+
+.weaponTooltip__corner::before,
+.weaponTooltip__corner::after {
+  content: "";
+  position: absolute;
+  background: #c2fe0c;
+}
+
+.weaponTooltip__corner--tl {
+  top: -2px;
+  left: -2px;
+}
+
+.weaponTooltip__corner--tl::before {
+  top: -2px;
+  left: -2px;
+  height: 2px;
+  width: 10px;
+}
+
+.weaponTooltip__corner--tl::after {
+  top: -2px;
+  left: -2px;
+  width: 2px;
+  height: 10px;
+}
+
+.weaponTooltip__corner--tr {
+  top: -2px;
+  right: -2px;
+}
+
+.weaponTooltip__corner--tr::before {
+  top: -2px;
+  right: -2px;
+  height: 2px;
+  width: 10px;
+}
+
+.weaponTooltip__corner--tr::after {
+  top: -2px;
+  right: -2px;
+  width: 2px;
+  height: 10px;
+}
+
+.weaponTooltip__corner--bl {
+  bottom: -2px;
+  left: -2px;
+}
+
+.weaponTooltip__corner--bl::before {
+  bottom: -2px;
+  left: -2px;
+  height: 2px;
+  width: 10px;
+}
+
+.weaponTooltip__corner--bl::after {
+  bottom: -2px;
+  left: -2px;
+  width: 2px;
+  height: 10px;
+}
+
+.weaponTooltip__corner--br {
+  bottom: -2px;
+  right: -2px;
+}
+
+.weaponTooltip__corner--br::before {
+  bottom: -2px;
+  right: -2px;
+  height: 2px;
+  width: 10px;
+}
+
+.weaponTooltip__corner--br::after {
+  bottom: -2px;
+  right: -2px;
+  width: 2px;
+  height: 10px;
+}
+
+@keyframes weaponTooltipIn {
+  from {
+    opacity: 0;
+    transform: translateX(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 1200px) {
   .weaponBuilder__weaponTooltipMount {
     position: fixed;
     z-index: 99999;
-    width: 440px;
+    width: 420px;
     pointer-events: none;
     animation: weaponTooltipIn 140ms ease-out;
-    transform: translateZ(0);
   }
-  
-  .weaponTooltip {
-    position: relative;
-    width: 100%;
-    background: rgba(39, 39, 42, 0.92);
-    border: 1px solid rgba(194, 254, 12, 0.28);
-    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.65);
-  }
-  
-  .weaponTooltip__dots {
-    background-position: top left;
-    background-image: radial-gradient(
-      rgba(194, 254, 12, 0.45) 5%,
+}
+
+.weaponBuilder__modTooltipMount {
+  position: fixed;
+  z-index: 999999;
+  width: 460px;
+  pointer-events: none;
+  animation: weaponTooltipIn 140ms ease-out;
+}
+
+/* =========================
+   ACTIVE EFFECTS MENU
+========================= */
+
+.weaponBuilder__effectsList {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 14px 10px 14px 14px;
+}
+
+.weaponBuilder__emptyEffects {
+  flex: 1 1 auto;
+  padding: 14px;
+  color: rgba(244, 247, 255, 0.55);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.weaponBuilder__effectCard {
+  position: relative;
+  overflow: hidden;
+  padding: 14px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(183, 255, 55, 0.08),
+      rgba(183, 255, 55, 0.02)
+    );
+  border: 1px solid rgba(183, 255, 55, 0.15);
+  transition:
+    border-color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.weaponBuilder__effectCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(
+      rgba(194, 254, 12, 0.25) 4%,
       transparent 0
     );
-    background-size: 32px 32px;
-  }
-  
-  .weaponTooltip__content {
-    background: rgba(39, 39, 42, 0.55);
-  }
-  
-  .weaponTooltip__header {
-    display: flex;
-    align-items: center;
-    min-height: 28px;
-    color: #f4f7ff;
-    background: #0284c7;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-size: 0.78rem;
-    font-weight: 800;
-  }
-  
-  .weaponTooltip__header span {
-    display: grid;
-    place-items: center;
-    width: 42px;
-    align-self: stretch;
-    border-right: 1px solid rgba(8, 47, 73, 0.9);
-  }
-  
-  .weaponTooltip__header strong {
-    padding: 4px 14px;
-  }
-  
-  .weaponTooltip__body {
-    display: grid;
-    gap: 14px;
-    padding: 16px;
-  }
-  
-  .weaponTooltip__identity {
-    display: grid;
-    grid-template-columns: 56px minmax(0, 1fr);
-    gap: 12px;
-    align-items: center;
-  }
-  
-  .weaponTooltip__identity img {
-    width: 56px;
-    height: 56px;
-    object-fit: contain;
-  }
-  
-  .weaponTooltip__identity h3 {
-    margin: 0;
-    color: #f4f7ff;
-    font-size: 1.65rem;
-    line-height: 0.95;
-    text-transform: uppercase;
-  }
-  
-  .weaponTooltip__identity p {
-    margin: 4px 0 0;
-    color: #fde047;
-    font-size: 0.82rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
-  
-  .weaponTooltip__divider {
-    height: 2px;
-    background: rgba(244, 247, 255, 0.16);
-  }
-  
-  .weaponTooltip__description {
-    margin: 0;
-    color: rgba(244, 247, 255, 0.9);
-    font-size: 0.86rem;
-    line-height: 1.45;
-  }
-  
-  .weaponTooltip__stats {
-    display: grid;
-    gap: 7px;
-    max-height: 300px;
-    overflow: hidden;
-  }
-  
-  .weaponTooltip__stats div {
-    display: grid;
-    grid-template-columns: 150px minmax(0, 1fr);
-    gap: 10px;
-    align-items: center;
-  }
-  
-  .weaponTooltip__stats span,
-  .weaponTooltip__slots > span {
-    color: rgba(244, 247, 255, 0.55);
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-  
-  .weaponTooltip__stats strong {
-    color: #f4f7ff;
-    font-size: 0.86rem;
-    font-weight: 700;
-  }
-  
-  .weaponTooltip__slots {
-    display: grid;
-    grid-template-columns: 96px minmax(0, 1fr);
-    gap: 10px;
-    align-items: start;
-  }
-  
-  .weaponTooltip__slots div {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-  }
-  
-  .weaponTooltip__slots strong {
-    padding: 2px 8px;
-    color: #f4f7ff;
-    border: 1px solid rgba(244, 247, 255, 0.28);
-    font-size: 0.68rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
-  
-  .weaponTooltip__corner {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    pointer-events: none;
-  }
-  
-  .weaponTooltip__corner::before,
-  .weaponTooltip__corner::after {
-    content: "";
-    position: absolute;
-    background: #c2fe0c;
-  }
-  
-  .weaponTooltip__corner--tl {
-    top: -2px;
-    left: -2px;
-  }
-  
-  .weaponTooltip__corner--tl::before {
-    top: -2px;
-    left: -2px;
-    height: 2px;
-    width: 10px;
-  }
-  
-  .weaponTooltip__corner--tl::after {
-    top: -2px;
-    left: -2px;
-    width: 2px;
-    height: 10px;
-  }
-  
-  .weaponTooltip__corner--tr {
-    top: -2px;
-    right: -2px;
-  }
-  
-  .weaponTooltip__corner--tr::before {
-    top: -2px;
-    right: -2px;
-    height: 2px;
-    width: 10px;
-  }
-  
-  .weaponTooltip__corner--tr::after {
-    top: -2px;
-    right: -2px;
-    width: 2px;
-    height: 10px;
-  }
-  
-  .weaponTooltip__corner--bl {
-    bottom: -2px;
-    left: -2px;
-  }
-  
-  .weaponTooltip__corner--bl::before {
-    bottom: -2px;
-    left: -2px;
-    height: 2px;
-    width: 10px;
-  }
-  
-  .weaponTooltip__corner--bl::after {
-    bottom: -2px;
-    left: -2px;
-    width: 2px;
-    height: 10px;
-  }
-  
-  .weaponTooltip__corner--br {
-    bottom: -2px;
-    right: -2px;
-  }
-  
-  .weaponTooltip__corner--br::before {
-    bottom: -2px;
-    right: -2px;
-    height: 2px;
-    width: 10px;
-  }
-  
-  .weaponTooltip__corner--br::after {
-    bottom: -2px;
-    right: -2px;
-    width: 2px;
-    height: 10px;
-  }
-  
-  @keyframes weaponTooltipIn {
-    from {
-      opacity: 0;
-      transform: translateX(-6px);
-    }
-  
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-  
-  @media (max-width: 1200px) {
-    .weaponBuilder__weaponTooltipMount {
-      position: fixed;
-      z-index: 99999;
-      width: 420px;
-      pointer-events: none;
-      animation: weaponTooltipIn 140ms ease-out;
-    }
-  }
+  background-size: 24px 24px;
+  opacity: 0.2;
+  pointer-events: none;
+}
 
-  .weaponBuilder__modTooltipMount {
-    position: fixed;
-    z-index: 999999;
-    width: 460px;
-    pointer-events: none;
-    animation: weaponTooltipIn 140ms ease-out;
-  }
+.weaponBuilder__effectCard:hover {
+  transform: translateY(-2px);
+  border-color: rgba(183, 255, 55, 0.45);
+  box-shadow:
+    0 0 24px rgba(183, 255, 55, 0.12),
+    inset 0 0 0 1px rgba(183, 255, 55, 0.12);
+}
+
+.weaponBuilder__effectCard strong {
+  position: relative;
+  z-index: 1;
+  display: block;
+  margin-bottom: 4px;
+  color: #f4f7ff;
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.weaponBuilder__effectCard span {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #b7ff37;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.weaponBuilder__effectCard p {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: rgba(244, 247, 255, 0.82);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.weaponBuilder__effectCard::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: #b7ff37;
+  box-shadow:
+    0 0 12px rgba(183, 255, 55, 0.6),
+    0 0 24px rgba(183, 255, 55, 0.25);
+}
+
+/* ===== Effect rarities ===== */
+
+.weaponBuilder__effectCard.rarity-superior {
+  border-color: rgba(170, 90, 255, 0.45);
+}
+
+.weaponBuilder__effectCard.rarity-superior strong {
+  color: #b45aff;
+}
+
+.weaponBuilder__effectCard.rarity-superior::after {
+  background: #b45aff;
+}
+
+.weaponBuilder__effectCard.rarity-prestige {
+  border-color: rgba(255, 215, 70, 0.45);
+  box-shadow: 0 0 18px rgba(255, 215, 70, 0.12);
+}
+
+.weaponBuilder__effectCard.rarity-prestige strong {
+  color: #ffd746;
+}
+
+.weaponBuilder__effectCard.rarity-prestige::after {
+  background: #ffd746;
+}
+
+
+
+.weaponBuilder__effectCard.rarity-enhanced {
+  border-color: rgba(45, 255, 154, 0.42);
+}
+
+.weaponBuilder__effectCard.rarity-enhanced strong {
+  color: #2dff9a;
+}
+
+.weaponBuilder__effectCard.rarity-enhanced::after {
+  background: #2dff9a;
+}
+
+.weaponBuilder__effectCard.rarity-deluxe {
+  border-color: rgba(61, 189, 255, 0.42);
+}
+
+.weaponBuilder__effectCard.rarity-deluxe strong {
+  color: #3dbdff;
+}
+
+.weaponBuilder__effectCard.rarity-deluxe::after {
+  background: #3dbdff;
+}
+
+/* =========================
+   STAT MODIFIER TOOLTIP
+========================= */
+
+.weaponBuilder__statBlock {
+  position: relative;
+  overflow: visible;
+}
+
+.weaponBuilder__statTooltip {
+  position: absolute;
+  top: calc(100% - 6px);
+  left: 10px;
+  right: 10px;
+  z-index: 50;
+
+  display: grid;
+  gap: 8px;
+
+  padding: 11px 12px;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(4, 7, 14, 0.98),
+      rgba(8, 14, 24, 0.98)
+    );
+  border: 1px solid rgba(183, 255, 55, 0.28);
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.55),
+    0 0 24px rgba(183, 255, 55, 0.1);
+
+  transition:
+    opacity 140ms ease,
+    visibility 140ms ease,
+    transform 140ms ease;
+}
+
+.weaponBuilder__statBlock:hover .weaponBuilder__statTooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.weaponBuilder__statTooltip::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    radial-gradient(
+      rgba(194, 254, 12, 0.22) 4%,
+      transparent 0
+    );
+  background-size: 24px 24px;
+
+  opacity: 0.16;
+  pointer-events: none;
+}
+
+.weaponBuilder__statTooltip::after {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+
+  width: 3px;
+  height: calc(100% + 2px);
+
+  background: #b7ff37;
+  box-shadow:
+    0 0 12px rgba(183, 255, 55, 0.6),
+    0 0 24px rgba(183, 255, 55, 0.22);
+}
+
+.weaponBuilder__statTooltipTitle {
+  position: relative;
+  z-index: 1;
+
+  color: #b7ff37;
+
+  font-size: 0.66rem;
+  font-weight: 800;
+
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.weaponBuilder__statTooltipEntry {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding-top: 7px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.weaponBuilder__statTooltipEntry span {
+  min-width: 0;
+
+  color: rgba(244, 247, 255, 0.82);
+
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.2;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.weaponBuilder__statTooltipEntry strong {
+  flex: 0 0 auto;
+
+  font-size: 0.78rem;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.weaponBuilder__statBlock.has-change:hover {
+  border-bottom-color: rgba(183, 255, 55, 0.32);
+  background: rgba(183, 255, 55, 0.035);
+}
+
+.weaponBuilder__modChoiceCard.rarity-deluxe {
+  border-color: rgba(61, 189, 255, 0.28);
+}
+
+.weaponBuilder__modChoiceCard.rarity-deluxe:hover {
+  border-color: #3dbdff;
+
+  box-shadow:
+    0 0 24px rgba(61, 189, 255, 0.18),
+    inset 0 0 0 1px rgba(61, 189, 255, 0.12);
+}
+
+.weaponBuilder__modChoiceCard.rarity-deluxe
+.weaponBuilder__modChoiceContent small {
+  color: #3dbdff;
+}
+
+.weaponBuilder__modChoiceCard.is-selected.rarity-deluxe {
+  border-color: #3dbdff;
+
+  background: rgba(61, 189, 255, 0.08);
+
+  box-shadow:
+    inset 0 0 0 1px rgba(61, 189, 255, 0.16),
+    0 0 24px rgba(61, 189, 255, 0.24);
+}

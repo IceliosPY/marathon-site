@@ -17,10 +17,14 @@ export const endlessRunner: ItemEntry = {
 
   sellPrice: 621,
 
-  effect: "Superior Chip Mod",
+  effect: "Superior Universal Chip Mod",
 
   description:
     "While under the effects of Cardio Kick, eliminating hostiles with this weapon extends its duration by a massive amount.",
+
+  lore:
+    "A combat-optimization chip designed for high-mobility operators. Endless Runner rewards aggressive momentum by continuously extending Cardio Kick whenever hostiles are eliminated.",
+
 
   specialEffects: [
     {
@@ -28,11 +32,27 @@ export const endlessRunner: ItemEntry = {
       description:
         "While under the effects of Cardio Kick, eliminating hostiles with this weapon extends its duration by a massive amount.",
     },
-    {
-      name: "Universal Chip Mod",
-      description:
-        "Chip mods can be installed onto any weapon.",
-    },
+  ],
+
+  highlightTerms: [
+    "Cardio Kick",
+    "mobility",
+    "movement speed",
+    "duration extension",
+    "eliminations",
+  ],
+
+  tags: [
+    "mod",
+    "chip",
+    "universal chip",
+    "cardio kick",
+    "mobility",
+    "movement",
+    "speed",
+    "duration",
+    "weapon mod",
+    "superior",
   ],
 
   sources: [
