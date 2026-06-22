@@ -5,6 +5,7 @@ import WeaponSelector from "./WeaponSelector";
 import WeaponModSlots from "./WeaponModSlots";
 import BuilderStatsPanel from "./BuilderStatsPanel";
 import {
+  calculateBuildValue,
   calculateWeaponBuildStats,
   createEmptyBuildSelection,
   getSelectedBuildEffects,
@@ -40,6 +41,14 @@ export default function WeaponBuilderPanel() {
     [selection]
   );
 
+  const buildValue = useMemo(
+    () =>
+      selectedWeapon
+        ? calculateBuildValue(selectedWeapon, selection)
+        : 0,
+    [selectedWeapon, selection]
+  );
+
   const handleSelectWeapon = (weapon: ItemEntry) => {
     setSelectedWeapon(weapon);
     setSelection(createEmptyBuildSelection(weapon));
@@ -58,7 +67,9 @@ export default function WeaponBuilderPanel() {
   return (
     <main className="weaponBuilder">
       <header className="weaponBuilder__hero">
-        <p className="weaponBuilder__kicker">Tau Ceti IV / Armory Simulator</p>
+        <p className="weaponBuilder__kicker">
+          Tau Ceti IV / Armory Simulator
+        </p>
 
         <h1>Weapon Builder</h1>
 
@@ -93,9 +104,12 @@ export default function WeaponBuilderPanel() {
 
               <div className="weaponBuilder__previewInfo">
                 <span>{selectedWeapon.rarity}</span>
+
                 <h2>{selectedWeapon.name}</h2>
 
-                {selectedWeapon.effect ? <p>{selectedWeapon.effect}</p> : null}
+                {selectedWeapon.effect ? (
+                  <p>{selectedWeapon.effect}</p>
+                ) : null}
               </div>
 
               <WeaponModSlots
@@ -114,7 +128,11 @@ export default function WeaponBuilderPanel() {
           )}
         </section>
 
-        <BuilderStatsPanel stats={finalStats} effects={selectedEffects} />
+        <BuilderStatsPanel
+          stats={finalStats}
+          effects={selectedEffects}
+          buildValue={buildValue}
+        />
       </div>
     </main>
   );

@@ -199,6 +199,33 @@ function getModStatsForWeapon(
   return universalProfile?.stats ?? [];
 }
 
+export function calculateBuildValue(
+  weapon: ItemEntry,
+  selection: WeaponBuildSelection
+): number {
+  const weaponValue =
+    weapon.buyPrice ??
+    weapon.sellPrice ??
+    0;
+
+  const modsValue = Object.values(selection)
+    .filter(
+      (mod): mod is ItemEntry =>
+        mod !== null &&
+        mod !== undefined
+    )
+    .reduce((total, mod) => {
+      return (
+        total +
+        (mod.buyPrice ??
+          mod.sellPrice ??
+          0)
+      );
+    }, 0);
+
+  return weaponValue + modsValue;
+}
+
 export function calculateWeaponBuildStats(
   weapon: ItemEntry,
   selection: WeaponBuildSelection

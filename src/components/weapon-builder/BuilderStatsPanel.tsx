@@ -7,6 +7,7 @@ import type {
 type BuilderStatsPanelProps = {
   stats: BuilderStat[];
   effects: BuilderSpecialEffect[];
+  buildValue: number;
 };
 
 function formatValue(value: number, unit?: string) {
@@ -45,17 +46,33 @@ function getEffectRarityClass(effect: BuilderSpecialEffect) {
 
 function formatEffectRarity(effect: BuilderSpecialEffect) {
   if (!effect.rarity) return "Standard";
-  return effect.rarity.charAt(0).toUpperCase() + effect.rarity.slice(1);
+
+  return (
+    effect.rarity.charAt(0).toUpperCase() +
+    effect.rarity.slice(1)
+  );
 }
 
 export default function BuilderStatsPanel({
   stats,
   effects,
+  buildValue,
 }: BuilderStatsPanelProps) {
-  const [activeTab, setActiveTab] = useState<"stats" | "effects">("stats");
+  const [activeTab, setActiveTab] = useState<"stats" | "effects">(
+    "stats"
+  );
+
+  const formattedBuildValue =
+    buildValue.toLocaleString();
 
   return (
     <section className="weaponBuilder__section weaponBuilder__statsPanel">
+      <div className="weaponBuilder__buildValue">
+        <span>BUILD VALUE</span>
+
+        <strong>{formattedBuildValue}</strong>
+      </div>
+
       <div className="weaponBuilder__tabs">
         <button
           type="button"
@@ -83,11 +100,22 @@ export default function BuilderStatsPanel({
           <div className="weaponBuilder__stats">
             {stats.map((stat) => {
               const max = getMaxValue(stat);
-              const basePercent = getPercent(stat.baseValue, max);
-              const finalPercent = getPercent(stat.finalValue, max);
 
-              const hasChange = stat.modifier !== 0;
-              const changeClass = getChangeClass(stat.modifier);
+              const basePercent = getPercent(
+                stat.baseValue,
+                max
+              );
+
+              const finalPercent = getPercent(
+                stat.finalValue,
+                max
+              );
+
+              const hasChange =
+                stat.modifier !== 0;
+
+              const changeClass =
+                getChangeClass(stat.modifier);
 
               return (
                 <div
@@ -102,17 +130,26 @@ export default function BuilderStatsPanel({
                     </span>
 
                     <span className="weaponBuilder__statBase">
-                      {formatValue(stat.baseValue, stat.unit)}
+                      {formatValue(
+                        stat.baseValue,
+                        stat.unit
+                      )}
                     </span>
 
                     <strong className={changeClass}>
                       {hasChange
-                        ? formatModifier(stat.modifier, stat.unit)
+                        ? formatModifier(
+                            stat.modifier,
+                            stat.unit
+                          )
                         : "—"}
                     </strong>
 
                     <strong className="weaponBuilder__statFinal">
-                      {formatValue(stat.finalValue, stat.unit)}
+                      {formatValue(
+                        stat.finalValue,
+                        stat.unit
+                      )}
                     </strong>
                   </div>
 
@@ -120,14 +157,18 @@ export default function BuilderStatsPanel({
                     <div className="weaponBuilder__barLine">
                       <span
                         className="weaponBuilder__barBase"
-                        style={{ width: `${basePercent}%` }}
+                        style={{
+                          width: `${basePercent}%`,
+                        }}
                       />
                     </div>
 
                     <div className="weaponBuilder__barLine">
                       <span
                         className={`weaponBuilder__barFinal ${changeClass}`}
-                        style={{ width: `${finalPercent}%` }}
+                        style={{
+                          width: `${finalPercent}%`,
+                        }}
                       />
                     </div>
                   </div>
@@ -137,39 +178,47 @@ export default function BuilderStatsPanel({
                       <p
                         className={`weaponBuilder__statDelta ${changeClass}`}
                       >
-                        {formatModifier(stat.modifier, stat.unit)}{" "}
+                        {formatModifier(
+                          stat.modifier,
+                          stat.unit
+                        )}{" "}
                         {stat.label}
                       </p>
 
-                      {stat.modifiers.length > 0 ? (
+                      {stat.modifiers &&
+                      stat.modifiers.length > 0 ? (
                         <div className="weaponBuilder__statTooltip">
                           <div className="weaponBuilder__statTooltipTitle">
                             Modified by
                           </div>
 
-                          {stat.modifiers.map((modifier) => (
-                            <div
-                              key={`${stat.label}-${modifier.sourceName}`}
-                              className="weaponBuilder__statTooltipEntry"
-                            >
-                              <span>{modifier.sourceName}</span>
-
-                              <strong
-                                className={
-                                  modifier.value > 0
-                                    ? "is-positive"
-                                    : modifier.value < 0
-                                    ? "is-negative"
-                                    : ""
-                                }
+                          {stat.modifiers.map(
+                            (modifier) => (
+                              <div
+                                key={`${stat.label}-${modifier.sourceName}`}
+                                className="weaponBuilder__statTooltipEntry"
                               >
-                                {formatModifier(
-                                  modifier.value,
-                                  stat.unit
-                                )}
-                              </strong>
-                            </div>
-                          ))}
+                                <span>
+                                  {modifier.sourceName}
+                                </span>
+
+                                <strong
+                                  className={
+                                    modifier.value > 0
+                                      ? "is-positive"
+                                      : modifier.value < 0
+                                      ? "is-negative"
+                                      : ""
+                                  }
+                                >
+                                  {formatModifier(
+                                    modifier.value,
+                                    stat.unit
+                                  )}
+                                </strong>
+                              </div>
+                            )
+                          )}
                         </div>
                       ) : null}
                     </>
@@ -190,7 +239,8 @@ export default function BuilderStatsPanel({
                 <strong>{effect.name}</strong>
 
                 <span>
-                  {effect.sourceName} • {formatEffectRarity(effect)}
+                  {effect.sourceName} •{" "}
+                  {formatEffectRarity(effect)}
                 </span>
 
                 <p>{effect.description}</p>

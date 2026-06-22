@@ -1734,3 +1734,36 @@
       2px 100%;
   }
 } 
+
+.weaponBuilder__buildValue {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  margin-bottom: 14px;
+  padding: 12px 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(183, 255, 55, 0.08),
+      rgba(4, 7, 14, 0.42)
+    );
+
+  border: 1px solid rgba(183, 255, 55, 0.18);
+}
+
+.weaponBuilder__buildValue span {
+  color: rgba(244, 247, 255, 0.62);
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.weaponBuilder__buildValue strong {
+  color: #b7ff37;
+  font-size: 1.2rem;
+  font-weight: 900;
+}
