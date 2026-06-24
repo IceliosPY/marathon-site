@@ -1,0 +1,200 @@
+/* ===== Stats / Effects tabs ===== */
+
+.weaponBuilder__statsPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.weaponBuilder__tabs {
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  margin: 0 0 16px;
+  padding: 0;
+  background: rgba(4, 7, 14, 0.82);
+  border: 1px solid rgba(183, 255, 55, 0.16);
+}
+
+.weaponBuilder__tab {
+  min-width: 0;
+  padding: 13px 10px 12px;
+  color: rgba(244, 247, 255, 0.62);
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.025);
+  border: 0;
+  border-right: 1px solid rgba(183, 255, 55, 0.14);
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  transition:
+    color 160ms ease,
+    background 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.weaponBuilder__tab:last-child {
+  border-right: 0;
+}
+
+.weaponBuilder__tab:hover {
+  color: #f4f7ff;
+  background: rgba(183, 255, 55, 0.07);
+}
+
+.weaponBuilder__tab.is-active {
+  color: #050812;
+  background: #b7ff37;
+  box-shadow:
+    0 0 22px rgba(183, 255, 55, 0.18),
+    inset 0 -2px 0 rgba(255, 255, 255, 0.28);
+}
+
+.weaponBuilder__tabContent {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(183, 255, 55, 0.035),
+      rgba(4, 7, 14, 0.42)
+    );
+  border: 1px solid rgba(183, 255, 55, 0.12);
+}
+
+.weaponBuilder__stats {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 14px 10px 14px 14px;
+}
+
+.weaponBuilder__statBlock {
+  display: grid;
+  gap: 8px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.weaponBuilder__statBlock.has-change {
+  animation: statChangeGlow 500ms ease-out;
+}
+
+.weaponBuilder__statTop {
+  display: grid;
+  grid-template-columns: minmax(116px, 1fr) 72px 72px 72px;
+  gap: 8px;
+  align-items: center;
+  min-width: 0;
+  font-size: 0.84rem;
+}
+
+.weaponBuilder__statName {
+  min-width: 0;
+  font-weight: 800;
+  line-height: 1.18;
+  overflow-wrap: break-word;
+}
+
+.weaponBuilder__statBase,
+.weaponBuilder__statTop strong {
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ===== Double animated stat bars ===== */
+
+.weaponBuilder__barCompare {
+  display: grid;
+  gap: 5px;
+}
+
+.weaponBuilder__barLine {
+  position: relative;
+  height: 5px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.weaponBuilder__barLine::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.12)
+  );
+}
+
+.weaponBuilder__barBase,
+.weaponBuilder__barFinal {
+  position: absolute;
+  inset: 0 auto 0 0;
+  height: 100%;
+}
+
+.weaponBuilder__barBase {
+  background: rgba(244, 247, 255, 0.36);
+}
+
+.weaponBuilder__barFinal {
+  background: rgba(244, 247, 255, 0.86);
+  transition:
+    width 850ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.weaponBuilder__barFinal.is-positive {
+  background: #45ffd2;
+  box-shadow: 0 0 14px rgba(69, 255, 210, 0.65);
+}
+
+.weaponBuilder__barFinal.is-negative {
+  background: #ff4f91;
+  box-shadow: 0 0 14px rgba(255, 79, 145, 0.65);
+}
+
+.weaponBuilder__statDelta {
+  margin: 0;
+  font-size: 0.72rem;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.is-positive {
+  color: #45ffd2;
+}
+
+.is-negative {
+  color: #ff4f91;
+}
+
+@keyframes statChangeGlow {
+  0% {
+    background: rgba(183, 255, 55, 0.12);
+  }
+
+  100% {
+    background: transparent;
+  }
+}
+

@@ -1,0 +1,83 @@
+/* ===== Center preview ===== */
+
+.weaponBuilder__center {
+  display: block;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.weaponBuilder__preview {
+  display: grid;
+  grid-template-rows: 300px auto auto;
+  gap: 18px;
+  min-height: 100%;
+  padding: 18px;
+  overflow: visible;
+}
+
+.weaponBuilder__preview > img {
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+  display: block;
+  background:
+    radial-gradient(circle at center, rgba(54, 79, 130, 0.35), transparent 60%),
+    rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.weaponBuilder__previewInfo {
+  min-width: 0;
+}
+
+.weaponBuilder__previewInfo span,
+.weaponBuilder__preview span {
+  display: block;
+  margin-top: 0;
+  color: rgba(244, 247, 255, 0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+}
+
+.weaponBuilder__preview h2 {
+  margin: 6px 0;
+  font-size: clamp(1.7rem, 2.2vw, 2.3rem);
+  line-height: 1;
+}
+
+.weaponBuilder__preview p {
+  margin: 0;
+  color: rgba(244, 247, 255, 0.72);
+}
+
+
+/* =========================
+   3D PREVIEW IMAGE + MODAL
+   Click the main image to open the 3D viewer
+========================= */
+
+.weaponBuilder__previewImage {
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+  display: block;
+  cursor: zoom-in;
+  background:
+    radial-gradient(circle at center, rgba(54, 79, 130, 0.35), transparent 60%),
+    rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    filter 180ms ease;
+}
+
+.weaponBuilder__previewImage:hover {
+  transform: scale(1.01);
+  border-color: rgba(183, 255, 55, 0.42);
+  box-shadow: 0 0 28px rgba(183, 255, 55, 0.12);
+  filter: brightness(1.06);
+}
+

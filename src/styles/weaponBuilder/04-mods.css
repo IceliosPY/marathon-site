@@ -1,0 +1,520 @@
+/* ===== Mods dock ===== */
+
+.weaponBuilder__modDock {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-height: 280px;
+  padding: 18px;
+  background: rgba(4, 7, 14, 0.92);
+  border: 1px solid rgba(183, 255, 55, 0.18);
+}
+
+.weaponBuilder__modDock--empty {
+  justify-content: center;
+}
+
+.weaponBuilder__modDockHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.weaponBuilder__modDockHead h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.weaponBuilder__modDockHead span,
+.weaponBuilder__eyebrow {
+  display: block;
+  margin: 0;
+  color: #b7ff37;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.weaponBuilder__modDockHead strong {
+  color: rgba(244, 247, 255, 0.76);
+  font-size: 0.82rem;
+}
+
+/* ===== Installed mod slots ===== */
+
+.weaponBuilder__modSlotsBar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 12px;
+  width: 100%;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.weaponBuilder__modSlotCard {
+  width: 100%;
+  min-width: 90px;
+  height: 92px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  color: #f4f7ff;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.weaponBuilder__modSlotCard:hover {
+  transform: translateY(-1px);
+  border-color: rgba(183, 255, 55, 0.55);
+  background: rgba(183, 255, 55, 0.06);
+}
+
+.weaponBuilder__modSlotCard.is-active {
+  border-color: #b7ff37;
+  background: rgba(183, 255, 55, 0.08);
+  box-shadow:
+    inset 0 0 0 1px rgba(183, 255, 55, 0.2),
+    0 0 20px rgba(183, 255, 55, 0.14);
+}
+
+.weaponBuilder__modSlotCard.has-mod {
+  box-shadow: inset 0 0 12px rgba(183, 255, 55, 0.08);
+}
+
+.weaponBuilder__modSlotCard.rarity-standard.has-mod {
+  border-color: rgba(244, 247, 255, 0.22);
+}
+
+.weaponBuilder__modSlotCard.rarity-enhanced.has-mod {
+  border-color: rgba(45, 255, 154, 0.34);
+}
+
+.weaponBuilder__modSlotCard.rarity-enhanced.has-mod .weaponBuilder__modSlotType,
+.weaponBuilder__modSlotCard.rarity-enhanced.has-mod small {
+  color: #2dff9a;
+}
+
+.weaponBuilder__modSlotCard.rarity-deluxe.has-mod {
+  border-color: rgba(61, 189, 255, 0.34);
+}
+
+.weaponBuilder__modSlotCard.rarity-deluxe.has-mod .weaponBuilder__modSlotType,
+.weaponBuilder__modSlotCard.rarity-deluxe.has-mod small {
+  color: #3dbdff;
+}
+
+.weaponBuilder__modSlotCard.rarity-superior.has-mod {
+  border-color: rgba(180, 90, 255, 0.42);
+}
+
+.weaponBuilder__modSlotCard.rarity-superior.has-mod .weaponBuilder__modSlotType,
+.weaponBuilder__modSlotCard.rarity-superior.has-mod small {
+  color: #b45aff;
+}
+
+.weaponBuilder__modSlotCard.rarity-prestige.has-mod {
+  border-color: rgba(255, 215, 70, 0.46);
+}
+
+.weaponBuilder__modSlotCard.rarity-prestige.has-mod .weaponBuilder__modSlotType,
+.weaponBuilder__modSlotCard.rarity-prestige.has-mod small {
+  color: #ffd746;
+}
+
+.weaponBuilder__modSlotCard.rarity-superior.has-mod:hover,
+.weaponBuilder__modSlotCard.rarity-superior.has-mod.is-active {
+  border-color: #b45aff;
+  background: rgba(180, 90, 255, 0.08);
+  box-shadow:
+    inset 0 0 0 1px rgba(180, 90, 255, 0.18),
+    0 0 22px rgba(180, 90, 255, 0.2);
+}
+
+.weaponBuilder__modSlotCard.rarity-prestige.has-mod:hover,
+.weaponBuilder__modSlotCard.rarity-prestige.has-mod.is-active {
+  border-color: #ffd746;
+  background: rgba(255, 215, 70, 0.08);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 215, 70, 0.18),
+    0 0 26px rgba(255, 215, 70, 0.24);
+}
+
+.weaponBuilder__modSlotType {
+  color: #b7ff37;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.weaponBuilder__modSlotIcon {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+}
+
+.weaponBuilder__modSlotIcon img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.weaponBuilder__modSlotIcon span {
+  color: rgba(244, 247, 255, 0.5);
+  font-size: 1.5rem;
+}
+
+.weaponBuilder__modSlotCard small {
+  color: rgba(244, 247, 255, 0.55);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+/* ===== Mod inspector ===== */
+
+.weaponBuilder__modInspect {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+.weaponBuilder__modInspectTop {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.weaponBuilder__modInspectTop > div {
+  min-width: 0;
+}
+
+.weaponBuilder__modInspectTop span {
+  color: #b7ff37;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.weaponBuilder__modInspectTop strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 1.15rem;
+  line-height: 1.2;
+  overflow-wrap: break-word;
+}
+
+.weaponBuilder__removeModButton {
+  flex: 0 0 auto;
+  padding: 9px 12px;
+  color: #f4f7ff;
+  cursor: pointer;
+  background: rgba(255, 79, 145, 0.08);
+  border: 1px solid rgba(255, 79, 145, 0.35);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.68rem;
+}
+
+.weaponBuilder__removeModButton:hover {
+  background: rgba(255, 79, 145, 0.16);
+  border-color: rgba(255, 79, 145, 0.75);
+}
+
+/* ===== Mod choice grid ===== */
+
+.weaponBuilder__modChoiceGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+  max-height: 360px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 8px;
+  align-items: stretch;
+}
+
+.weaponBuilder__modChoiceCard {
+  display: grid;
+  grid-template-rows: 74px auto;
+  gap: 10px;
+  min-height: 190px;
+  height: auto;
+  padding: 12px;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.weaponBuilder__modChoiceCard:hover {
+  transform: translateY(-2px);
+  border-color: rgba(183, 255, 55, 0.5);
+  background: rgba(183, 255, 55, 0.06);
+}
+
+.weaponBuilder__modChoiceCard.is-selected {
+  border-color: #b7ff37;
+  background: rgba(183, 255, 55, 0.1);
+  box-shadow:
+    inset 0 0 0 1px rgba(183, 255, 55, 0.16),
+    0 0 18px rgba(183, 255, 55, 0.12);
+}
+
+.weaponBuilder__modChoiceCard.rarity-standard {
+  border-color: rgba(244, 247, 255, 0.16);
+}
+
+.weaponBuilder__modChoiceCard.rarity-enhanced {
+  border-color: rgba(45, 255, 154, 0.28);
+}
+
+.weaponBuilder__modChoiceCard.rarity-enhanced:hover {
+  border-color: #2dff9a;
+  box-shadow:
+    0 0 22px rgba(45, 255, 154, 0.16),
+    inset 0 0 0 1px rgba(45, 255, 154, 0.12);
+}
+
+.weaponBuilder__modChoiceCard.rarity-enhanced .weaponBuilder__modChoiceContent small {
+  color: #2dff9a;
+}
+
+.weaponBuilder__modChoiceCard.rarity-deluxe {
+  border-color: rgba(61, 189, 255, 0.28);
+}
+
+.weaponBuilder__modChoiceCard.rarity-deluxe:hover {
+  border-color: #3dbdff;
+  box-shadow:
+    0 0 22px rgba(61, 189, 255, 0.16),
+    inset 0 0 0 1px rgba(61, 189, 255, 0.12);
+}
+
+.weaponBuilder__modChoiceCard.rarity-deluxe .weaponBuilder__modChoiceContent small {
+  color: #3dbdff;
+}
+
+.weaponBuilder__modChoiceCard.rarity-superior {
+  border-color: rgba(180, 90, 255, 0.34);
+}
+
+.weaponBuilder__modChoiceCard.rarity-superior:hover {
+  border-color: #b45aff;
+  box-shadow:
+    0 0 24px rgba(180, 90, 255, 0.18),
+    inset 0 0 0 1px rgba(180, 90, 255, 0.12);
+}
+
+.weaponBuilder__modChoiceCard.rarity-superior .weaponBuilder__modChoiceContent small {
+  color: #b45aff;
+}
+
+.weaponBuilder__modChoiceCard.rarity-prestige {
+  border-color: rgba(255, 215, 70, 0.36);
+}
+
+.weaponBuilder__modChoiceCard.rarity-prestige:hover {
+  border-color: #ffd746;
+  box-shadow:
+    0 0 28px rgba(255, 215, 70, 0.2),
+    inset 0 0 0 1px rgba(255, 215, 70, 0.15);
+}
+
+.weaponBuilder__modChoiceCard.rarity-prestige .weaponBuilder__modChoiceContent small {
+  color: #ffd746;
+}
+
+.weaponBuilder__modChoiceCard.is-selected.rarity-enhanced {
+  border-color: #2dff9a;
+  background: rgba(45, 255, 154, 0.08);
+  box-shadow:
+    inset 0 0 0 1px rgba(45, 255, 154, 0.16),
+    0 0 22px rgba(45, 255, 154, 0.2);
+}
+
+.weaponBuilder__modChoiceCard.is-selected.rarity-deluxe {
+  border-color: #3dbdff;
+  background: rgba(61, 189, 255, 0.08);
+  box-shadow:
+    inset 0 0 0 1px rgba(61, 189, 255, 0.16),
+    0 0 22px rgba(61, 189, 255, 0.2);
+}
+
+.weaponBuilder__modChoiceCard.is-selected.rarity-superior {
+  border-color: #b45aff;
+  background: rgba(180, 90, 255, 0.08);
+  box-shadow:
+    inset 0 0 0 1px rgba(180, 90, 255, 0.16),
+    0 0 24px rgba(180, 90, 255, 0.24);
+}
+
+.weaponBuilder__modChoiceCard.is-selected.rarity-prestige {
+  border-color: #ffd746;
+  background: rgba(255, 215, 70, 0.08);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 215, 70, 0.18),
+    0 0 28px rgba(255, 215, 70, 0.28);
+}
+
+.weaponBuilder__modChoiceVisual {
+  display: grid;
+  place-items: center;
+  min-height: 0;
+  background:
+    radial-gradient(circle at center, rgba(54, 79, 130, 0.24), transparent 65%),
+    rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.weaponBuilder__modChoiceVisual img {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+}
+
+.weaponBuilder__modChoiceVisual span {
+  color: rgba(244, 247, 255, 0.45);
+  font-size: 1.7rem;
+}
+
+.weaponBuilder__modChoiceContent {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.weaponBuilder__modChoiceContent strong {
+  display: -webkit-box;
+  line-height: 1.18;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.weaponBuilder__modChoiceContent small {
+  display: block;
+  margin-top: 5px;
+  color: #b7ff37;
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.weaponBuilder__modChoiceContent p {
+  display: -webkit-box;
+  margin: 7px 0 0;
+  color: rgba(244, 247, 255, 0.68);
+  font-size: 0.82rem;
+  line-height: 1.35;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.weaponBuilder__slotHint,
+.weaponBuilder__empty {
+  margin: 7px 0 0;
+  color: rgba(244, 247, 255, 0.68);
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+
+.weaponBuilder__removeModButton {
+  position: relative;
+  overflow: hidden;
+}
+
+.weaponBuilder__removeModLabel {
+  position: relative;
+  z-index: 2;
+}
+
+.weaponBuilder__removeModProgress {
+  position: absolute;
+  inset: -1px;
+  z-index: 1;
+  pointer-events: none;
+
+  background:
+    linear-gradient(#ff4f91, #ff4f91) top left / 0% 2px no-repeat,
+    linear-gradient(#ff4f91, #ff4f91) top right / 2px 0% no-repeat,
+    linear-gradient(#ff4f91, #ff4f91) bottom right / 0% 2px no-repeat,
+    linear-gradient(#ff4f91, #ff4f91) bottom left / 2px 0% no-repeat;
+
+  opacity: 0;
+}
+
+.weaponBuilder__removeModButton.is-holding {
+  background: rgba(255, 79, 145, 0.12);
+  border-color: rgba(255, 79, 145, 0.35);
+}
+
+.weaponBuilder__removeModButton.is-holding .weaponBuilder__removeModProgress {
+  opacity: 1;
+  animation: removeModBorderHold 1000ms linear forwards;
+}
+
+@keyframes removeModBorderHold {
+  0% {
+    background-size:
+      0% 2px,
+      2px 0%,
+      0% 2px,
+      2px 0%;
+  }
+
+  25% {
+    background-size:
+      100% 2px,
+      2px 0%,
+      0% 2px,
+      2px 0%;
+  }
+
+  50% {
+    background-size:
+      100% 2px,
+      2px 100%,
+      0% 2px,
+      2px 0%;
+  }
+
+  75% {
+    background-size:
+      100% 2px,
+      2px 100%,
+      100% 2px,
+      2px 0%;
+  }
+
+  100% {
+    background-size:
+      100% 2px,
+      2px 100%,
+      100% 2px,
+      2px 100%;
+  }
+} 
+

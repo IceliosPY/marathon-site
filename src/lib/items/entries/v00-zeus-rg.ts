@@ -14,6 +14,13 @@ export const v00ZeusRg: ItemEntry = {
   render: asset("items/icons/v00-zeus-rg.png"),
   video: asset("items/videos/weapons/v00-zeus-rg.mp4"),
 
+  modelParts: {
+    body: asset("items/models/weapons/zeus/v002_Railgun_default.glb"),
+    sight: asset("items/models/weapons/zeus/mod_sight_default.glb"),
+    magazine: asset("items/models/weapons/zeus/mod_cell_default.glb"),
+    barrel: asset("items/models/weapons/zeus/mod_generator_default.glb"),
+  },
+
   sellPrice: 6000,
 
   description:
@@ -24,11 +31,11 @@ export const v00ZeusRg: ItemEntry = {
   lore:
     "High-output UESC rail platform designed for anti-materiel engagements. Its automated discharge system releases a charged shot as soon as the weapon reaches full power.",
 
-    ammo: {
-        itemId: "volt-cell",
-        label: "Volt Cell",
-        icon: asset("items/icons/volt-cell.png"),
-      },
+  ammo: {
+    itemId: "volt-cell",
+    label: "Volt Cell",
+    icon: asset("items/icons/volt-cell.png"),
+  },
 
   possibleEffects: [
     {
@@ -58,6 +65,7 @@ export const v00ZeusRg: ItemEntry = {
         { label: "Rate of Fire", value: "90 RPM" },
       ],
     },
+
     {
       label: "Accuracy",
       value: 74.8,
@@ -69,6 +77,7 @@ export const v00ZeusRg: ItemEntry = {
         { label: "Moving Inaccuracy", value: "90.9%" },
       ],
     },
+
     {
       label: "Handling",
       value: 40,
@@ -83,18 +92,21 @@ export const v00ZeusRg: ItemEntry = {
         { label: "Charge Time", value: "1.0S" },
       ],
     },
+
     {
       label: "Range",
       value: 55,
       max: 200,
       unit: "M",
     },
+
     {
       label: "Volt Drain",
       value: 20,
       max: 100,
       unit: "%",
     },
+
     {
       label: "Zoom",
       value: 2.0,

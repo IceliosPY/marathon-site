@@ -4,6 +4,7 @@ import type { ItemEntry, ItemModSubcategory } from "../../lib/items";
 import WeaponSelector from "./WeaponSelector";
 import WeaponModSlots from "./WeaponModSlots";
 import BuilderStatsPanel from "./BuilderStatsPanel";
+import WeaponModelModal from "./WeaponModelModal";
 import {
   calculateBuildValue,
   calculateWeaponBuildStats,
@@ -27,6 +28,8 @@ export default function WeaponBuilderPanel() {
   const [selection, setSelection] = useState<WeaponBuildSelection>(() =>
     selectedWeapon ? createEmptyBuildSelection(selectedWeapon) : {}
   );
+
+  const [isViewerOpen, setIsViewerOpen] = useState(false);
 
   const finalStats = useMemo(
     () =>
@@ -52,6 +55,7 @@ export default function WeaponBuilderPanel() {
   const handleSelectWeapon = (weapon: ItemEntry) => {
     setSelectedWeapon(weapon);
     setSelection(createEmptyBuildSelection(weapon));
+    setIsViewerOpen(false);
   };
 
   const handleSelectMod = (
@@ -63,6 +67,11 @@ export default function WeaponBuilderPanel() {
       [slot]: mod,
     }));
   };
+
+  const selectedWeaponPreview =
+    selectedWeapon?.render ??
+    selectedWeapon?.image ??
+    selectedWeapon?.icon;
 
   return (
     <main className="weaponBuilder">
@@ -89,16 +98,12 @@ export default function WeaponBuilderPanel() {
         <section className="weaponBuilder__center">
           {selectedWeapon ? (
             <div className="weaponBuilder__preview">
-              {selectedWeapon.render ??
-              selectedWeapon.image ??
-              selectedWeapon.icon ? (
+              {selectedWeaponPreview ? (
                 <img
-                  src={
-                    selectedWeapon.render ??
-                    selectedWeapon.image ??
-                    selectedWeapon.icon
-                  }
+                  className="weaponBuilder__previewImage"
+                  src={selectedWeaponPreview}
                   alt={selectedWeapon.name}
+                  onClick={() => setIsViewerOpen(true)}
                 />
               ) : null}
 
@@ -134,6 +139,13 @@ export default function WeaponBuilderPanel() {
           buildValue={buildValue}
         />
       </div>
+
+      {isViewerOpen && selectedWeapon ? (
+        <WeaponModelModal
+          weapon={selectedWeapon}
+          onClose={() => setIsViewerOpen(false)}
+        />
+      ) : null}
     </main>
   );
 }

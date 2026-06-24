@@ -1,0 +1,181 @@
+.weaponBuilder__modalBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  display: grid;
+  place-items: center;
+  padding: 32px;
+  background: rgba(0, 0, 0, 0.88);
+}
+
+.weaponBuilder__modelModal {
+  position: relative;
+  width: min(1500px, 94vw);
+  height: min(850px, 88vh);
+  background: #111722;
+  border: 1px solid rgba(183, 255, 55, 0.35);
+  overflow: hidden;
+}
+
+.weaponBuilder__modelViewer {
+  width: 100%;
+  height: 300px;
+}
+
+.weaponBuilder__modelViewer--fullscreen {
+  width: 100%;
+  height: 100%;
+}
+
+/* =========================
+   3D PREVIEW IMAGE + MODAL
+   Click the main image to open the 3D viewer
+========================= */
+
+.weaponBuilder__previewImage {
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+  display: block;
+  cursor: zoom-in;
+  background:
+    radial-gradient(circle at center, rgba(54, 79, 130, 0.35), transparent 60%),
+    rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    filter 180ms ease;
+}
+
+.weaponBuilder__previewImage:hover {
+  transform: scale(1.01);
+  border-color: rgba(183, 255, 55, 0.42);
+  box-shadow: 0 0 28px rgba(183, 255, 55, 0.12);
+  filter: brightness(1.06);
+}
+
+/* ===== Fullscreen 3D modal ===== */
+
+.weaponBuilder__modalBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  display: grid;
+  place-items: center;
+  padding: 32px;
+  background:
+    radial-gradient(circle at center, rgba(183, 255, 55, 0.06), transparent 46%),
+    rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(8px);
+}
+
+.weaponBuilder__modelModal {
+  position: relative;
+  width: min(1500px, 94vw);
+  height: min(850px, 88vh);
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(17, 23, 34, 0.98), rgba(3, 6, 12, 0.98));
+  border: 1px solid rgba(183, 255, 55, 0.38);
+  box-shadow:
+    0 30px 120px rgba(0, 0, 0, 0.78),
+    0 0 45px rgba(183, 255, 55, 0.12);
+}
+
+.weaponBuilder__modelModal::before {
+  content: "3D WEAPON VIEWER";
+  position: absolute;
+  top: 16px;
+  left: 18px;
+  z-index: 40;
+  color: #b7ff37;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.weaponBuilder__modelModal::after {
+  content: "DRAG TO ROTATE • SCROLL TO ZOOM • ESC TO CLOSE";
+  position: absolute;
+  left: 18px;
+  bottom: 16px;
+  z-index: 40;
+  color: rgba(244, 247, 255, 0.56);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.weaponBuilder__modelModalClose {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  color: #b7ff37;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.72);
+  border: 1px solid rgba(183, 255, 55, 0.72);
+  font-size: 2rem;
+  line-height: 1;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+
+.weaponBuilder__modelModalClose:hover {
+  transform: scale(1.04);
+  color: #000;
+  background: #b7ff37;
+  border-color: #b7ff37;
+}
+
+.weaponBuilder__modelViewer {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at center, rgba(54, 79, 130, 0.25), transparent 60%),
+    #111722;
+}
+
+.weaponBuilder__modelViewer--fullscreen {
+  width: 100%;
+  height: 100%;
+}
+
+.weaponBuilder__modelViewer--fullscreen,
+.weaponBuilder__modelViewer--fullscreen canvas {
+  background: transparent !important;
+}
+
+.weaponBuilder__modelViewer canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+.weaponBuilder__modelViewerMissing {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  color: rgba(244, 247, 255, 0.68);
+  background: #111722;
+  border: 1px solid rgba(183, 255, 55, 0.22);
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+

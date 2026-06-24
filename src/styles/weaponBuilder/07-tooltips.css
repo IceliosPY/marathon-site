@@ -1,0 +1,284 @@
+/* ===== Tooltip Mounts ===== */
+
+.weaponBuilder__selectorPanel {
+  position: relative;
+}
+
+.weaponBuilder__weaponCardWrap {
+  position: relative;
+}
+
+.weaponBuilder__weaponTooltipMount {
+  position: fixed;
+  z-index: 99999;
+  width: 440px;
+  pointer-events: none;
+  animation: weaponTooltipIn 140ms ease-out;
+  transform: translateZ(0);
+}
+
+.weaponBuilder__modTooltipMount {
+  position: fixed;
+  z-index: 999999;
+  width: 460px;
+  pointer-events: none;
+  animation: weaponTooltipIn 140ms ease-out;
+}
+
+/* ===== Tooltip ===== */
+
+.weaponTooltip {
+  position: relative;
+  width: 100%;
+  background: rgba(39, 39, 42, 0.92);
+  border: 1px solid rgba(194, 254, 12, 0.28);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.65);
+}
+
+.weaponTooltip__dots {
+  background-position: top left;
+  background-image: radial-gradient(
+    rgba(194, 254, 12, 0.45) 5%,
+    transparent 0
+  );
+  background-size: 32px 32px;
+}
+
+.weaponTooltip__content {
+  background: rgba(39, 39, 42, 0.55);
+}
+
+.weaponTooltip__header {
+  display: flex;
+  align-items: center;
+  min-height: 28px;
+  color: #f4f7ff;
+  background: #0284c7;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.weaponTooltip__header span {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  align-self: stretch;
+  border-right: 1px solid rgba(8, 47, 73, 0.9);
+}
+
+.weaponTooltip__header strong {
+  padding: 4px 14px;
+}
+
+.weaponTooltip__body {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+}
+
+.weaponTooltip__identity {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+}
+
+.weaponTooltip__identity img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
+.weaponTooltip__identity h3 {
+  margin: 0;
+  color: #f4f7ff;
+  font-size: 1.65rem;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.weaponTooltip__identity p {
+  margin: 4px 0 0;
+  color: #fde047;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.weaponTooltip__divider {
+  height: 2px;
+  background: rgba(244, 247, 255, 0.16);
+}
+
+.weaponTooltip__description {
+  margin: 0;
+  color: rgba(244, 247, 255, 0.9);
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.weaponTooltip__stats {
+  display: grid;
+  gap: 7px;
+  max-height: 300px;
+  overflow: hidden;
+}
+
+.weaponTooltip__stats div {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+}
+
+.weaponTooltip__stats span,
+.weaponTooltip__slots > span {
+  color: rgba(244, 247, 255, 0.55);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.weaponTooltip__stats strong {
+  color: #f4f7ff;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.weaponTooltip__slots {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+}
+
+.weaponTooltip__slots div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.weaponTooltip__slots strong {
+  padding: 2px 8px;
+  color: #f4f7ff;
+  border: 1px solid rgba(244, 247, 255, 0.28);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ===== Corners ===== */
+
+.weaponTooltip__corner {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+}
+
+.weaponTooltip__corner::before,
+.weaponTooltip__corner::after {
+  content: "";
+  position: absolute;
+  background: #c2fe0c;
+}
+
+.weaponTooltip__corner--tl {
+  top: -2px;
+  left: -2px;
+}
+
+.weaponTooltip__corner--tl::before {
+  top: -2px;
+  left: -2px;
+  height: 2px;
+  width: 10px;
+}
+
+.weaponTooltip__corner--tl::after {
+  top: -2px;
+  left: -2px;
+  width: 2px;
+  height: 10px;
+}
+
+.weaponTooltip__corner--tr {
+  top: -2px;
+  right: -2px;
+}
+
+.weaponTooltip__corner--tr::before {
+  top: -2px;
+  right: -2px;
+  height: 2px;
+  width: 10px;
+}
+
+.weaponTooltip__corner--tr::after {
+  top: -2px;
+  right: -2px;
+  width: 2px;
+  height: 10px;
+}
+
+.weaponTooltip__corner--bl {
+  bottom: -2px;
+  left: -2px;
+}
+
+.weaponTooltip__corner--bl::before {
+  bottom: -2px;
+  left: -2px;
+  height: 2px;
+  width: 10px;
+}
+
+.weaponTooltip__corner--bl::after {
+  bottom: -2px;
+  left: -2px;
+  width: 2px;
+  height: 10px;
+}
+
+.weaponTooltip__corner--br {
+  bottom: -2px;
+  right: -2px;
+}
+
+.weaponTooltip__corner--br::before {
+  bottom: -2px;
+  right: -2px;
+  height: 2px;
+  width: 10px;
+}
+
+.weaponTooltip__corner--br::after {
+  bottom: -2px;
+  right: -2px;
+  width: 2px;
+  height: 10px;
+}
+
+/* ===== Animation ===== */
+
+@keyframes weaponTooltipIn {
+  from {
+    opacity: 0;
+    transform: translateX(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 1200px) {
+  .weaponBuilder__weaponTooltipMount {
+    width: 420px;
+  }
+}

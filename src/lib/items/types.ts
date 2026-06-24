@@ -33,11 +33,11 @@ export type ItemRarity =
 ========================= */
 
 export type ItemModSubcategory =
-  |"belt-fed-magazine"
-  |"lmg-optic"
-  |"shield"
-  |"volt-array"
-  |"volt-dampener"
+  | "belt-fed-magazine"
+  | "lmg-optic"
+  | "shield"
+  | "volt-array"
+  | "volt-dampener"
   | "rifle-grip"
   | "assault-barrel"
   | "pistol-magazine"
@@ -57,36 +57,37 @@ export type ItemModSubcategory =
   | "precision-optic"
   | "precision-barrel";
 
-  export interface SpecialEffect {
-    name: string;
-    description: string;
-    color?: string;
-  }
-  export const itemModSubcategoryLabels: Record<ItemModSubcategory, string> = {
-  "belt-fed-magazine" : "Belt-Fed Magazine",
-  "lmg-optic" : "Lmg Optic",
-  "shield" : "Shield",
-  "volt-array" : "Volt Array",
-  "volt-dampener" : "Volt Damperer",
-    "rifle-grip" : "Rifle Grip",
-    "assault-barrel" : "Assault Barrel",
-     "precision-magazine" : "Precision Magazine",
-     "precision-optic" : "Precision Optic",
-     "precision-barrel" : "Precision Barrel",
-    "assault-magazine" : "Assault Magazine",
-    "pistol-magazine" : "Pistol Magazine",
-    "pistol-optic" : "Pistol optic",
-    "cqc-barrel" : "CQC Barrel",
-    "assault-optic" : "Assault Optic",
-    generator: "Generator",
-    "sniper-optic" : "Sniper Optic",
-    "ion-dampener" : "Ion Dampener",
-    chip: "Chip",
-    "shotgun-grip": "Shotgun Grip",
-    underbarrel: "Underbarrel",
-    magazine: "Magazine",
-    "volt-cell": "Volt Cell",
-  };
+export interface SpecialEffect {
+  name: string;
+  description: string;
+  color?: string;
+}
+
+export const itemModSubcategoryLabels: Record<ItemModSubcategory, string> = {
+  "belt-fed-magazine": "Belt-Fed Magazine",
+  "lmg-optic": "LMG Optic",
+  shield: "Shield",
+  "volt-array": "Volt Array",
+  "volt-dampener": "Volt Dampener",
+  "rifle-grip": "Rifle Grip",
+  "assault-barrel": "Assault Barrel",
+  "precision-magazine": "Precision Magazine",
+  "precision-optic": "Precision Optic",
+  "precision-barrel": "Precision Barrel",
+  "assault-magazine": "Assault Magazine",
+  "pistol-magazine": "Pistol Magazine",
+  "pistol-optic": "Pistol Optic",
+  "cqc-barrel": "CQC Barrel",
+  "assault-optic": "Assault Optic",
+  generator: "Generator",
+  "sniper-optic": "Sniper Optic",
+  "ion-dampener": "Ion Dampener",
+  chip: "Chip",
+  "shotgun-grip": "Shotgun Grip",
+  underbarrel: "Underbarrel",
+  magazine: "Magazine",
+  "volt-cell": "Volt Cell",
+};
 
 /* =========================
    STATS
@@ -236,6 +237,17 @@ export type ItemPrestigeFeature = {
 };
 
 /* =========================
+   3D MODEL PARTS
+========================= */
+
+export type ItemModelParts = {
+  body: string;
+  sight?: string;
+  magazine?: string;
+  barrel?: string;
+};
+
+/* =========================
    ITEM
 ========================= */
 
@@ -246,22 +258,17 @@ export type ItemEntry = {
   category: ItemCategory;
   rarity: ItemRarity;
 
-  /**
-   * Pour les mods : type de mod.
-   * Exemple : "magazine", "shotgun-grip", "underbarrel", "volt-cell"
-   */
   modSubcategory?: ItemModSubcategory;
-
-  /**
-   * Pour les armes : types de mods acceptés par cette arme.
-   * Exemple : ["shotgun-grip", "underbarrel", "magazine"]
-   */
   acceptedModSubcategories?: ItemModSubcategory[];
+
   specialEffects?: SpecialEffect[];
+
   icon?: string;
   image?: string;
   render?: string;
   video?: string;
+
+  modelParts?: ItemModelParts;
 
   prestigeFeature?: ItemPrestigeFeature;
 
@@ -287,15 +294,7 @@ export type ItemEntry = {
 
   weaponStatProfiles?: ItemWeaponStatProfile[];
 
-  /**
-   * Ancienne méthode : upgrades écrits directement dans l'arme.
-   */
   lockedUpgrades?: ItemLockedUpgrade[];
-
-  /**
-   * Nouvelle méthode : IDs d'items déjà existants.
-   * Exemple : ["quickdraw-grip", "volt-tuning", "charge-accelerator"]
-   */
   lockedUpgradeIds?: string[];
 
   ammo?: ItemAmmoLink;

@@ -1,0 +1,83 @@
+/* ===== Weapon selector ===== */
+
+.weaponBuilder__search {
+  margin-bottom: 12px;
+}
+
+.weaponBuilder__search input {
+  width: 100%;
+  padding: 11px 12px;
+  color: #f4f7ff;
+  background: #050812;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  outline: none;
+}
+
+.weaponBuilder__search input:focus {
+  border-color: #b7ff37;
+}
+
+.weaponBuilder__search input::placeholder {
+  color: rgba(244, 247, 255, 0.45);
+}
+
+.weaponBuilder__weaponGrid {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  height: calc(100% - 112px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 8px;
+}
+
+.weaponBuilder__weaponCard {
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+  min-height: 92px;
+  padding: 10px;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.weaponBuilder__weaponCard:hover {
+  border-color: rgba(183, 255, 55, 0.45);
+  background: rgba(183, 255, 55, 0.06);
+}
+
+.weaponBuilder__weaponCard.is-active {
+  border-color: #b7ff37;
+  background: rgba(183, 255, 55, 0.11);
+}
+
+.weaponBuilder__weaponCard img {
+  width: 88px;
+  height: 58px;
+  object-fit: contain;
+  display: block;
+}
+
+.weaponBuilder__weaponCard span {
+  display: block;
+  max-width: 100%;
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1.22;
+  overflow-wrap: break-word;
+}
+
+.weaponBuilder__weaponCard small {
+  display: block;
+  margin-top: 5px;
+  color: rgba(244, 247, 255, 0.58);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+

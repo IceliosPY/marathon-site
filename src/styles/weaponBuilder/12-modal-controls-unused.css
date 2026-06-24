@@ -1,0 +1,45 @@
+.weaponModalControls {
+  position: absolute;
+  left: 48px;
+  bottom: 26px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  height: 42px;
+  color: #b7ff37;
+}
+
+.weaponModalControls__gauge {
+  width: 150px;
+  height: 42px;
+  margin-right: 8px;
+  border: 1px solid #b7ff37;
+  background:
+    repeating-linear-gradient(
+      120deg,
+      #b7ff37 0 3px,
+      transparent 3px 7px
+    );
+  background-size: 58px 100%;
+  background-repeat: no-repeat;
+}
+
+.weaponModalControls button {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  color: #b7ff37;
+  background: #000;
+  border: 1px solid #b7ff37;
+  border-left: 0;
+  cursor: pointer;
+  font-size: 1.35rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.weaponModalControls button:hover {
+  color: #000;
+  background: #b7ff37;
+}

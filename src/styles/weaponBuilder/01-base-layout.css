@@ -1,0 +1,80 @@
+.weaponBuilder {
+  width: min(1680px, calc(100vw - 96px));
+  margin: 0 auto;
+  padding: 84px 0 72px;
+  color: #f4f7ff;
+}
+
+.weaponBuilder * {
+  box-sizing: border-box;
+}
+
+/* ===== Hero ===== */
+
+.weaponBuilder__hero {
+  margin-bottom: 24px;
+}
+
+.weaponBuilder__kicker {
+  margin: 0 0 10px;
+  color: #b7ff37;
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.weaponBuilder__hero h1 {
+  margin: 0 0 14px;
+  font-size: clamp(2.2rem, 3.6vw, 4rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.weaponBuilder__hero p {
+  max-width: 980px;
+  margin: 0;
+  color: rgba(244, 247, 255, 0.78);
+}
+
+/* ===== Layout ===== */
+
+.weaponBuilder__layout {
+  display: grid;
+  grid-template-columns: 300px minmax(620px, 1fr) 440px;
+  gap: 22px;
+  align-items: start;
+  height: calc(100vh - 180px);
+  min-height: 760px;
+}
+
+.weaponBuilder__section,
+.weaponBuilder__center,
+.weaponBuilder__preview,
+.weaponBuilder__modDock {
+  background: rgba(4, 7, 14, 0.9);
+  border: 1px solid rgba(183, 255, 55, 0.18);
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.45);
+}
+
+.weaponBuilder__section,
+.weaponBuilder__center {
+  min-width: 0;
+  min-height: 0;
+  padding: 20px;
+}
+
+.weaponBuilder__layout > .weaponBuilder__section:first-child,
+.weaponBuilder__center,
+.weaponBuilder__statsPanel {
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.weaponBuilder__section h2 {
+  margin: 0 0 18px;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+

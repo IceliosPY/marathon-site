@@ -14,6 +14,10 @@ export const wstrCombatShotgun: ItemEntry = {
   render: asset("items/icons/WSTRCombatShotgun.png"),
   video: asset("items/videos/weapons/WSTR.mp4"),
 
+  modelParts: {
+    body: asset("items/models/weapons/wstr/v002_Shotgun_default.glb"),
+  },
+
   sellPrice: 2400,
 
   description:
@@ -79,11 +83,13 @@ export const wstrCombatShotgun: ItemEntry = {
       unit: "X",
     },
   ],
+
   acceptedModSubcategories: [
     "chip",
     "shotgun-grip",
     "underbarrel",
   ],
+
   tags: [
     "weapon",
     "shotgun",

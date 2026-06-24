@@ -23,7 +23,9 @@ export const v66Lookout: ItemEntry = {
 
   lore:
     "Designed for marksmen operating beyond conventional engagement ranges. Its alternate charge-fire mode sacrifices rate of fire for devastating precision shots.",
-
+    modelParts: {
+      body: asset("items/models/weapons/lookout/v66_stock_default.glb"),
+    },
   sources: [
     {
       label: "World Loot",

@@ -14,6 +14,15 @@ export const magnumMc: ItemEntry = {
   render: asset("items/icons/MagnumMC.png"),
   video: asset("items/videos/weapons/magnum-mc.mp4"),
 
+  modelParts: {
+    body: asset(
+      "items/models/weapons/magnum MC/v002_Pistol_heavy_01_default.glb"
+    ),
+    sight: asset(
+      "items/models/weapons/magnum MC/mod_sight_default.glb"
+    ),
+  },
+
   sellPrice: 160,
   buyPrice: 400,
 
@@ -22,11 +31,14 @@ export const magnumMc: ItemEntry = {
 
   effect: "Standard Pistol",
 
-    ammo: {
-        itemId: "heavy-rounds",
-        label: "Heavy Rounds",
-        icon: asset("items/icons/heavy-rounds.png"),
-      },
+  lore:
+    "Compact heavy-caliber sidearm favored by UESC security forces. Delivers devastating stopping power at close and medium range.",
+
+  ammo: {
+    itemId: "heavy-rounds",
+    label: "Heavy Rounds",
+    icon: asset("items/icons/heavy-rounds.png"),
+  },
 
   possibleEffects: [
     {
@@ -44,6 +56,7 @@ export const magnumMc: ItemEntry = {
       },
     },
   ],
+
   sources: [
     {
       label: "Schema",
@@ -58,21 +71,25 @@ export const magnumMc: ItemEntry = {
       kind: "world-loot",
     },
   ],
+
   stats: [
     {
       label: "Firepower",
       value: 66,
       max: 220,
+
       details: [
         { label: "Damage", value: "33.0" },
         { label: "Precision", value: "2.0" },
         { label: "Rate of Fire", value: "150 RPM" },
       ],
     },
+
     {
       label: "Accuracy",
       value: 54.8,
       max: 100,
+
       details: [
         { label: "Hipfire Spread", value: "1.39°" },
         { label: "ADS Spread", value: "1.15°" },
@@ -80,10 +97,12 @@ export const magnumMc: ItemEntry = {
         { label: "Moving Inaccuracy", value: "90.9%" },
       ],
     },
+
     {
       label: "Handling",
       value: 40,
       max: 100,
+
       details: [
         { label: "Equip Speed", value: "0.8S" },
         { label: "ADS Speed", value: "0.38S" },
@@ -93,17 +112,20 @@ export const magnumMc: ItemEntry = {
         { label: "Reload Speed", value: "1.90S" },
       ],
     },
+
     {
       label: "Range",
       value: 21,
       max: 55,
       unit: "M",
     },
+
     {
       label: "Magazine",
       value: 12,
       max: 30,
     },
+
     {
       label: "Zoom",
       value: 1.4,

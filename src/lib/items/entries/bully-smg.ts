@@ -14,14 +14,18 @@ export const bullySmg: ItemEntry = {
   render: asset("items/icons/BullySMG.png"),
   video: asset("items/videos/weapons/bully-smg.mp4"),
 
+  modelParts: {
+    body: asset("items/models/weapons/bullysmg/v002_SMG_heavy_default.glb"),
+    magazine: asset("items/models/weapons/bullysmg/mod_mag_default.glb"),
+  },
+
   sellPrice: 400,
-  buyPrice : 1000,
+  buyPrice: 1000,
 
   description:
     "Heavy ballistic submachine gun with brutal reputation.",
 
   effect: "Standard Submachine Gun",
-
 
   ammo: {
     itemId: "heavy-rounds",
@@ -38,12 +42,9 @@ export const bullySmg: ItemEntry = {
 
       simulation: {
         type: "enduring",
-
         firstExtractionBonusRate: 0.75,
         firstExtractionLimit: 3,
-
         laterExtractionBonusRate: 0.2,
-
         defaultExtractions: 1,
         maxExtractions: 10,
       },
@@ -157,6 +158,7 @@ export const bullySmg: ItemEntry = {
     "assault-magazine",
     "cqc-barrel",
   ],
+
   sources: [
     {
       label: "Traxus Armory",
@@ -171,7 +173,7 @@ export const bullySmg: ItemEntry = {
       kind: "world-loot",
     },
   ],
-  
+
   tags: [
     "weapon",
     "submachine gun",
