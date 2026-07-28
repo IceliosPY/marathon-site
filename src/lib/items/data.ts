@@ -84,223 +84,223 @@ import { v85FreeTail } from "./entries/weapons/unique/v85-free-tail";
    UNIVERSAL CHIPS
 ========================= */
 
-import { afterburner } from "./entries/afterburner";
-import { backgroundProcess } from "./entries/background-process";
-import { battleRunner } from "./entries/battle-runner";
-import { commonEnemy } from "./entries/common-enemy";
-import { endlessRunner } from "./entries/endless-runner";
-import { fiveFingerDiscount } from "./entries/five-finger-discount";
-import { hurricane } from "./entries/hurricane";
-import { insurancePlan } from "./entries/insurance-plan";
-import { punishment } from "./entries/punishment";
-import { rocketStart } from "./entries/rocket-start";
-import { stackOverflow } from "./entries/stack-overflow";
-import { swarmDirective } from "./entries/swarm-directive";
-import { triggerDiscipline } from "./entries/trigger-discipline";
+import { afterburner } from "./entries/mods/chip/afterburner";
+import { backgroundProcess } from "./entries/mods/chip/background-process";
+import { battleRunner } from "./entries/mods/chip/battle-runner";
+import { commonEnemy } from "./entries/mods/chip/common-enemy";
+import { endlessRunner } from "./entries/mods/chip/endless-runner";
+import { fiveFingerDiscount } from "./entries/mods/chip/five-finger-discount";
+import { hurricane } from "./entries/mods/chip/hurricane";
+import { insurancePlan } from "./entries/mods/chip/insurance-plan";
+import { punishment } from "./entries/mods/chip/punishment";
+import { rocketStart } from "./entries/mods/chip/rocket-start";
+import { stackOverflow } from "./entries/mods/chip/stack-overflow";
+import { swarmDirective } from "./entries/mods/chip/swarm-directive";
+import { triggerDiscipline } from "./entries/mods/chip/trigger-discipline";
 
 /* =========================
    BARRELS / CHOKES / SUPPRESSORS
 ========================= */
 
-import { accuPointBarrel } from "./entries/accu-point-barrel";
-import { farshotBarrel } from "./entries/farshot-barrel";
-import { ghostMuzzle } from "./entries/ghost-muzzle";
-import { impulseBrake } from "./entries/impulse-brake";
-import { ironholdBarrel } from "./entries/ironhold-barrel";
-import { ironholdChoke } from "./entries/ironhold-choke";
-import { lockoutMuzzleBrake } from "./entries/lockout-muzzle-brake";
-import { nanoSuppressor } from "./entries/nano-suppressor";
-import { outlandSuppressor } from "./entries/outland-suppressor";
-import { pinpointBarrel } from "./entries/pinpoint-barrel";
-import { precisionBarrel } from "./entries/precision-barrel";
-import { quickfireBarrel } from "./entries/quickfire-barrel";
-import { rocksteadyBarrel } from "./entries/rocksteady-barrel";
-import { stabilizingBarrel } from "./entries/stabilizing-barrel";
-import { steadyBarrel } from "./entries/steady-barrel";
-import { truShotBarrel } from "./entries/tru-shot-barrel";
-import { weightedBarrel } from "./entries/weighted-barrel";
+import { accuPointBarrel } from "./entries/mods/assault-barrel/accu-point-barrel";
+import { farshotBarrel } from "./entries/mods/precision-barrel/farshot-barrel";
+import { ghostMuzzle } from "./entries/mods/cqc-barrel/ghost-muzzle";
+import { impulseBrake } from "./entries/mods/precision-barrel/impulse-brake";
+import { ironholdBarrel } from "./entries/mods/cqc-barrel/ironhold-barrel";
+import { ironholdChoke } from "./entries/mods/underbarrel/ironhold-choke";
+import { lockoutMuzzleBrake } from "./entries/mods/precision-barrel/lockout-muzzle-brake";
+import { nanoSuppressor } from "./entries/mods/cqc-barrel/nano-suppressor";
+import { outlandSuppressor } from "./entries/mods/precision-barrel/outland-suppressor";
+import { pinpointBarrel } from "./entries/mods/underbarrel/pinpoint-barrel";
+import { precisionBarrel } from "./entries/mods/cqc-barrel/precision-barrel";
+import { quickfireBarrel } from "./entries/mods/ion-dampener/quickfire-barrel";
+import { rocksteadyBarrel } from "./entries/mods/ion-dampener/rocksteady-barrel";
+import { stabilizingBarrel } from "./entries/mods/ion-dampener/stabilizing-barrel";
+import { steadyBarrel } from "./entries/mods/precision-barrel/steady-barrel";
+import { truShotBarrel } from "./entries/mods/precision-barrel/tru-shot-barrel";
+import { weightedBarrel } from "./entries/mods/cqc-barrel/weighted-barrel";
 
 /* =========================
    MAGAZINES / BELTS / ROUNDS
 ========================= */
 
-import { adaptiveMag } from "./entries/adaptive-mag";
-import { adrenalFeedbackRounds } from "./entries/adrenal-feedback-rounds";
-import { balancedBelt } from "./entries/balanced-belt";
-import { balancedMag } from "./entries/balanced-mag";
-import { cloudfeatherBelt } from "./entries/cloudfeather-belt";
-import { combatMag } from "./entries/combat-mag";
-import { compartmentalMagIII } from "./entries/compartmental-mag-iii";
-import { drumMag } from "./entries/drum-mag";
-import { fastloadMagIII } from "./entries/fastload-mag-iii";
-import { featherMag } from "./entries/feather-mag";
-import { flechetteSplitAction } from "./entries/flechette-split-action";
-import { hiCapMag } from "./entries/hi-cap-mag";
-import { hiSpeedMag } from "./entries/hi-speed-mag";
-import { hollowCaseRounds } from "./entries/hollow-case-rounds";
-import { infinityBelt } from "./entries/infinity-belt";
-import { intervalMag } from "./entries/interval-mag";
-import { kingmakerMag } from "./entries/kingmaker-mag";
-import { lightRounds } from "./entries/light-rounds";
-import { megaBelt } from "./entries/mega-belt";
-import { ramPageMag } from "./entries/ram-page-mag";
-import { reloaderMag } from "./entries/reloader-mag";
-import { rodeoMag } from "./entries/rodeoMag";
-import { slickMagIII } from "./entries/slickMagIII";
-import { stabilizingMag } from "./entries/stabilizing-mag";
-import { steadyRounds } from "./entries/steady-rounds";
-import { stoppingMag } from "./entries/stopping-mag";
-import { turboBelt } from "./entries/turbo-belt";
+import { adaptiveMag } from "./entries/mods/assault-magazine/adaptive-mag";
+import { adrenalFeedbackRounds } from "./entries/mods/precision-magazine/adrenal-feedback-rounds";
+import { balancedBelt } from "./entries/mods/belt-fed-magazine/balanced-belt";
+import { balancedMag } from "./entries/mods/pistol-magazine/balanced-mag";
+import { cloudfeatherBelt } from "./entries/mods/belt-fed-magazine/cloudfeather-belt";
+import { combatMag } from "./entries/mods/magazine/combat-mag";
+import { compartmentalMagIII } from "./entries/mods/magazine/compartmental-mag-iii";
+import { drumMag } from "./entries/mods/assault-magazine/drum-mag";
+import { fastloadMagIII } from "./entries/mods/magazine/fastload-mag-iii";
+import { featherMag } from "./entries/mods/precision-magazine/feather-mag";
+import { flechetteSplitAction } from "./entries/mods/cqc-barrel/flechette-split-action";
+import { hiCapMag } from "./entries/mods/precision-magazine/hi-cap-mag";
+import { hiSpeedMag } from "./entries/mods/pistol-magazine/hi-speed-mag";
+import { hollowCaseRounds } from "./entries/mods/assault-magazine/hollow-case-rounds";
+import { infinityBelt } from "./entries/mods/belt-fed-magazine/infinity-belt";
+import { intervalMag } from "./entries/mods/assault-magazine/interval-mag";
+import { kingmakerMag } from "./entries/mods/precision-magazine/kingmaker-mag";
+import { lightRounds } from "./entries/ammo/light-rounds";
+import { megaBelt } from "./entries/mods/belt-fed-magazine/mega-belt";
+import { ramPageMag } from "./entries/mods/volt-array/ram-page-mag";
+import { reloaderMag } from "./entries/mods/assault-magazine/reloader-mag";
+import { rodeoMag } from "./entries/mods/assault-magazine/rodeoMag";
+import { slickMagIII } from "./entries/mods/magazine/slickMagIII";
+import { stabilizingMag } from "./entries/mods/precision-magazine/stabilizing-mag";
+import { steadyRounds } from "./entries/mods/assault-magazine/steady-rounds";
+import { stoppingMag } from "./entries/mods/assault-magazine/stopping-mag";
+import { turboBelt } from "./entries/mods/belt-fed-magazine/turbo-belt";
 
 /* =========================
    OPTICS / LENSES / SCOPES
 ========================= */
 
-import { accuSightLens } from "./entries/accu-sight-lens";
-import { accuSightOptic } from "./entries/accu-sight-optic";
-import { chargeCoupledOptic } from "./entries/charge-coupled-optic";
-import { clearEyedLens } from "./entries/clear-eyed-lens";
-import { coldVigilanceScope } from "./entries/cold-vigilance-scope";
-import { duelistLens } from "./entries/duelist-lens";
-import { farReachOptic } from "./entries/far-reach-optic";
-import { hiZoomOptic } from "./entries/hi-zoom-optic";
-import { longScopeIII } from "./entries/long-scope-iii";
-import { neuroOpticLens } from "./entries/neuro-optic-lens";
-import { optic14xIII } from "./entries/optic-1-4x-iii";
-import { oracleLens } from "./entries/oracle-lens";
-import { overchargeLens } from "./entries/overcharge-lens";
-import { pistolScope } from "./entries/pistol-scope";
-import { qTapRegenOptic } from "./entries/q-tap-regen-optic";
-import { rangefinderOptic } from "./entries/rangefinder-optic";
-import { shortwaveScoutOptic } from "./entries/shortwave-scout-optic";
-import { spScopeII } from "./entries/sp-scope-ii";
-import { spScopeIII } from "./entries/sp-scope-iii";
-import { thermalOptic } from "./entries/thermal-optic";
-import { thermalOptic2 } from "./entries/thermal-optic-2";
-import { twinscopeOptic } from "./entries/twinscope-optic";
-import { vigilantLens } from "./entries/vigilant-lens";
+import { accuSightLens } from "./entries/mods/lmg-optic/accu-sight-lens";
+import { accuSightOptic } from "./entries/mods/sniper-optic/accu-sight-optic";
+import { chargeCoupledOptic } from "./entries/mods/sniper-optic/charge-coupled-optic";
+import { clearEyedLens } from "./entries/mods/lmg-optic/clear-eyed-lens";
+import { coldVigilanceScope } from "./entries/mods/precision-optic/cold-vigilance-scope";
+import { duelistLens } from "./entries/mods/pistol-optic/duelist-lens";
+import { farReachOptic } from "./entries/mods/assault-optic/far-reach-optic";
+import { hiZoomOptic } from "./entries/mods/precision-optic/hi-zoom-optic";
+import { longScopeIII } from "./entries/mods/sniper-optic/long-scope-iii";
+import { neuroOpticLens } from "./entries/mods/sniper-optic/neuro-optic-lens";
+import { optic14xIII } from "./entries/mods/lmg-optic/optic-1-4x-iii";
+import { oracleLens } from "./entries/mods/pistol-optic/oracle-lens";
+import { overchargeLens } from "./entries/mods/volt-dampener/overcharge-lens";
+import { pistolScope } from "./entries/mods/pistol-optic/pistol-scope";
+import { qTapRegenOptic } from "./entries/mods/precision-optic/q-tap-regen-optic";
+import { rangefinderOptic } from "./entries/mods/precision-optic/rangefinder-optic";
+import { shortwaveScoutOptic } from "./entries/mods/assault-optic/shortwave-scout-optic";
+import { spScopeII } from "./entries/mods/sniper-optic/sp-scope-ii";
+import { spScopeIII } from "./entries/mods/sniper-optic/sp-scope-iii";
+import { thermalOptic } from "./entries/mods/precision-optic/thermal-optic";
+import { thermalOptic2 } from "./entries/mods/precision-optic/thermal-optic-2";
+import { twinscopeOptic } from "./entries/mods/assault-optic/twinscope-optic";
+import { vigilantLens } from "./entries/mods/pistol-optic/vigilant-lens";
 
 /* =========================
    GRIPS / INTERFACES
 ========================= */
 
-import { guardedGrip } from "./entries/guarded-grip";
-import { hipshotGrip } from "./entries/hipshot-grip";
-import { leverOverhaulInterface } from "./entries/lever-overhaul-interface";
-import { quickdrawGrip } from "./entries/quickdraw-grip";
-import { snapshotGrip } from "./entries/snapshot-grip";
-import { sturdyBraceGrip } from "./entries/sturdy-brace-grip";
-import { vigilantGrip } from "./entries/vigilant-grip";
+import { guardedGrip } from "./entries/mods/shotgun-grip/guarded-grip";
+import { hipshotGrip } from "./entries/mods/shotgun-grip/hipshot-grip";
+import { leverOverhaulInterface } from "./entries/mods/precision-optic/lever-overhaul-interface";
+import { quickdrawGrip } from "./entries/mods/shotgun-grip/quickdraw-grip";
+import { snapshotGrip } from "./entries/mods/shotgun-grip/snapshot-grip";
+import { sturdyBraceGrip } from "./entries/mods/rifle-grip/sturdy-brace-grip";
+import { vigilantGrip } from "./entries/mods/rifle-grip/vigilant-grip";
 
 /* =========================
    VOLT / GENERATORS / DAMPENERS / CHAMBERS
 ========================= */
 
-import { airCooledChamber } from "./entries/air-cooled-chamber";
-import { balancedPayload } from "./entries/balanced-payload";
-import { cloudfeatherChamber } from "./entries/cloudfeather-chamber";
-import { compressionChamber } from "./entries/compression-chamber";
-import { hiCapHeatSink } from "./entries/hi-cap-heat-sink";
-import { hiFocusDampener } from "./entries/hi-focus-dampener";
-import { hiVelocityPayload } from "./entries/hi-velocity-payload";
-import { hipshotDampener } from "./entries/hipshot-dampener";
-import { impactShockwave } from "./entries/impact-shockwave";
-import { nullGravChamber } from "./entries/null-grav-chamber";
-import { overclockedGenerator } from "./entries/overclockedGenerator";
-import { overclockedDelimiter } from "./entries/overclocked-delimiter";
-import { suppressionDampener } from "./entries/suppression-dampener";
-import { stabilizingGenerator } from "./entries/stabilizing-generator";
-import { taperedHeatSink } from "./entries/tapered-heat-sink";
-import { thermalSurgeBattery } from "./entries/thermal-surge-battery";
-import { tunedGenerator } from "./entries/tuned-generator";
-import { turboGenerator } from "./entries/turbo-generator";
-import { voltCell } from "./entries/volt-cells";
+import { airCooledChamber } from "./entries/mods/volt-cell/air-cooled-chamber";
+import { balancedPayload } from "./entries/mods/magazine/balanced-payload";
+import { cloudfeatherChamber } from "./entries/mods/volt-array/cloudfeather-chamber";
+import { compressionChamber } from "./entries/mods/volt-cell/compression-chamber";
+import { hiCapHeatSink } from "./entries/mods/volt-cell/hi-cap-heat-sink";
+import { hiFocusDampener } from "./entries/mods/volt-dampener/hi-focus-dampener";
+import { hiVelocityPayload } from "./entries/mods/magazine/hi-velocity-payload";
+import { hipshotDampener } from "./entries/mods/pistol-magazine/hipshot-dampener";
+import { impactShockwave } from "./entries/mods/magazine/impact-shockwave";
+import { nullGravChamber } from "./entries/mods/volt-array/null-grav-chamber";
+import { overclockedGenerator } from "./entries/mods/generator/overclockedGenerator";
+import { overclockedDelimiter } from "./entries/mods/shotgun-grip/overclocked-delimiter";
+import { suppressionDampener } from "./entries/mods/volt-dampener/suppression-dampener";
+import { stabilizingGenerator } from "./entries/mods/generator/stabilizing-generator";
+import { taperedHeatSink } from "./entries/mods/volt-cell/tapered-heat-sink";
+import { thermalSurgeBattery } from "./entries/mods/volt-array/thermal-surge-battery";
+import { tunedGenerator } from "./entries/mods/generator/tuned-generator";
+import { turboGenerator } from "./entries/mods/generator/turbo-generator";
+import { voltCell } from "./entries/ammo/volt-cells";
 
 /* =========================
    SHIELDS
 ========================= */
 
-import { balancedShield } from "./entries/balanced-shield";
-import { bubbleShield } from "./entries/bubble-shield";
-import { circuitShield } from "./entries/circuit-shield";
-import { controlShield } from "./entries/control-shield";
-import { duelistShield } from "./entries/duelist-shield";
-import { foundationShield } from "./entries/foundation-shield";
-import { overclockedShield } from "./entries/overclocked-shield";
-import { protectorV2 } from "./entries/protector-v2";
-import { protectorV3 } from "./entries/protector-v3";
-import { reinforcedShieldsV1 } from "./entries/reinforced-shields-v1";
-import { reinforcedShieldsV2 } from "./entries/reinforced-shields-v2";
+import { balancedShield } from "./entries/mods/shield/balanced-shield";
+import { bubbleShield } from "./entries/equipment/bubble-shield";
+import { circuitShield } from "./entries/mods/shield/circuit-shield";
+import { controlShield } from "./entries/mods/shield/control-shield";
+import { duelistShield } from "./entries/mods/shield/duelist-shield";
+import { foundationShield } from "./entries/mods/shield/foundation-shield";
+import { overclockedShield } from "./entries/mods/shield/overclocked-shield";
+import { protectorV2 } from "./entries/equipment/protector-v2";
+import { protectorV3 } from "./entries/equipment/protector-v3";
+import { reinforcedShieldsV1 } from "./entries/equipment/reinforced-shields-v1";
+import { reinforcedShieldsV2 } from "./entries/equipment/reinforced-shields-v2";
 
 /* =========================
    CONSUMABLES / GADGETS
 ========================= */
 
-import { advancedPatchKit } from "./entries/advanced-patch-kit";
-import { advancedShieldCharge } from "./entries/advanced-shield-charge";
-import { doubleDose } from "./entries/double-dose";
-import { empGrenade } from "./entries/emp-grenade";
-import { panaceaKit } from "./entries/panacea-kit";
-import { selfRevive } from "./entries/self-revive";
+import { advancedPatchKit } from "./entries/consumables/advanced-patch-kit";
+import { advancedShieldCharge } from "./entries/consumables/advanced-shield-charge";
+import { doubleDose } from "./entries/cores/double-dose";
+import { empGrenade } from "./entries/equipment/emp-grenade";
+import { panaceaKit } from "./entries/consumables/panacea-kit";
+import { selfRevive } from "./entries/consumables/self-revive";
 
 /* =========================
    ARMOR / BACKPACKS / EQUIPMENT
 ========================= */
 
-import { medPack24XS } from "./entries/24xs-med-pack-plus";
-import { medPack24XS2 } from "./entries/24xs-med-pack";
-import { sneakPack24XS } from "./entries/24xs-sneak-pack-plus";
-import { xs24AmmoPackPlus } from "./entries/24xs-ammo-pack-plus";
-import { xs24BasePack } from "./entries/24xs-base-pack";
+import { medPack24XS } from "./entries/equipment/24xs-med-pack-plus";
+import { medPack24XS2 } from "./entries/equipment/24xs-med-pack";
+import { sneakPack24XS } from "./entries/equipment/24xs-sneak-pack-plus";
+import { xs24AmmoPackPlus } from "./entries/equipment/24xs-ammo-pack-plus";
+import { xs24BasePack } from "./entries/equipment/24xs-base-pack";
 import { commendationGenerator } from "./entries/commendation-generator";
-import { spectreArmor } from "./entries/spectre-armor";
+import { spectreArmor } from "./entries/equipment/spectre-armor";
 
 /* =========================
    MATERIALS / LOOT / VALUABLES
 ========================= */
 
-import { alienAlloy } from "./entries/alien-alloy";
-import { blueBlood } from "./entries/blue-blood";
-import { colonistDnaVial } from "./entries/colonist-dna-vial";
-import { compilerGanglion } from "./entries/compiler-ganglion";
-import { compilerTrace } from "./entries/compiler-trace";
-import { hazardCapsule } from "./entries/hazard-capsule";
-import { heavyRounds } from "./entries/heavy-rounds";
-import { hyphaticGel } from "./entries/hyphatic-gel";
-import { synapseCube } from "./entries/synapse-cube";
+import { alienAlloy } from "./entries/salvage/alien-alloy";
+import { blueBlood } from "./entries/mods/chip/blue-blood";
+import { colonistDnaVial } from "./entries/special/colonist-dna-vial";
+import { compilerGanglion } from "./entries/salvage/compiler-ganglion";
+import { compilerTrace } from "./entries/valuable/compiler-trace";
+import { hazardCapsule } from "./entries/salvage/hazard-capsule";
+import { heavyRounds } from "./entries/ammo/heavy-rounds";
+import { hyphaticGel } from "./entries/ammo/hyphatic-gel";
+import { synapseCube } from "./entries/salvage/synapse-cube";
 
 /* =========================
    KEYS / ACCESS / ARCHIVES
 ========================= */
 
-import { cryoMaintenance01 } from "./entries/cryo-maintenance-cryo-archive-01";
-import { cryoMonitoringCryoArchive04 } from "./entries/cryo-monitoring-cryo-archive-04";
-import { direMarshKey1 } from "./entries/dire-marsh-key-1";
-import { direMarshKey2 } from "./entries/dire-marsh-key-2";
-import { direMarshKey3 } from "./entries/dire-marsh-key-3";
-import { direMarshKey4 } from "./entries/dire-marsh-key-4";
-import { direMarshKey5 } from "./entries/dire-marsh-key-5";
-import { direMarshKey6 } from "./entries/dire-marsh-key-6";
-import { direMarshKey7 } from "./entries/dire-marsh-key-7";
-import { dnaAccessCard } from "./entries/dna-access-card";
-import { generatorRoomCryoArchive02 } from "./entries/generator-room-cryo-archive-02";
-import { lab06CryoArchive06 } from "./entries/lab-06-cryo-archive-06";
-import { perimeterKey1 } from "./entries/perimeter-key-1";
-import { perimeterKey2 } from "./entries/perimeter-key-2";
-import { perimeterKey3 } from "./entries/perimeter-key-3";
-import { pumpStationCryoArchive03 } from "./entries/pump-station-cryo-archive-03";
-import { secretCargoCryoArchive05 } from "./entries/secret-cargo-cryo-archive-05";
+import { cryoMaintenance01 } from "./entries/keys/cryo-maintenance-cryo-archive-01";
+import { cryoMonitoringCryoArchive04 } from "./entries/keys/cryo-monitoring-cryo-archive-04";
+import { direMarshKey1 } from "./entries/keys/dire-marsh-key-1";
+import { direMarshKey2 } from "./entries/keys/dire-marsh-key-2";
+import { direMarshKey3 } from "./entries/keys/dire-marsh-key-3";
+import { direMarshKey4 } from "./entries/keys/dire-marsh-key-4";
+import { direMarshKey5 } from "./entries/keys/dire-marsh-key-5";
+import { direMarshKey6 } from "./entries/keys/dire-marsh-key-6";
+import { direMarshKey7 } from "./entries/keys/dire-marsh-key-7";
+import { dnaAccessCard } from "./entries/keys/dna-access-card";
+import { generatorRoomCryoArchive02 } from "./entries/keys/generator-room-cryo-archive-02";
+import { lab06CryoArchive06 } from "./entries/keys/lab-06-cryo-archive-06";
+import { perimeterKey1 } from "./entries/keys/perimeter-key-1";
+import { perimeterKey2 } from "./entries/keys/perimeter-key-2";
+import { perimeterKey3 } from "./entries/keys/perimeter-key-3";
+import { pumpStationCryoArchive03 } from "./entries/keys/pump-station-cryo-archive-03";
+import { secretCargoCryoArchive05 } from "./entries/keys/secret-cargo-cryo-archive-05";
 
 /* =========================
    SPECIAL / NAMED / MISC
 ========================= */
 
-import { fullAutoSelector } from "./entries/fullautoselector";
-import { earlyWarningSystem } from "./entries/early-warning-system";
-import { intuition } from "./entries/intuition";
-import { sonarShot } from "./entries/sonar-shot";
-import { vitalIntel } from "./entries/vital-intel";
-import { samaritan } from "./entries/samaritan";
+import { fullAutoSelector } from "./entries/mods/magazine/fullautoselector";
+import { earlyWarningSystem } from "./entries/cores/early-warning-system";
+import { intuition } from "./entries/cores/intuition";
+import { sonarShot } from "./entries/mods/ion-dampener/sonar-shot";
+import { vitalIntel } from "./entries/mods/precision-optic/vital-intel";
+import { samaritan } from "./entries/cores/samaritan";
 
 export const itemsData: ItemEntry[] = [
   /* =========================

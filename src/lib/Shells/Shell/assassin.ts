@@ -1,7 +1,7 @@
 // assassin.ts
 
 import type { Shell } from "../types";
-import { asset } from "../../assets";
+import { asset } from "@/lib/assets";
 
 export const assassin: Shell = {
   id: "assassin",

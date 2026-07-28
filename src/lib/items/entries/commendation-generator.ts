@@ -1,5 +1,5 @@
-import type { ItemEntry } from "../types";
-import { asset } from "../../assets";
+import type { ItemEntry } from "@/lib/items/types";
+import { asset } from "@/lib/assets";
 
 export const commendationGenerator: ItemEntry = {
   id: "commendation-generator",

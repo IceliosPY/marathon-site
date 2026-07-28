@@ -1,5 +1,5 @@
 import type { Shell } from "../types";
-import { asset } from "../../assets";
+import { asset } from "@/lib/assets";
 
 export const destroyer: Shell = {
   id: "destroyer",

@@ -1,5 +1,5 @@
 import type { MapPoint } from "../types";
-import { asset } from "../../assets";
+import { asset } from "@/lib/assets";
 
 export const perimeterPoints: MapPoint[] = [
   {

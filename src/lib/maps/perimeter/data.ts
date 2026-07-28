@@ -1,5 +1,5 @@
 import type { MapEntry } from "../types";
-import { asset } from "../../assets";
+import { asset } from "@/lib/assets";
 import { perimeterPoints } from "./points";
 
 export const perimeterMap: MapEntry = {
