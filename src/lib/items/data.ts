@@ -322,6 +322,9 @@ import { unstableBiomass } from "./entries/salvage/unstableBiomass";
 import { unstableGunmetal } from "./entries/salvage/unstableGunmetal";
 import { fractalCircuit } from "./entries/salvage/fractalCircuit";
 import { droneNode } from "./entries/salvage/droneNode";
+import { unstableDiode } from "./entries/salvage/unstableDiode";
+import { unstableLead } from "./entries/salvage/unstableLead";
+import { reclaimedBiostripping } from "./entries/salvage/reclaimedBiostripping";
 /* =========================
    VALUABLES
 ========================= */
@@ -720,7 +723,9 @@ export const itemsData: ItemEntry[] = [
   unstableGunmetal,
   fractalCircuit,
   droneNode,
-  
+  unstableDiode,
+  unstableLead,
+  reclaimedBiostripping,
   /* =========================
      VALUABLES
   ========================= */
