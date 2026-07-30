@@ -1,4 +1,4 @@
-import type { ItemEntry } from "../types";
+import type { ItemEntry } from "@/lib/items/types";
 import { asset } from "@/lib/assets";
 
 export const m77AssaultRifle: ItemEntry = {
@@ -92,7 +92,7 @@ export const m77AssaultRifle: ItemEntry = {
     },
   ],
 
-  acceptedModSubcategories: ["chip", "assault-magazine", "assault-barrel"],
+  acceptedModSubcategories: ["chip", "assault-magazine", "rifle-grip"],
 
   tags: [
     "weapon",

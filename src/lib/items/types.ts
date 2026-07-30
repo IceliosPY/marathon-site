@@ -119,6 +119,7 @@ export type ItemSourceKind =
   | "quest"
   | "activity"
   | "crafting"
+  | "enemy"
   | "other";
 
 export type ItemSourceTarget = {

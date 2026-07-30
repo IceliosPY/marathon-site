@@ -1,4 +1,4 @@
-import type { ItemEntry } from "../types";
+import type { ItemEntry } from "@/lib/items/types";
 import { asset } from "@/lib/assets";
 
 export const repeaterHpr: ItemEntry = {
