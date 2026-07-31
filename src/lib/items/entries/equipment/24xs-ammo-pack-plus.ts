@@ -47,6 +47,5 @@ export const xs24AmmoPackPlus: ItemEntry = {
     "combat",
     "reload",
     "uesc",
-    "unique",
   ],
 };
