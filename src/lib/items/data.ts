@@ -325,6 +325,13 @@ import { droneNode } from "./entries/salvage/droneNode";
 import { unstableDiode } from "./entries/salvage/unstableDiode";
 import { unstableLead } from "./entries/salvage/unstableLead";
 import { reclaimedBiostripping } from "./entries/salvage/reclaimedBiostripping";
+import { alteredWire } from "./entries/salvage/alteredWire";
+import { deimositeRods } from "./entries/salvage/deimositeRods";
+import { dermachemPack } from "./entries/salvage/dermachemPack";
+import { sparkleaf } from "./entries/salvage/sparkleaf";
+import { surveillanceLens } from "./entries/salvage/surveillanceLens";
+import { plasmaFilament } from "./entries/salvage/plasmaFilament";
+import { dynamicCompounds } from "./entries/salvage/dynamicCompounds";  
 /* =========================
    VALUABLES
 ========================= */
@@ -726,6 +733,13 @@ export const itemsData: ItemEntry[] = [
   unstableDiode,
   unstableLead,
   reclaimedBiostripping,
+  alteredWire,
+  deimositeRods,
+  dermachemPack,
+  sparkleaf,
+  surveillanceLens,
+  plasmaFilament,
+  dynamicCompounds,
   /* =========================
      VALUABLES
   ========================= */
